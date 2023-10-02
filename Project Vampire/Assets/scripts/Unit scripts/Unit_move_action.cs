@@ -7,9 +7,10 @@ public class UnitMove : MonoBehaviour
     private Unit_attributes _attributes;
     private float _moveSpeed;
     private float _rotationSpeed;
-    private float mapBound = 25.0f;
-    private GameObject moveGoal;
-    private Rigidbody rb;
+    private float _mapBound = 25.0f;
+    private GameObject _moveGoal = null;
+    private Rigidbody _rb;
+    private bool _isDead;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +18,23 @@ public class UnitMove : MonoBehaviour
         _moveSpeed = _attributes.maxSpeed;
         _rotationSpeed = _attributes.rotationSpeed;
         _rotationSpeed = _attributes.rotationSpeed;
+        _isDead = _attributes.isDead;
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb = GetComponent<Rigidbody>();
-        FindNearestEnemy();
-        MoveTowardsNearestHunter();
+        if (!_isDead)
+        {
+            FindNearestEnemy();
+            MoveTowardsNearestHunter();
+        }
+        else
+        {
+            _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
+        }
         stayInMap();
     }
     private void FindNearestEnemy()
@@ -46,15 +56,15 @@ public class UnitMove : MonoBehaviour
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                moveGoal = enemy;
+                _moveGoal = enemy;
             }
         }
     }
     private void MoveTowardsNearestHunter()
     {
-        if (moveGoal != null)
+        if (_moveGoal != null)
         {
-            Vector3 lookDirection = (moveGoal.transform.position - transform.position);
+            Vector3 lookDirection = (_moveGoal.transform.position - transform.position);
             lookDirection.y = 0f;
             lookDirection = lookDirection.normalized;
 
@@ -62,40 +72,30 @@ public class UnitMove : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
 
             // Rotate the unit to face the target direction
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+            _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
 
             Vector3 targetVelocity = lookDirection * _moveSpeed;
-
-            //Vector3 velocityDiff = targetVelocity - rb.velocity;
-
-            //Vector3 accelerationVec = velocityDiff / Time.fixedDeltaTime;
-
-            //accelerationVec = Vector3.ClampMagnitude(accelerationVec, this._acceleration);
-            //accelerationVec.y = 0f;
-
-            //rb.AddForce(accelerationVec, ForceMode.Impulse);
-            // Apply the target velocity directly to the position using transform
-            transform.position += targetVelocity * Time.deltaTime;
+            _rb.velocity = targetVelocity;
         }
     }
 
     private void stayInMap()
     {
-        if (transform.position.x > mapBound)
+        if (transform.position.x > _mapBound)
         {
-            transform.position = new Vector3(mapBound - 0.5f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(_mapBound - 0.5f, transform.position.y, transform.position.z);
         }
-        if (transform.position.x < -mapBound)
+        if (transform.position.x < -_mapBound)
         {
-            transform.position = new Vector3(-mapBound + 0.5f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-_mapBound + 0.5f, transform.position.y, transform.position.z);
         }
-        if (transform.position.z > mapBound)
+        if (transform.position.z > _mapBound)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, mapBound - 0.5f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, _mapBound - 0.5f);
         }
-        if (transform.position.z < -mapBound)
+        if (transform.position.z < -_mapBound)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -mapBound + 0.5f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -_mapBound + 0.5f);
         }
         if (transform.position.y < 0)
         {

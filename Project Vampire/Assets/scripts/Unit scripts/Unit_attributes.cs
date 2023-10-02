@@ -11,10 +11,11 @@ public class Unit_attributes : MonoBehaviour
     public float maxSpeed;
     public float force;
     public float rotationSpeed = 5.0f;
+    public bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
-        //gameObject.tag = "monster";
+        
     }
 
     // Update is called once per frame

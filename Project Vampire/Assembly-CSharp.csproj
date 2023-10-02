@@ -800,6 +800,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Polyperfect.Universal.csproj">
+      <Project>{AED7C629-AD50-A47F-0708-5E519E05D9C1}</Project>
+      <Name>Polyperfect.Universal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
