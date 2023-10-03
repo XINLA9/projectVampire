@@ -4,70 +4,86 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] hunterPrefabs;
+    public GameObject[] hunterPrefabs_forest;
+    // public GameObject[] hunterPrefabs_graveyYard;
+    // public GameObject[] hunterPrefabs_castle;
     public GameObject[] monsterPrefabs;
-    public int[] monsterRemaining = new int[] { 5, 1, 1 };
-    public int[] spawnNum = new int[] { 1, 1, 1 };
-    public List<int[]> difficultySpawn = new List<int[]>{
-                new int[] {3, 2},
-                new int[] {4, 3},
-                new int[] {5, 4}
-            };
-    int difficulty;
-    private float spawnRangeX = 5;
-    private float spawnRangeZ = 5;
+    private GameObject[] activeHunterPrefabs = {};
+    public GameObject ForestMap;
+    // public GameObject GraveyYardMap;
+    // public GameObject CastleMap;
+    private float spawnRangeX = 12;
+    private float spawnRangeZ = 6;
+    private float outerBoundaryX = 43f;
+    private float outerBoundaryZ = 24f;
+    private float innerBoundaryX = 37f;
+    private float innerBoundaryZ = 16f;
     private int monsterNo = 0;
     private bool isGameActive = false;
+    private int hunterVar;
+    private int monsterVar;
+    private int[] enemyRatio = new int[10];
+    private int waveNum = 1;
+    private int[] monsterRatio = new int[10];
+    private int[] monsterRemain = new int[10];
 
     // attribute for UI 
     public Button restartButton;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI loseText;
-    public GameObject titleScreen;
     public GameObject gameScreen;
     public TextMeshProUGUI numText1;
     public TextMeshProUGUI numText2;
     public TextMeshProUGUI numText3;
+    public TextMeshProUGUI waveText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        for(int i = 0; i < monsterVar; i++){
+            enemyRatio[i] = 4 / (i + 1) + 1;//will be modified later
+            monsterRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
+        }
     }
     // begin the game
-    public void StartGame(int difficulty)
+    public void StartGame()
     {
-        this.difficulty = difficulty;
-        titleScreen.gameObject.SetActive(false);
+        int charactorNum = PlayerPrefs.GetInt("characterNum");
+        int mapNum = PlayerPrefs.GetInt("mapNum");
+        switch(charactorNum){
+            case 1:
+                activeHunterPrefabs = hunterPrefabs_forest;
+                break;
+            default:
+                Debug.Log("Will be developed later");
+                break;
+        }
+        switch(mapNum){
+            case 1:
+                ForestMap.SetActive(true);
+                break;
+            default:
+                Debug.Log("Will be developed later");
+                break;
+        }
+        monsterVar = monsterPrefabs.Length;
+        hunterVar = activeHunterPrefabs.Length;
+        for(int i = 0; i < monsterVar; i++){
+            enemyRatio[i] = 4 / (i + 1) + 1;//will be modified later
+            monsterRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
+        }
+        for(int i = 0; i < monsterRemain.Length; i++){
+            monsterRemain[i] = monsterRatio[i] * waveNum;
+        }
+        Debug.Log(monsterRemain);
+        isGameActive = true;
         gameScreen.gameObject.SetActive(true);
         SpawnEnemy();
-        isGameActive = true;
-    }
-    // Generate random spawn position for hunters on the map
-    Vector3 GenerateSpawnPosition()
-    {
-        float xPos = Random.Range(-spawnRangeX, spawnRangeX);
-        float zPos = Random.Range(spawnRangeZ, -spawnRangeZ);
-        return new Vector3(xPos, 1, zPos);
-    }
-    // generate the hunters for this game
-    void SpawnEnemy()
-    {
-        // Spawn number of swordman
-        for (int i = 0; i < difficultySpawn[difficulty][0]; i++)
-        {
-            Instantiate(hunterPrefabs[0], GenerateSpawnPosition(), hunterPrefabs[0].transform.rotation);
-        }
-        // spawn number of ranger
-        for (int i = 0; i < difficultySpawn[difficulty][1]; i++)
-        {
-            Instantiate(hunterPrefabs[1], GenerateSpawnPosition(), hunterPrefabs[1].transform.rotation);
-        }
-        
     }
     // Update is called once per frame
     void Update()
@@ -88,66 +104,95 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        GameEnd();
-        numText1.text = "wolf:" + monsterRemaining[0];
-        numText2.text = "horse:" + monsterRemaining[1];
-        numText3.text = "mist:" + monsterRemaining[2];
+        if(isGameActive){
+            WaveCheck();
+            numText1.text = "wolf:" + monsterRemain[0];
+            numText2.text = "horse:" + monsterRemain[1];
+            numText3.text = "mist:" + monsterRemain[2];
+            waveText.text = "wave:" + waveNum;
+        }
     }
-    bool IsInAllowedRange(Vector3 position)
+    Vector3 GenerateSpawnPosition()
     {
-        // Define the location of the center of the map
-        Vector3 mapCenter = new Vector3(0f, 2f, 0f);
-        // Define the boundaries of the peripheral area (outside the 15x15 square)
-        float outerBoundary = 15f;
-        // Define the boundaries of the internal area (within a 25x25 square)
-        float innerBoundary = 25f;
-        // Calculate the distance from the generated location to the center of the map
-        float distanceToCenter = Vector3.Distance(position, mapCenter);
-        // Check if the generated location is within the specified range
-        return distanceToCenter > outerBoundary && distanceToCenter <= innerBoundary;
+        float xPos = UnityEngine.Random.Range(-spawnRangeX, spawnRangeX);
+        float zPos = UnityEngine.Random.Range(spawnRangeZ, -spawnRangeZ);
+        return new Vector3(xPos, 1, zPos);
     }
-
-    void SpawnMonsters(int monsterNO, Vector3 position)
+    // generate the hunters for this game
+    void SpawnEnemy()
     {
-        if (monsterRemaining[monsterNO] > 0)
-        {
-            for (int i = 0; i < spawnNum[monsterNo]; i++)
-            {
-                Instantiate(monsterPrefabs[monsterNO], position, monsterPrefabs[monsterNO].transform.rotation);
+        for (int i = 0; i < hunterVar; i++){
+            for (int j = 0; j < waveNum * enemyRatio[i]; j++){
+                Instantiate(activeHunterPrefabs[i], GenerateSpawnPosition(), activeHunterPrefabs[i].transform.rotation);
             }
-            monsterRemaining[monsterNO]--;
         }
     }
     public void SetMonster(int monsterNo)
     {
         this.monsterNo = monsterNo;
     }
+
+    bool IsInAllowedRange(Vector3 position)
+    {
+        if (position.x < -outerBoundaryX || position.x > outerBoundaryX){
+            Debug.Log("Can't place outside the map" + position);
+            return false;
+        }
+        if (position.z < -outerBoundaryZ || position.z > outerBoundaryZ){
+            Debug.Log("Can't place outside the map" + position); 
+            return false;
+        }
+        if (position.z < innerBoundaryZ && position.z > -innerBoundaryZ && position.x < innerBoundaryX && position.x > -innerBoundaryX){
+            Debug.Log("Can't place inside the forest, its too close to the hunter!" + position);
+            return false;
+        }
+        return true;
+    }
+
+    void SpawnMonsters(int monsterNO, Vector3 position)
+    {
+        if (monsterRemain[monsterNO] > 0)
+        {
+            Instantiate(monsterPrefabs[monsterNO], position, monsterPrefabs[monsterNO].transform.rotation);
+            monsterRemain[monsterNO]--;
+        }
+    }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void GameEnd()
+    public void WaveCheck()
     {
-        if (isGameActive)
+        int hunterNumber = GameObject.FindGameObjectsWithTag("hunter").Length;
+        int monsterNumber = GameObject.FindGameObjectsWithTag("monster").Length;
+        int totalMonsterRemaining = 0;
+        foreach (int remaining in monsterRemain)
         {
-            int hunterNumber = GameObject.FindGameObjectsWithTag("hunter").Length;
-            int monsterNumber = GameObject.FindGameObjectsWithTag("monster").Length;
-            int totalMonsterRemaining = 0;
-            foreach (int remaining in monsterRemaining)
-            {
-                totalMonsterRemaining += remaining;
-            }
-            if (hunterNumber == 0)
-            {
-                restartButton.gameObject.SetActive(true);
-                winText.gameObject.SetActive(true);
-            }
-            if(totalMonsterRemaining == 0 && monsterNumber == 0)
-            {
-                restartButton.gameObject.SetActive(true);
-                loseText.gameObject.SetActive(true);
-            }
-
+            totalMonsterRemaining += remaining;
         }
+        if (hunterNumber == 0)
+        {
+            NewWave();
+        }
+        if(totalMonsterRemaining == 0 && monsterNumber == 0)
+        {
+            restartButton.gameObject.SetActive(true);
+            gameScreen.SetActive(false);
+            loseText.gameObject.SetActive(true);
+        }            
+    }
+    public void NewWave(){
+        waveNum++;
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("monster");
+
+        foreach (GameObject monster in monsters)
+        {
+            Destroy(monster);
+        }
+        SpawnEnemy();
+        for(int i = 0; i < monsterRemain.Length; i++){
+            monsterRemain[i] = monsterRatio[i] * waveNum;
+        }
+        isGameActive = true;
     }
 }
