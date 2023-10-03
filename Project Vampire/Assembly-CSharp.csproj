@@ -59,7 +59,6 @@
     <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\UI\StartButton2.cs" />
     <Compile Include="Assets\scripts\MoveCamera.cs" />
-    <Compile Include="Assets\scripts\ShootingBullet.cs" />
     <Compile Include="Assets\scripts\Unit scripts\Unit_move_action.cs" />
     <Compile Include="Assets\scripts\Dictionary.cs" />
     <Compile Include="Assets\scripts\Unit scripts\Unit_shooting_action.cs" />
