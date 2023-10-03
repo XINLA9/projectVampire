@@ -18,7 +18,7 @@ public class Attributes : MonoBehaviour
     {
         isDead = false;
         moveGoal = null;
-}
+    }
 
     // Update is called once per frame
     void Update()

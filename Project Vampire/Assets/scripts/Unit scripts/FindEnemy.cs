@@ -5,7 +5,6 @@ using UnityEngine;
 public class FindEnemy : MonoBehaviour
 {
     private Attributes _attributes;
-    private GameObject _target;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +14,10 @@ public class FindEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //_target = _attributes.moveGoal;
-        //_target = FindNearestEnemy();
-        //if (_target &&_target.gameObject.GetComponent<Attributes>().isDead)
-        //{
-        //    _target = null;
+        //if (_attributes.moveGoal = null)
+    //    {
+            _attributes.moveGoal = FindNearestEnemy();
         //}
-        _attributes.moveGoal = FindNearestEnemy();
         if (_attributes.moveGoal && _attributes.moveGoal.gameObject.GetComponent<Attributes>().isDead)
         {
             _attributes.moveGoal = null;

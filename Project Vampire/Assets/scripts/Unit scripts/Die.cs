@@ -24,6 +24,10 @@ public class Die : MonoBehaviour
         {
             _attributes.isDead = true;
             _animator.SetTrigger("isDead");
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            //rb.isKinematic = true;
+            Collider collider = rb.GetComponent<Collider>();
+            collider.enabled = false;
         }
     }
     public void OnDeathAnimationEnd()

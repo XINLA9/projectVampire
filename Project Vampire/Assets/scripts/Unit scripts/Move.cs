@@ -12,7 +12,7 @@ public class Move : MonoBehaviour
     private float _maxSpeed;
     private float _acceleration;
     private float _rotationSpeed;
-    private float _mapBound = 25.0f;
+    private float _mapBound = 50.0f;
     private bool _isDead;
 
     public float speed;
@@ -67,11 +67,23 @@ public class Move : MonoBehaviour
         // Calculate the _target direction of rotation using Quaternion.LookRotation
         Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
 
-        // Rotate the unit to face the _target direction
-        _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+        float angle = Quaternion.Angle(transform.rotation, targetRotation);
 
-        // Apply the force to the rigid body
-        _rb.AddForce(gameObject.transform.forward * _acceleration * Time.deltaTime, ForceMode.Acceleration);
+        _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+        // Define the minimum angle at which acceleration can start
+        float minAngleToAccelerate = 10f; // Adjust this value as needed
+
+        // Rotate the unit to face the _target direction
+        if (angle <= minAngleToAccelerate)
+        {
+
+            // Apply the force to the rigid body
+            _rb.AddForce(gameObject.transform.forward * _acceleration * Time.deltaTime, ForceMode.Acceleration);
+        }
+        else if (angle > minAngleToAccelerate)
+        {
+            _rb.velocity = Vector3.zero;
+        }
 
         // Limit the maximum velocity to _maxSpeed
         if (speed > _maxSpeed)
@@ -80,7 +92,26 @@ public class Move : MonoBehaviour
         }
 
     }
-
+    private void OnCollisionStay(Collision other)
+    {
+        string alleyTag;
+        string enemyTag;
+        if (gameObject.tag == "hunter")
+        {
+            alleyTag = "hunter";
+            enemyTag = "monster";
+        }
+        else {
+            alleyTag = "monster"; 
+            enemyTag = "hunter"; 
+        }
+        if (other.gameObject.CompareTag(enemyTag)){
+            _rb.velocity = Vector3.zero;
+        }
+        else if (other.gameObject.CompareTag(alleyTag)) {
+            _rb.velocity = Vector3.forward.normalized * 0.2f;
+                }
+    }
     private void stayInMap()
     {
         if (transform.position.x > _mapBound)
@@ -98,14 +129,6 @@ public class Move : MonoBehaviour
         if (transform.position.z < -_mapBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -_mapBound + 0.5f);
-        }
-        if (transform.position.y < 0)
-        {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        }
-        if (transform.position.y > 0.5f)
-        {
-            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
         }
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
