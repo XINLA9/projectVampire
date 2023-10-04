@@ -12,6 +12,7 @@ public class ShootingBullet : MonoBehaviour
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
+    public Vector3 moveAway;
 
     // Start is called before the first frame update
     void Start()
@@ -49,11 +50,11 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootNearestEnemy() {
         if (nearestEnemy != null) {
-            Vector3 moveAway = (transform.position - nearestEnemy.transform.position).normalized;
+            moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;
             enemyRb.AddForce(moveAway  * speed);
             if (shootCoolDown) {
-                var newBullet = Instantiate(bullet, transform.position, bullet.transform.rotation);
+                var newBullet = Instantiate(bullet, GameObject.Find("Fire_heart").transform.position, bullet.transform.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(shootDir * speed);
                 shootCoolDown = false;
                 StartCoroutine(ReadyToShoot());
@@ -63,7 +64,7 @@ public class ShootingBullet : MonoBehaviour
 
     IEnumerator ReadyToShoot() {
         // Wait a second 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         // Reset the cool down
         shootCoolDown = true;
     }
