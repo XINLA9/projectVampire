@@ -18,13 +18,15 @@ public class ContinueButton : MonoBehaviour
     public void OnContinueButtonClick(){
         characterNum = PlayerPrefs.GetInt("characterNum");
         mapNum = PlayerPrefs.GetInt("mapNum");
-        if (mapNum == 1 && characterNum == 1){
-            currentPanel.SetActive(false);
-            gameManager.StartGame();
-        }
-        else{
-            Debug.Log("Current Map or character not avaliable now, please choose map 1 and character 1");
-        }
+        currentPanel.SetActive(false);
+        gameManager.StartGame();
+        // if (mapNum == 1 && characterNum == 1){
+        //     currentPanel.SetActive(false);
+        //     gameManager.StartGame();
+        // }
+        // else{
+        //     Debug.Log("Current Map or character not avaliable now, please choose map 1 and character 1");
+        // }
     }
 }
 

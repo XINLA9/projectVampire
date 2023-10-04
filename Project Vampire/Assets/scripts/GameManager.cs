@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private GameObject[] activeHunterPrefabs = {};
     public GameObject ForestMap;
     // public GameObject GraveyYardMap;
-    // public GameObject CastleMap;
+    public GameObject CastleMap;
     private float spawnRangeX = 12;
     private float spawnRangeZ = 6;
     private float outerBoundaryX = 43f;
@@ -67,6 +67,9 @@ public class GameManager : MonoBehaviour
             case 1:
                 ForestMap.SetActive(true);
                 break;
+            case 2:
+                CastleMap.SetActive(true);
+                break;            
             default:
                 Debug.Log("Will be developed later");
                 break;
