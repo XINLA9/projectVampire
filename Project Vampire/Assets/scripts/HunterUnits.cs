@@ -82,10 +82,10 @@ public class HunterUnits : MonoBehaviour
             Vector3 lookDirection = (nearestEnemy.transform.position - transform.position).normalized;
             //lookDirection.y = 0f;
 
-            // Calculate the target direction of rotation using Quaternion.LookRotation
+            // Calculate the _target direction of rotation using Quaternion.LookRotation
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
 
-            // Rotate the unit to face the target direction
+            // Rotate the unit to face the _target direction
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
             Vector3 targetVelocity = lookDirection * maxSpeed;
@@ -153,7 +153,7 @@ public class HunterUnits : MonoBehaviour
             }    
         }
     }
-    // if the unit HP is beyond 0 ,destroy it
+    // if the unit _HP is beyond 0 ,destroy it
     private void remove()
     {
         if (HP <= 0)
