@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float mapBound = 25.0f;
+    public float mapBound = 60.0f;
     public float speed;
     public int attack;
     public float force;
@@ -44,6 +44,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("monster"))
         {
             Destroy(gameObject);
+            Debug.Log("Here");
             Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
             Units enemyState = other.gameObject.GetComponent<Units>();
             int damage = attack - enemyState.defense;
