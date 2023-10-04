@@ -22,12 +22,13 @@ public class Die : MonoBehaviour
         _isDead = _attributes.isDead;  
         if (_HP <= 0 && !_isDead)
         {
-            _attributes.isDead = true;
-            _animator.SetTrigger("isDead");
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            //rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.FreezePositionY;
+            rb.isKinematic = true;
             Collider collider = rb.GetComponent<Collider>();
             collider.enabled = false;
+            _attributes.isDead = true;
+            _animator.SetTrigger("isDead");
         }
     }
     public void OnDeathAnimationEnd()

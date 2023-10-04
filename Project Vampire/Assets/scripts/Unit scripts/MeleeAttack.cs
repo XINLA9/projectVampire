@@ -43,7 +43,11 @@ public class Unit_attack_action : MonoBehaviour
         if (other.gameObject.CompareTag(enemyTag) && !_isDead && !_isAttacking)
         {
             _isAttacking = true;
+            if (!_isDead)
+            {
             _animator.SetTrigger("attack"); 
+
+            }
             // Start a coroutine to wait for the attack animation to finish
             StartCoroutine(DealDamageAfterAnimation(other.gameObject));
         }
@@ -60,9 +64,18 @@ public class Unit_attack_action : MonoBehaviour
         Attributes enemyState = enemy.GetComponent<Attributes>();
         enemyState.HP -= _attack;
 
-        
-        enemyRb.AddForce(-enemy.transform.forward * _force, ForceMode.Impulse);
-        yield return new WaitForSeconds(attackAnimationDuration);
+        Vector3 back = enemy.transform.forward;
+        back.y = 0;
+        back = back.normalized;
+
+        float pushDuration = 0.5f; 
+        float startTime = Time.time;
+        while (Time.time - startTime < pushDuration)
+        {
+            enemyRb.AddForce(-back * _force, ForceMode.VelocityChange);
+            yield return null;
+        }
+
         _isAttacking = false;
         // Play attack sound if needed
         // playerAudio.PlayOneShot(attackSound, 1.0f);
