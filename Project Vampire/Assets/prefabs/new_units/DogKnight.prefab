@@ -2127,7 +2127,7 @@ GameObject:
   - component: {fileID: 2756077526115602275}
   - component: {fileID: 4964108231215947219}
   m_Layer: 0
-  m_Name: DogPolyart
+  m_Name: DogKnight
   m_TagString: hunter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2186,9 +2186,9 @@ MonoBehaviour:
   HP: 20
   attack: 3
   defense: 0
-  acceleration: 50
+  acceleration: 650
   maxSpeed: 3
-  force: 100
+  force: 1
   rotationSpeed: 5
   isDead: 0
   moveGoal: {fileID: 0}

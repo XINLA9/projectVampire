@@ -33,8 +33,6 @@ public class Move : MonoBehaviour
         _isDead = _attributes.isDead;
         _moveGoal = _attributes.moveGoal;
         _acceleration = _attributes.acceleration;
-        //Vector3 forwardSpeed = Vector3.Project(_rb.velocity, transform.forward);
-        //speed = forwardSpeed.magnitude;
         speed = _rb.velocity.magnitude;
 
         if (!_isDead && _moveGoal != null)
@@ -71,14 +69,14 @@ public class Move : MonoBehaviour
 
         _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
         // Define the minimum angle at which acceleration can start
-        float minAngleToAccelerate = 10f; // Adjust this value as needed
+        float minAngleToAccelerate = 10f; 
 
-        // Rotate the unit to face the _target direction
         if (angle <= minAngleToAccelerate)
         {
-
-            // Apply the force to the rigid body
-            _rb.AddForce(gameObject.transform.forward * _acceleration * Time.deltaTime, ForceMode.Acceleration);
+            Vector3 forward = gameObject.transform.forward;
+            forward.y = 0;
+            forward = forward.normalized;
+            _rb.AddForce(forward * _acceleration * Time.deltaTime, ForceMode.Acceleration);
         }
         else if (angle > minAngleToAccelerate)
         {
@@ -90,7 +88,6 @@ public class Move : MonoBehaviour
         {
             _rb.velocity = _rb.velocity.normalized * _maxSpeed;
         }
-
     }
     private void OnCollisionStay(Collision other)
     {

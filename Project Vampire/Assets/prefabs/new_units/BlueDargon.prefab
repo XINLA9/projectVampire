@@ -1222,9 +1222,9 @@ MonoBehaviour:
   HP: 50
   attack: 3
   defense: 0
-  acceleration: 50
+  acceleration: 650
   maxSpeed: 4
-  force: 1
+  force: 3
   rotationSpeed: 2
   isDead: 0
   moveGoal: {fileID: 0}
