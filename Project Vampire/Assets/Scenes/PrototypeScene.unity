@@ -5792,7 +5792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunterPrefabs_forest:
   - {fileID: 7659600238531587447, guid: 8e1634ddf2123b847b218e4cdb4585ca, type: 3}
-  - {fileID: 7787891041166490473, guid: f32d2b5224f3e2a41b34d2557e84120f, type: 3}
+  - {fileID: 8891601558531030024, guid: 2a356615fc84aef4fa6acc1de73f8202, type: 3}
   monsterPrefabs:
   - {fileID: 4387012158335107170, guid: ea7ffc928c9a40b43827133b9958467e, type: 3}
   - {fileID: 3688219866204652566, guid: 9de3aab4a0605e84886e2660fb130d87, type: 3}
