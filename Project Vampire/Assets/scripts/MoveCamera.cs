@@ -8,7 +8,7 @@ public class MoveCamera : MonoBehaviour
     public float verticalInput;
     public float mouseWheelInput;
     public float speed = 10.0f;
-    public float range = 10.0f;
+    public float range = 20.0f;
     public float height_max;
     public float height_min;
     // Start is called before the first frame update
