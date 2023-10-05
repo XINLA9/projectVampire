@@ -57,6 +57,7 @@ public class ShootingBullet : MonoBehaviour
         if (nearestEnemy != null) {
             moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;
+            Debug.Log("Here");
             Quaternion toRotation = Quaternion.LookRotation(shootDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             shooterAnim.SetTrigger("Enemy_detected");
