@@ -2186,10 +2186,10 @@ MonoBehaviour:
   HP: 20
   attack: 3
   defense: 0
-  acceleration: 650
+  acceleration: 13
   maxSpeed: 3
   force: 1
-  rotationSpeed: 5
+  rotationSpeed: 2
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &3750880104500556851
@@ -2240,7 +2240,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7659600238531587447}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Attributes : MonoBehaviour
 {
-    public int HP;
-    public int attack;
-    public int defense;
+    public float HP;
+    public float attack;
+    public float armor_piercing_damage;
+    public float defense;
     public float acceleration;
     public float maxSpeed;
     public float force;
     public float rotationSpeed;
+    public float mass;
     public bool isDead;
     public GameObject moveGoal;
     // Start is called before the first frame update
