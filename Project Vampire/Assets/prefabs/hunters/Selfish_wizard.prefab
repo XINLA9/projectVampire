@@ -2578,9 +2578,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 993010969779785875, guid: 0e269d1eec9ea8f47af793aa21ce6214, type: 3}
-  speed: 1
+  speed: 10
   attackRange: 10
-  rotationSpeed: 5
+  rotationSpeed: 270
   nearestEnemy: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
