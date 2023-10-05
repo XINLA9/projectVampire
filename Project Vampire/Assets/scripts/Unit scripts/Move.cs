@@ -76,7 +76,7 @@ public class Move : MonoBehaviour
             Vector3 forward = gameObject.transform.forward;
             forward.y = 0;
             forward = forward.normalized;
-            _rb.AddForce(forward * _acceleration * Time.deltaTime, ForceMode.Acceleration);
+            _rb.AddForce(forward * _acceleration * Time.deltaTime, ForceMode.VelocityChange);
         }
         else if (angle > minAngleToAccelerate)
         {
