@@ -2627,7 +2627,7 @@ MonoBehaviour:
   attack: 0
   defense: 3
   acceleration: 0
-  maxSpeed: 4
+  maxSpeed: 3
   force: 0
   rotationSpeed: 270
   isDead: 0
