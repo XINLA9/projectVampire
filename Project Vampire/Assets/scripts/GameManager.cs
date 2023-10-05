@@ -109,9 +109,9 @@ public class GameManager : MonoBehaviour
         }
         if(isGameActive){
             WaveCheck();
-            numText1.text = "wolf:" + monsterRemain[0];
-            numText2.text = "horse:" + monsterRemain[1];
-            numText3.text = "mist:" + monsterRemain[2];
+            numText1.text = monsterPrefabs[0].name + ":" + monsterRemain[0];
+            numText2.text = monsterPrefabs[1].name + ":" + monsterRemain[1];
+            numText3.text = monsterPrefabs[2].name + ":" + monsterRemain[2];
             waveText.text = "wave:" + waveNum;
         }
     }
