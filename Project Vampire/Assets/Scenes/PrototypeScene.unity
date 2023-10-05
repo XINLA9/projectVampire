@@ -5804,8 +5804,8 @@ MonoBehaviour:
   - {fileID: 8891601558531030024, guid: 2a356615fc84aef4fa6acc1de73f8202, type: 3}
   monsterPrefabs:
   - {fileID: 4387012158335107170, guid: ea7ffc928c9a40b43827133b9958467e, type: 3}
-  - {fileID: 3688219866204652566, guid: 9de3aab4a0605e84886e2660fb130d87, type: 3}
   - {fileID: 2848555324960420405, guid: a598516cb73fd3e43beaec8e5eefe8cd, type: 3}
+  - {fileID: 3688219866204652566, guid: 9de3aab4a0605e84886e2660fb130d87, type: 3}
   ForestMap: {fileID: 947839016}
   CastleMap: {fileID: 2069185919}
   restartButton: {fileID: 61784872}
@@ -25012,8 +25012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556, y: 188}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -454, y: 194}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549695628
 MonoBehaviour:
@@ -30675,8 +30675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -561, y: 238}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -455, y: 249}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763402294
 MonoBehaviour:
@@ -40613,7 +40613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -458.7, y: 106}
+  m_AnchoredPosition: {x: -453, y: 107}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184667595
@@ -50215,8 +50215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -557, y: 21}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -453, y: 25}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321628532
 MonoBehaviour:
