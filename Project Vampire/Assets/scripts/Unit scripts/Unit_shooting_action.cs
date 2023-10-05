@@ -6,14 +6,13 @@ public class ShootingBullet : MonoBehaviour
 {
     public GameObject bullet;
     // Initiate the movement speed and attackRange
-    public float speed = 10f;
     public float attackRange = 10.0f;
     public float rotationSpeed = 20.0f;
+    private Attributes attributes;
     public GameObject nearestEnemy;
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
-    public Vector3 moveAway;
     private Animator shooterAnim; 
 
     // Start is called before the first frame update
@@ -22,6 +21,7 @@ public class ShootingBullet : MonoBehaviour
         // Assign the rigidBody of enemy to variable
         enemyRb = GetComponent<Rigidbody>();
         shooterAnim = GetComponent<Animator>();
+        attributes = GetComponent<Attributes>();
     }
 
     // Update is called once per frame
@@ -55,17 +55,18 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootNearestEnemy() {
         if (nearestEnemy != null) {
-            moveAway = (transform.position - nearestEnemy.transform.position).normalized;
+            Vector3 moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;
+            Debug.Log("Here");
             Quaternion toRotation = Quaternion.LookRotation(shootDir, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
             shooterAnim.SetTrigger("Enemy_detected");
-            enemyRb.AddForce(moveAway * speed);
+            enemyRb.AddForce(moveAway * attributes.maxSpeed);
             if (shootCoolDown) {
                 shooterAnim.SetTrigger("Ready_fire");
                 var newBullet = Instantiate(bullet, GameObject.Find("Fire_heart").transform.position, bullet.transform.rotation);
                 Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-                rb.AddForce(shootDir * speed, ForceMode.Impulse);
+                rb.AddForce(shootDir * attributes.maxSpeed, ForceMode.Impulse);
                 shootCoolDown = false;
                 StartCoroutine(ReadyToShoot());
             }

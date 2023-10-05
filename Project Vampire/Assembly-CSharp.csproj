@@ -61,10 +61,10 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\Unit scripts\Move.cs" />
-    <Compile Include="Assets\scripts\Unit scripts\PauseFire.cs" />
     <Compile Include="Assets\scripts\UI\StartButton2.cs" />
     <Compile Include="Assets\scripts\Unit scripts\MeleeAttack.cs" />
     <Compile Include="Assets\scripts\MoveCamera.cs" />
+    <Compile Include="Assets\scripts\Animotor_Scripts\PauseFire.cs" />
     <Compile Include="Assets\scripts\Unit scripts\FindEnemy.cs" />
     <Compile Include="Assets\scripts\Unit scripts\Attributes.cs" />
     <Compile Include="Assets\scripts\Unit scripts\Die.cs" />

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float mapBound = 25.0f;
+    public float mapBound = 60.0f;
     public float speed;
     public int attack;
     public float force;
@@ -53,8 +53,10 @@ public class Projectile : MonoBehaviour
             }
             Vector3 away = other.transform.position - transform.position;
             enemyRb.AddForce(away * force, ForceMode.Impulse);
-            Destroy(gameObject);
         }
         
+        if (other.gameObject.CompareTag("hunter")) {
+            Destroy(gameObject);
+        }
     }
 }
