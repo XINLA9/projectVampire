@@ -2577,7 +2577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 993010969779785875, guid: 0e269d1eec9ea8f47af793aa21ce6214, type: 3}
-  speed: 1
   attackRange: 10
   rotationSpeed: 270
   nearestEnemy: {fileID: 0}
@@ -2585,7 +2584,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   shootCoolDown: 1
-  moveAway: {x: 0, y: 0, z: 0}
 --- !u!54 &2600761200355170991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2629,7 +2627,7 @@ MonoBehaviour:
   attack: 0
   defense: 3
   acceleration: 0
-  maxSpeed: 1
+  maxSpeed: 4
   force: 0
   rotationSpeed: 270
   isDead: 0
