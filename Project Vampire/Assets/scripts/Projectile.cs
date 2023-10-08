@@ -44,7 +44,6 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("monster"))
         {
             Destroy(gameObject);
-            Debug.Log("Here");
             Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
             Units enemyState = other.gameObject.GetComponent<Units>();
             int damage = attack - enemyState.defense;
@@ -54,8 +53,10 @@ public class Projectile : MonoBehaviour
             }
             Vector3 away = other.transform.position - transform.position;
             enemyRb.AddForce(away * force, ForceMode.Impulse);
-            Destroy(gameObject);
         }
         
+        if (other.gameObject.CompareTag("hunter")) {
+            Destroy(gameObject);
+        }
     }
 }

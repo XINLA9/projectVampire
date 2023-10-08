@@ -10,6 +10,7 @@ public class ContinueButton : MonoBehaviour
     private GameManager gameManager;
     private int mapNum;
     private int characterNum;
+    public GameObject background;
 
     void Start(){
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -19,6 +20,7 @@ public class ContinueButton : MonoBehaviour
         characterNum = PlayerPrefs.GetInt("characterNum");
         mapNum = PlayerPrefs.GetInt("mapNum");
         currentPanel.SetActive(false);
+        background.SetActive(false);
         gameManager.StartGame();
         // if (mapNum == 1 && characterNum == 1){
         //     currentPanel.SetActive(false);

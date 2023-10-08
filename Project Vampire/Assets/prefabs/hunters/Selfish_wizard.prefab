@@ -2495,10 +2495,9 @@ GameObject:
   - component: {fileID: 1823043763411362714}
   - component: {fileID: 2600761200355170991}
   - component: {fileID: 1863466139078399244}
-  - component: {fileID: 2309324793192150267}
   m_Layer: 0
   m_Name: Selfish_wizard
-  m_TagString: Untagged
+  m_TagString: hunter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2578,7 +2577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 993010969779785875, guid: 0e269d1eec9ea8f47af793aa21ce6214, type: 3}
-  speed: 10
   attackRange: 10
   rotationSpeed: 270
   nearestEnemy: {fileID: 0}
@@ -2586,7 +2584,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   shootCoolDown: 1
-  moveAway: {x: 0, y: 0, z: 0}
 --- !u!54 &2600761200355170991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2630,30 +2627,9 @@ MonoBehaviour:
   attack: 0
   defense: 3
   acceleration: 0
-  maxSpeed: 2
+  maxSpeed: 3
   force: 0
-  rotationSpeed: 0
-  isDead: 0
-  moveGoal: {fileID: 0}
---- !u!114 &2309324793192150267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8891601558531030024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 0
-  attack: 0
-  defense: 0
-  acceleration: 0
-  maxSpeed: 0
-  force: 0
-  rotationSpeed: 0
+  rotationSpeed: 270
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!1 &8985210770276114525
