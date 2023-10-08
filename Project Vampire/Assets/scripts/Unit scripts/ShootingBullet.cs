@@ -64,7 +64,7 @@ public class ShootingBullet : MonoBehaviour
             enemyRb.AddForce(moveAway * attributes.maxSpeed);
             if (shootCoolDown) {
                 shooterAnim.SetTrigger("Ready_fire");
-                var newBullet = Instantiate(bullet, GameObject.Find("Fire_heart").transform.position, bullet.transform.rotation);
+                var newBullet = Instantiate(bullet, transform.GetChild(2).position, transform.rotation);
                 Rigidbody rb = newBullet.GetComponent<Rigidbody>();
                 rb.AddForce(shootDir * attributes.maxSpeed, ForceMode.Impulse);
                 shootCoolDown = false;
