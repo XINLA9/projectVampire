@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit_attack_action : MonoBehaviour
+public class MeleeAttack : MonoBehaviour
 {
     private Attributes _attributes;
     private Animator _animator;
-    private int _attack;
     private float _force;
     private bool _isDead = false;
     public AudioClip attackSound;
@@ -24,7 +23,6 @@ public class Unit_attack_action : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _attack = _attributes.attack;
         _force = _attributes.force;
         _isDead = _attributes.isDead;
     }
@@ -61,8 +59,9 @@ public class Unit_attack_action : MonoBehaviour
 
         // Deal damage to the enemy
         Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
-        Attributes enemyState = enemy.GetComponent<Attributes>();
-        enemyState.HP -= _attack;
+        Attributes e_attributes = enemy.GetComponent<Attributes>();
+        e_attributes.HP -= _attributes.armor_piercing_damage;
+        e_attributes.HP -= _attributes.attack;
 
         Vector3 back = enemy.transform.forward;
         back.y = 0;
@@ -72,7 +71,7 @@ public class Unit_attack_action : MonoBehaviour
         float startTime = Time.time;
         while (Time.time - startTime < pushDuration)
         {
-            enemyRb.AddForce(-back * _force, ForceMode.VelocityChange);
+            enemyRb.AddForce(-back * (_force - e_attributes.mass), ForceMode.VelocityChange);
             yield return null;
         }
 
