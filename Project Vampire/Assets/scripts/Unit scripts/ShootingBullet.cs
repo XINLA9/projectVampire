@@ -8,12 +8,14 @@ public class ShootingBullet : MonoBehaviour
     // Initiate the movement speed and attackRange
     public float attackRange = 10.0f;
     public float rotationSpeed = 20.0f;
-    private Attributes attributes;
+    public Attributes attributes;
     public GameObject nearestEnemy;
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
     private Animator shooterAnim; 
+    public float distanceTol = 1.0f;
+    public Vector3 moveAway;
 
     // Start is called before the first frame update
     void Start()
@@ -55,18 +57,20 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootNearestEnemy() {
         if (nearestEnemy != null) {
-            Vector3 moveAway = (transform.position - nearestEnemy.transform.position).normalized;
+            moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;
-            Debug.Log("Here");
             Quaternion toRotation = Quaternion.LookRotation(shootDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
             shooterAnim.SetTrigger("Enemy_detected");
-            enemyRb.AddForce(moveAway * attributes.maxSpeed);
+            float disToNearestEnemy = Vector3.Distance(transform.position, nearestEnemy.transform.position);
+            if (Mathf.Abs(disToNearestEnemy - attackRange) < distanceTol) {
+                enemyRb.velocity = Vector3.zero;
+            } else {
+                enemyRb.AddForce(moveAway * attributes.maxSpeed);
+            }
+            
             if (shootCoolDown) {
                 shooterAnim.SetTrigger("Ready_fire");
-                var newBullet = Instantiate(bullet, transform.GetChild(2).position, transform.rotation);
-                Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-                rb.AddForce(shootDir * attributes.maxSpeed, ForceMode.Impulse);
                 shootCoolDown = false;
                 StartCoroutine(ReadyToShoot());
             }

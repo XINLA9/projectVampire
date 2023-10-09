@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float mapBound = 60.0f;
     public float speed;
-    public int attack;
+    public float attack;
     public float force;
     // Start is called before the first frame update
     void Start()
@@ -44,14 +44,14 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("monster"))
         {
             Destroy(gameObject);
+            Attributes enemyAttributes = other.gameObject.GetComponent<Attributes>();
             Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
-            Units enemyState = other.gameObject.GetComponent<Units>();
-            int damage = attack - enemyState.defense;
+            float damage = attack - enemyAttributes.defense;
             if (damage > 0)
             {
-                enemyState.HP -= damage;
+                enemyAttributes.HP -= damage;
             }
-            Vector3 away = other.transform.position - transform.position;
+            Vector3 away = (other.transform.position - transform.position).normalized;
             enemyRb.AddForce(away * force, ForceMode.Impulse);
         }
         
