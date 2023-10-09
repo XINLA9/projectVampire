@@ -12,7 +12,7 @@ public class WeaponInfo : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public string weaponDescription;
     public TextMeshProUGUI weaponInfoText;
 
-    public Vector2 offset = new Vector2(0,20);
+    //public Vector2 offset = new Vector2(0,10);
 
 
 
@@ -31,7 +31,7 @@ public class WeaponInfo : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public void OnPointerEnter(PointerEventData PointerEventData){
 
         //set the panel position
-        Vector2 newPosition = (Vector2) Input.mousePosition + offset;
+        Vector2 newPosition = (Vector2) Input.mousePosition;
         weaponPanel.transform.position = newPosition;
 
         weaponInfoText.text = weaponDescription;
