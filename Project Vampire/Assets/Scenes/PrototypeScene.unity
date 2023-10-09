@@ -5535,7 +5535,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 10
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &208382089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20741,7 +20740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 9.404864}
+  m_AnchoredPosition: {x: 0, y: 0.00058548787}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &391074975
@@ -21529,7 +21528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 9.404864}
+  m_AnchoredPosition: {x: 0, y: 0.00058548787}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &420608721
@@ -22731,7 +22730,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 7
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1 &483578198
 GameObject:
   m_ObjectHideFlags: 0
@@ -27089,7 +27087,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 6
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &642416611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27519,7 +27516,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &656563809
 PrefabInstance:
@@ -28406,7 +28403,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 960089180}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.7220109
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -31720,7 +31717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 9.404864}
+  m_AnchoredPosition: {x: 0, y: 0.00058548787}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &830740406
@@ -33711,7 +33708,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 3
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1 &907170872
 GameObject:
   m_ObjectHideFlags: 0
@@ -35085,7 +35081,7 @@ RectTransform:
   m_Father: {fileID: 1435891323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.7220109}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -36265,8 +36261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 84}
-  m_SizeDelta: {x: 135, y: 140}
+  m_AnchoredPosition: {x: -70, y: 88}
+  m_SizeDelta: {x: 135, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007392203
 MonoBehaviour:
@@ -36365,7 +36361,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 5
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!4 &1008399507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 476448, guid: cedd1289634600b4f9df04d76c4c2b4b, type: 3}
@@ -36856,7 +36851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 491, y: 261}
+  m_AnchoredPosition: {x: 543, y: 232}
   m_SizeDelta: {x: 105, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1040668175
@@ -36997,17 +36992,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042323002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1610128928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 704, y: 0}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -938, y: 1}
+  m_SizeDelta: {x: 101, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042323004
 MonoBehaviour:
@@ -37092,7 +37087,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -116.84839, z: -446.43372, w: -179.45322}
+  m_margin: {x: 766.4469, y: 27.29419, z: -1242.9613, w: -826.256}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -39194,9 +39189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPanel: {fileID: 1610128927}
-  weaponDescription: Weapon 1
+  weaponDescription: weapon 1
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &1134517684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46653,7 +46647,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1281112924}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.7220109
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -47180,7 +47174,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1249229633}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.7220109
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -47493,7 +47487,7 @@ RectTransform:
   m_Father: {fileID: 1663482308}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.7220109}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -48578,7 +48572,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 9
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &1279962979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48707,7 +48700,7 @@ RectTransform:
   m_Father: {fileID: 1715394088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.7220109}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -54310,7 +54303,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 8
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &1472663543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57495,10 +57487,10 @@ RectTransform:
   - {fileID: 1042323003}
   m_Father: {fileID: 1659495307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.4116145, y: 0.11712881}
+  m_AnchorMax: {x: 0.6935784, y: 1}
+  m_AnchoredPosition: {x: -1.5, y: -50}
+  m_SizeDelta: {x: 3, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610128929
 MonoBehaviour:
@@ -57513,7 +57505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.8170294, b: 0.049439307, a: 0.392}
+  m_Color: {r: 0.8018868, g: 0.44662562, b: 0.14751692, a: 0.7882353}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -69196,7 +69188,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 2
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &1918271771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73018,7 +73009,6 @@ MonoBehaviour:
   weaponPanel: {fileID: 1610128927}
   weaponDescription: weapon 4
   weaponInfoText: {fileID: 1042323004}
-  offset: {x: 10, y: 0}
 --- !u!1001 &2066996576
 PrefabInstance:
   m_ObjectHideFlags: 0

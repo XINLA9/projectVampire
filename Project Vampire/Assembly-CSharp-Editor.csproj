@@ -50,12 +50,18 @@
     <UnityVersion>2022.3.8f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Analyzer Include="C:\Users\LoreW\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.1\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="D:\programs\unity editor\2022.3.8f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\programs\unity editor\2022.3.8f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+=======
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
+    <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+>>>>>>> 52da14e1357afeb260febd04a3c79ee51a784b2b
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\UnityAssets\DizzyMedia\Editor\Scripts\WelcomeScreen.cs" />
+    <Compile Include="Assets\store_library\Mini Simple Characters Skeleton Demo\Readme\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\UnityAssets\DizzyMedia\_Assets\LP Sets_AdventureForest\Scripts\Editor\LPS_AdvForest_Welcome.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -312,7 +318,11 @@
       <HintPath>D:\programs\unity editor\2022.3.8f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
+<<<<<<< HEAD
       <HintPath>D:\programs\unity editor\2022.3.8f1c1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+=======
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+>>>>>>> 52da14e1357afeb260febd04a3c79ee51a784b2b
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:\programs\unity editor\2022.3.8f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
