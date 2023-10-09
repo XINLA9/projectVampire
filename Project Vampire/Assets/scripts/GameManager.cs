@@ -5,14 +5,16 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using Unity.VisualScripting;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] hunterPrefabs_forest;
+    public GameObject[] enemyPrefabs_forest;
     // public GameObject[] hunterPrefabs_graveyYard;
     // public GameObject[] hunterPrefabs_castle;
-    public GameObject[] monsterPrefabs;
-    private GameObject[] activeHunterPrefabs = {};
+    public GameObject[] alliePrefabs;
+    private GameObject[] activeEnemyPrefabs = {};
     public GameObject ForestMap;
     // public GameObject GraveyYardMap;
     public GameObject CastleMap;
@@ -22,33 +24,26 @@ public class GameManager : MonoBehaviour
     private float outerBoundaryZ = 24f;
     private float innerBoundaryX = 37f;
     private float innerBoundaryZ = 16f;
-    private int monsterNo = 0;
+    private int allieNo = -1;
     private bool isGameActive = false;
-    private int hunterVar;
-    private int monsterVar;
+    private int enemyVar;
+    private int allieVar;
     private int[] enemyRatio = new int[10];
-    private int waveNum = 1;
-    private int[] monsterRatio = new int[10];
-    private int[] monsterRemain = new int[10];
-
-    // attribute for UI 
-    public Button restartButton;
-    public TextMeshProUGUI winText;
-    public TextMeshProUGUI loseText;
-    public GameObject gameScreen;
-    public TextMeshProUGUI numText1;
-    public TextMeshProUGUI numText2;
-    public TextMeshProUGUI numText3;
-    public TextMeshProUGUI waveText;
-
+    private int[] allieRatio = new int[10];
+    public int[] allieRemain = new int[10];
+    public int waveNum = 1;
+    public PlayingInterfaces playingInterfaces;
+    public GameObject cycle;
+    public Material cycleMaterial;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < monsterVar; i++){
+        for(int i = 0; i < allieVar; i++){
             enemyRatio[i] = 4 / (i + 1) + 1;//will be modified later
-            monsterRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
+            allieRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
         }
+        playingInterfaces = FindObjectOfType<PlayingInterfaces>();
     }
     // begin the game
     public void StartGame()
@@ -57,7 +52,7 @@ public class GameManager : MonoBehaviour
         int mapNum = PlayerPrefs.GetInt("mapNum");
         switch(charactorNum){
             case 1:
-                activeHunterPrefabs = hunterPrefabs_forest;
+                activeEnemyPrefabs = enemyPrefabs_forest;
                 break;
             default:
                 Debug.Log("Will be developed later");
@@ -74,45 +69,63 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Will be developed later");
                 break;
         }
-        monsterVar = monsterPrefabs.Length;
-        hunterVar = activeHunterPrefabs.Length;
-        for(int i = 0; i < monsterVar; i++){
+        allieVar = alliePrefabs.Length;
+        enemyVar = activeEnemyPrefabs.Length;
+        for(int i = 0; i < allieVar; i++){
             enemyRatio[i] = 4 / (i + 1) + 1;//will be modified later
-            monsterRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
+            allieRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
         }
-        for(int i = 0; i < monsterRemain.Length; i++){
-            monsterRemain[i] = monsterRatio[i] * waveNum;
+        for(int i = 0; i < allieRemain.Length; i++){
+            allieRemain[i] = allieRatio[i] * waveNum;
         }
-        Debug.Log(monsterRemain);
+        Debug.Log(allieRemain);
         isGameActive = true;
-        gameScreen.gameObject.SetActive(true);
+        cycle.SetActive(true);
         SpawnEnemy();
+        playingInterfaces.updateAllies();
     }
-    // Update is called once per frame
     void Update()
     {
-        // spawn monster when player click on the map
-        if (Input.GetMouseButtonDown(0))
+        Vector3 mousePosition = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.up * 2f);
+        float rayDistance;
+        if (groundPlane.Raycast(ray, out rayDistance))
         {
-            Vector3 mousePosition = Input.mousePosition;
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.up * 2f);
-            float rayDistance;
-            if (groundPlane.Raycast(ray, out rayDistance))
+            Vector3 clickPosition = ray.GetPoint(rayDistance);
+            cycle.transform.position = clickPosition;
+            if(IsInAllowedRange(clickPosition)){
+                cycleMaterial.color = Color.green;
+            }
+            else{
+                cycleMaterial.color = Color.red;
+            }
+            if (Input.GetMouseButtonDown(0))
             {
-                Vector3 clickPosition = ray.GetPoint(rayDistance);
-                if (IsInAllowedRange(clickPosition) && isGameActive)
-                {
-                    SpawnMonsters(monsterNo, clickPosition);
+                if(allieNo < 0){
+                    Debug.Log("Press number button to choose a unit before placing it!");
                 }
+                else{
+                    if (IsInAllowedRange(clickPosition) && isGameActive)
+                    {
+                        SpawnAllies(allieNo, clickPosition);
+                    }
+                }
+
+            }
+        }
+        
+        for (int i = 1; i <= 9; i++)
+        {
+            if (Input.GetKeyDown(i.ToString()))
+            {
+                allieNo = i - 1;
+                playingInterfaces.setRed(i);
             }
         }
         if(isGameActive){
             WaveCheck();
-            numText1.text = monsterPrefabs[0].name + ":" + monsterRemain[0];
-            numText2.text = monsterPrefabs[1].name + ":" + monsterRemain[1];
-            numText3.text = monsterPrefabs[2].name + ":" + monsterRemain[2];
-            waveText.text = "wave:" + waveNum;
+            playingInterfaces.updateAllies();
         }
     }
     Vector3 GenerateSpawnPosition()
@@ -121,18 +134,19 @@ public class GameManager : MonoBehaviour
         float zPos = UnityEngine.Random.Range(spawnRangeZ, -spawnRangeZ);
         return new Vector3(xPos, 1, zPos);
     }
-    // generate the hunters for this game
+
     void SpawnEnemy()
     {
-        for (int i = 0; i < hunterVar; i++){
+        for (int i = 0; i < enemyVar; i++){
             for (int j = 0; j < waveNum * enemyRatio[i]; j++){
-                Instantiate(activeHunterPrefabs[i], GenerateSpawnPosition(), activeHunterPrefabs[i].transform.rotation);
+                GameObject Enemy = Instantiate(activeEnemyPrefabs[i], GenerateSpawnPosition(), activeEnemyPrefabs[i].transform.rotation);
+                Enemy.tag = "hunter";
             }
         }
     }
-    public void SetMonster(int monsterNo)
+    public void SetAllieNo(int allieNo)
     {
-        this.monsterNo = monsterNo;
+        this.allieNo = allieNo;
     }
 
     bool IsInAllowedRange(Vector3 position)
@@ -146,18 +160,19 @@ public class GameManager : MonoBehaviour
             return false;
         }
         if (position.z < innerBoundaryZ && position.z > -innerBoundaryZ && position.x < innerBoundaryX && position.x > -innerBoundaryX){
-            Debug.Log("Can't place inside the forest, its too close to the hunter!" + position);
+            Debug.Log("Can't place inside the forest, its too close to the enemy!" + position);
             return false;
         }
         return true;
     }
 
-    void SpawnMonsters(int monsterNO, Vector3 position)
+    void SpawnAllies(int allieNO, Vector3 position)
     {
-        if (monsterRemain[monsterNO] > 0)
+        if (allieRemain[allieNO] > 0)
         {
-            Instantiate(monsterPrefabs[monsterNO], position, monsterPrefabs[monsterNO].transform.rotation);
-            monsterRemain[monsterNO]--;
+            GameObject Allies =  Instantiate(alliePrefabs[allieNO], position, alliePrefabs[allieNO].transform.rotation);
+            Allies.tag = "monster";
+            allieRemain[allieNO]--;
         }
     }
     public void RestartGame()
@@ -166,36 +181,47 @@ public class GameManager : MonoBehaviour
     }
     public void WaveCheck()
     {
-        int hunterNumber = GameObject.FindGameObjectsWithTag("hunter").Length;
-        int monsterNumber = GameObject.FindGameObjectsWithTag("monster").Length;
-        int totalMonsterRemaining = 0;
-        foreach (int remaining in monsterRemain)
+        Attributes[] enemyAttributes = GameObject.FindGameObjectsWithTag("hunter")
+        .Select(go => go.GetComponent<Attributes>())
+        .Where(attributes => attributes != null && attributes.isDead == false)
+        .ToArray();
+
+        int numberOfLivingEnemies = enemyAttributes.Length;
+
+        Attributes[] allieAttributes = GameObject.FindGameObjectsWithTag("monster")
+        .Select(go => go.GetComponent<Attributes>())
+        .Where(attributes => attributes != null && attributes.isDead == false)
+        .ToArray();
+
+        int numberOfLivingAllies = allieAttributes.Length;
+
+        int totalAlliesRemaining = 0;
+        foreach (int remaining in allieRemain)
         {
-            totalMonsterRemaining += remaining;
+            totalAlliesRemaining += remaining;
         }
-        if (hunterNumber == 0)
+        if (numberOfLivingEnemies == 0)
         {
             NewWave();
         }
-        if(totalMonsterRemaining == 0 && monsterNumber == 0)
+        if(totalAlliesRemaining == 0 && numberOfLivingAllies == 0)
         {
-            restartButton.gameObject.SetActive(true);
-            gameScreen.SetActive(false);
-            loseText.gameObject.SetActive(true);
+            playingInterfaces.showLoseScreen();
         }            
     }
     public void NewWave(){
         waveNum++;
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag("monster");
+        GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
 
-        foreach (GameObject monster in monsters)
+        foreach (GameObject allie in allies)
         {
-            Destroy(monster);
+            Destroy(allie);
         }
         SpawnEnemy();
-        for(int i = 0; i < monsterRemain.Length; i++){
-            monsterRemain[i] = monsterRatio[i] * waveNum;
+        for(int i = 0; i < allieRemain.Length; i++){
+            allieRemain[i] = allieRatio[i] * waveNum;
         }
         isGameActive = true;
+        playingInterfaces.updateAllies();
     }
 }

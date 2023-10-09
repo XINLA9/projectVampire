@@ -46,14 +46,14 @@ public class Move : MonoBehaviour
             _rb.angularVelocity = Vector3.zero;
             _animator.SetFloat("speed", speed);
         }
-        if(_attributes.moveGoal == null)
-        {
-            _animator.SetBool("noEnemy", true);
-        }
-        else
-        {
-            _animator.SetBool("noEnemy", false);
-        }
+        // if(_attributes.moveGoal == null)
+        // {
+        //     _animator.SetBool("noEnemy", true);
+        // }
+        // else
+        // {
+        //     _animator.SetBool("noEnemy", false);
+        // }
         stayInMap();
     }
     private void MoveTowardsNearestHunter()
@@ -76,7 +76,7 @@ public class Move : MonoBehaviour
             Vector3 forward = gameObject.transform.forward;
             forward.y = 0;
             forward = forward.normalized;
-            _rb.AddForce(forward * _acceleration * Time.deltaTime, ForceMode.Acceleration);
+            _rb.AddForce(forward * _acceleration * Time.deltaTime, ForceMode.VelocityChange);
         }
         else if (angle > minAngleToAccelerate)
         {

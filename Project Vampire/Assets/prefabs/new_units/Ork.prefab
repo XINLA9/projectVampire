@@ -507,13 +507,13 @@ GameObject:
   - component: {fileID: 5155329826706857229}
   - component: {fileID: 6079961332874548744}
   - component: {fileID: 9092340134879589763}
-  - component: {fileID: 8630230935209889923}
   - component: {fileID: 8159926907096259132}
   - component: {fileID: 6816186752012773960}
   - component: {fileID: 2650316541418421799}
+  - component: {fileID: 4325340042271246506}
   m_Layer: 3
   m_Name: Ork
-  m_TagString: monster
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,7 +585,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387012158335107170}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -617,28 +617,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 20
-  attack: 6
+  attack: 5
+  armor_piercing_damage: 0
   defense: 0
-  acceleration: 650
+  acceleration: 13
   maxSpeed: 3
   force: 2
-  rotationSpeed: 5
+  rotationSpeed: 2
+  mass: 0
   isDead: 0
   moveGoal: {fileID: 0}
---- !u!114 &8630230935209889923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4387012158335107170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 400b75518a9e17a46b4da29d662b18bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
-  attackAnimationDuration: 1
 --- !u!114 &8159926907096259132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +665,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbabd081c80b4c4ebfa7a42a9f9ab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4325340042271246506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387012158335107170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400b75518a9e17a46b4da29d662b18bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 0}
+  attackAnimationDuration: 1
 --- !u!1 &4889796258446890356
 GameObject:
   m_ObjectHideFlags: 0

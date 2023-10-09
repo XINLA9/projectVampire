@@ -11,9 +11,11 @@ public class ContinueButton : MonoBehaviour
     private int mapNum;
     private int characterNum;
     public GameObject background;
+    private PlayingInterfaces playingInterfaces;
 
     void Start(){
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        playingInterfaces = FindObjectOfType<PlayingInterfaces>();
     }
 
     public void OnContinueButtonClick(){
@@ -21,14 +23,8 @@ public class ContinueButton : MonoBehaviour
         mapNum = PlayerPrefs.GetInt("mapNum");
         currentPanel.SetActive(false);
         background.SetActive(false);
+        playingInterfaces.show();
         gameManager.StartGame();
-        // if (mapNum == 1 && characterNum == 1){
-        //     currentPanel.SetActive(false);
-        //     gameManager.StartGame();
-        // }
-        // else{
-        //     Debug.Log("Current Map or character not avaliable now, please choose map 1 and character 1");
-        // }
     }
 }
 
