@@ -29,6 +29,7 @@ public class Die : MonoBehaviour
             collider.enabled = false;
             _attributes.isDead = true;
             _animator.SetTrigger("isDead");
+            gameObject.tag = "Dead";
         }
     }
     public void OnDeathAnimationEnd()

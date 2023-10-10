@@ -26,7 +26,7 @@ public class SelfishWizardAttack : StateMachineBehaviour
        animator.ResetTrigger("Ready_fire");
        var newBullet = Instantiate(SB.bullet, selfishWizard.transform.GetChild(2).position, selfishWizard.transform.rotation);
        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-       rb.AddForce((-SB.moveAway) * SB.attributes.maxSpeed, ForceMode.Impulse);
+       rb.AddForce((-SB.moveAway) * SB.GetAttributes().maxSpeed, ForceMode.Impulse);
        portal.SetActive(false);
     }
 

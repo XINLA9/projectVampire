@@ -8,13 +8,14 @@ public class ShootingBullet : MonoBehaviour
     // Initiate the movement speed and attackRange
     public float attackRange = 10.0f;
     public float rotationSpeed = 20.0f;
-    public Attributes attributes;
+    private Attributes attributes;
     public GameObject nearestEnemy;
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
     private Animator shooterAnim; 
     public float distanceTol = 1.0f;
+    public float attackCoolDown = 2.0f;
     public Vector3 moveAway;
 
     // Start is called before the first frame update
@@ -79,9 +80,13 @@ public class ShootingBullet : MonoBehaviour
 
     IEnumerator ReadyToShoot() {
         // Wait a second 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(attackCoolDown);
         // Reset the cool down
         shootCoolDown = true;
+    }
+
+    public Attributes GetAttributes() {
+        return attributes;
     }
 }
 
