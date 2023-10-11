@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attributes : MonoBehaviour
 {
     public float HP;
+    public float HP_max;
     public float attack;
     public float armor_piercing_damage;
     public float defense;
@@ -25,6 +26,6 @@ public class Attributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP < 0) { HP = 0; }
     }
 }
