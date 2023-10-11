@@ -25,11 +25,11 @@ public class Die : MonoBehaviour
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezePositionY;
             rb.isKinematic = true;
-            Collider collider = rb.GetComponent<Collider>();
-            collider.enabled = false;
             _attributes.isDead = true;
             _animator.SetTrigger("isDead");
             gameObject.tag = "Dead";
+            int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");
+            gameObject.layer = LayerIgnoreRaycast;
         }
     }
     public void OnDeathAnimationEnd()

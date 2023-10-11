@@ -13,6 +13,7 @@ public class Attributes : MonoBehaviour
     public float force;
     public float rotationSpeed;
     public float mass;
+    public float attackRange;
     public bool isDead;
     public GameObject moveGoal;
     // Start is called before the first frame update
