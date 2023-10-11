@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 4325340042271246506}
   m_Layer: 3
   m_Name: Ork
-  m_TagString: monster
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,11 +618,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 20
   attack: 5
+  armor_piercing_damage: 0
   defense: 0
   acceleration: 13
   maxSpeed: 3
   force: 2
   rotationSpeed: 2
+  mass: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &8159926907096259132

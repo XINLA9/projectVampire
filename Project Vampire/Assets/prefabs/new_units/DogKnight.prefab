@@ -2128,7 +2128,7 @@ GameObject:
   - component: {fileID: 4964108231215947219}
   m_Layer: 0
   m_Name: DogKnight
-  m_TagString: hunter
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2185,11 +2185,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 20
   attack: 3
+  armor_piercing_damage: 0
   defense: 0
   acceleration: 13
   maxSpeed: 3
   force: 1
   rotationSpeed: 2
+  mass: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &3750880104500556851

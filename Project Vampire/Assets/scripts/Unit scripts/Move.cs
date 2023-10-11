@@ -46,14 +46,14 @@ public class Move : MonoBehaviour
             _rb.angularVelocity = Vector3.zero;
             _animator.SetFloat("speed", speed);
         }
-        if(_attributes.moveGoal == null)
-        {
-            _animator.SetBool("noEnemy", true);
-        }
-        else
-        {
-            _animator.SetBool("noEnemy", false);
-        }
+        // if(_attributes.moveGoal == null)
+        // {
+        //     _animator.SetBool("noEnemy", true);
+        // }
+        // else
+        // {
+        //     _animator.SetBool("noEnemy", false);
+        // }
         stayInMap();
     }
     private void MoveTowardsNearestHunter()

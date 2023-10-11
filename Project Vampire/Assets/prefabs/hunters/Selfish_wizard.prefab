@@ -2625,11 +2625,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   attack: 0
+  armor_piercing_damage: 0
   defense: 3
   acceleration: 0
   maxSpeed: 3
   force: 0
   rotationSpeed: 270
+  mass: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!1 &8985210770276114525

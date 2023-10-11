@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 8659308742727407973}
   m_Layer: 0
   m_Name: Footman
-  m_TagString: hunter
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,11 +346,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 30
   attack: 3
+  armor_piercing_damage: 0
   defense: 3
   acceleration: 13
   maxSpeed: 3
   force: 1
   rotationSpeed: 2
+  mass: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &5319931714084373261
