@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject cycle;
     public Material cycleMaterial;
 
+    public GameObject selectionPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -202,7 +204,8 @@ public class GameManager : MonoBehaviour
         }
         if (numberOfLivingEnemies == 0)
         {
-            NewWave();
+            selectionPanel.SetActive(true);
+            //NewWave();
         }
         if(totalAlliesRemaining == 0 && numberOfLivingAllies == 0)
         {
@@ -223,5 +226,10 @@ public class GameManager : MonoBehaviour
         }
         isGameActive = true;
         playingInterfaces.updateAllies();
+    }
+    
+    public void StartNewWaveAfterSelection(){
+        selectionPanel.SetActive(false);
+        NewWave();
     }
 }
