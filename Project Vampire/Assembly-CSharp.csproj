@@ -55,8 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\Animotor_Scripts\DeathWizardSpell.cs" />
+    <Compile Include="Assets\scripts\UI\NewWavePanel.cs" />
     <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\Unit scripts\Move.cs" />
+    <Compile Include="Assets\scripts\Animotor_Scripts\EnableComponent.cs" />
     <Compile Include="Assets\store_library\KY_effects\Script\ConGUI.cs" />
     <Compile Include="Assets\scripts\Animotor_Scripts\SkeletonDeath.cs" />
     <Compile Include="Assets\scripts\UI\StartButton2.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Assets\scripts\Unit scripts\SummonDead.cs" />
     <Compile Include="Assets\scripts\Units.cs" />
     <Compile Include="Assets\scripts\UI\ContinueButton.cs" />
+    <Compile Include="Assets\scripts\Animotor_Scripts\DisableComponent.cs" />
     <Compile Include="Assets\store_library\KY_effects\Script\Lighting.cs" />
     <Compile Include="Assets\scripts\HunterUnits.cs" />
   </ItemGroup>

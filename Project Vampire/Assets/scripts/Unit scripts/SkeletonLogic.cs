@@ -10,6 +10,7 @@ public class SkeletonLogic : MonoBehaviour
     private Animator skeletonAnim; 
     private bool EnemyAround = false;
     private GameObject nearestEnemy;
+    private bool attackCD = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,8 @@ public class SkeletonLogic : MonoBehaviour
         if (hasEnemy && !EnemyAround) {
             RushToFight();
         }
-        if (EnemyAround) {
+        if (EnemyAround & !attackCD) {
+            Debug.Log("Here");
             enemyRb.velocity = Vector3.zero;
             Attack();
         }
@@ -45,9 +47,14 @@ public class SkeletonLogic : MonoBehaviour
                     nearestEnemy = enemy;
                 }
             }
+        } else {
+            nearestEnemy = null;
+            EnemyAround = false;
         }
         if (closestDistance < attributes.attackRange) {
             EnemyAround = true;
+        } else {
+            EnemyAround = false;
         }
     }
 
@@ -61,5 +68,14 @@ public class SkeletonLogic : MonoBehaviour
 
     void Attack() {
         skeletonAnim.SetTrigger("canAttack");
+        Attributes enemyAttri = nearestEnemy.GetComponent<Attributes>();
+        enemyAttri.HP -= attributes.attack - enemyAttri.defense;
+        StartCoroutine(AttackInCD());
+    }
+
+    IEnumerator AttackInCD() {
+        attackCD = true;
+        yield return new WaitForSeconds(4);
+        attackCD = false;
     }
 }

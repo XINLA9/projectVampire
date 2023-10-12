@@ -809,16 +809,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Death_Wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 4157145518474195031, guid: bd55f4afc7258b7488c6c98bf305676d, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
     - target: {fileID: 5355828378403939567, guid: bd55f4afc7258b7488c6c98bf305676d, type: 3}
       propertyPath: skeleton_1
-      value: 
-      objectReference: {fileID: 154630687620561001, guid: 36325cfe315fc6247acf6203ca20261b, type: 3}
-    - target: {fileID: 5355828378403939567, guid: bd55f4afc7258b7488c6c98bf305676d, type: 3}
-      propertyPath: skeleton_2
       value: 
       objectReference: {fileID: 2378156475882777583, guid: 162bc80e19e643e4b8190f0eabbc2bbe, type: 3}
     - target: {fileID: 7715327661406016678, guid: bd55f4afc7258b7488c6c98bf305676d, type: 3}

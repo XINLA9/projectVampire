@@ -545,8 +545,8 @@ MonoBehaviour:
   deadUnits:
     serializedVersion: 2
     m_Bits: 64
-  skeleton_1: {fileID: 0}
-  skeleton_2: {fileID: 0}
+  skeleton_1: {fileID: 154630687620561001, guid: 36325cfe315fc6247acf6203ca20261b, type: 3}
+  skeleton_2: {fileID: 2378156475882777583, guid: 162bc80e19e643e4b8190f0eabbc2bbe, type: 3}
 --- !u!114 &8079064125381627516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +568,7 @@ MonoBehaviour:
   force: 0
   rotationSpeed: 270
   mass: 0
+  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!54 &4157145518474195031
@@ -595,7 +596,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &2222023715416765995
 GameObject:

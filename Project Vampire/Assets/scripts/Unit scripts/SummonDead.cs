@@ -18,7 +18,6 @@ public class SummonDead : MonoBehaviour
     private ParticleSystem magicCircle;
     public LayerMask deadUnits;
     public GameObject skeleton_1;
-    public GameObject skeleton_2;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,22 +57,11 @@ public class SummonDead : MonoBehaviour
         Collider[] deads = Physics.OverlapSphere(transform.position, summonRange, deadUnits);
         Debug.Log("Here is the number of deads" + deads.Length);
         foreach (Collider dead in deads) {
-            Debug.Log("tHere");
-            // Change to maxHP
-            float maxHP = dead.gameObject.GetComponent<Attributes>().HP;
-            if (maxHP > 25) {
-                var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
-                ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-                summonEffect.Play();
-                GameObject body = newSkeleton.transform.GetChild(1).gameObject;
-                StartCoroutine(RevealBody(body));
-            } else {
-                var newSkeleton = Instantiate(skeleton_2, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
-                ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-                summonEffect.Play();
-                GameObject body = newSkeleton.transform.GetChild(1).gameObject;
-                StartCoroutine(RevealBody(body));
-            }
+            var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
+            ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+            summonEffect.Play();
+            GameObject body = newSkeleton.transform.GetChild(1).gameObject;
+            StartCoroutine(RevealBody(body));
             Destroy(dead.gameObject);
             // TODO:Need to bounce back any gameObject near the summoning area
         }
