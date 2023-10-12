@@ -15,7 +15,6 @@ public class HpBar : MonoBehaviour
         unit = gameObject.transform.parent.parent.gameObject;
         attributes = unit.GetComponent<Attributes>();   
         slider = gameObject.GetComponent<Slider>();
-        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
