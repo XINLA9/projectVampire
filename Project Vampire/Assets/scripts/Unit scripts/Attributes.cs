@@ -19,16 +19,13 @@ public class Attributes : MonoBehaviour
     public float defense;
     public float force;
     public float mass;
-<<<<<<< HEAD
 
     // Other Attributes
     public float maxSpeed;
     public float acceleration;
     public float rotationSpeed;
     public float attack_interval;
-=======
     public float attackRange;
->>>>>>> 2d72cfb055e703fc416698f40132cb34a32264ec
     public bool isDead;
     public GameObject moveGoal;
 
