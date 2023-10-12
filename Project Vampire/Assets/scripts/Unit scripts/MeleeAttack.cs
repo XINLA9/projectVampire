@@ -52,6 +52,7 @@ public class MeleeAttack : MonoBehaviour
             StartCoroutine(DealDamageAfterAnimation(other.gameObject));
         }
     }
+  
 
     // Coroutine to deal damage after the attack animation
     private IEnumerator DealDamageAfterAnimation(GameObject enemy)
@@ -74,7 +75,7 @@ public class MeleeAttack : MonoBehaviour
         float startTime = Time.time;
         while (Time.time - startTime < pushDuration)
         {
-            enemyRb.AddForce(-back * (_force - e_attributes.mass), ForceMode.VelocityChange);
+            enemyRb.AddForce(- back * (_force / e_attributes.mass), ForceMode.VelocityChange);
             yield return null;
         }
         yield return new WaitForSeconds(_attack_interval);

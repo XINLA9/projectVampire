@@ -1169,9 +1169,9 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3911401764412589754}
   - {fileID: 7492969079797481577}
   - {fileID: 2004741179119415855}
-  - {fileID: 3911401764412589754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &7072210399614586269
@@ -1221,22 +1221,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 50
   HP_max: 50
-  attack_base: 7
-  attack: 0
-  ap_damage: 3
-  defense_base: 0
-  defense: 3
-  acceleration: 13
-  maxSpeed_base: 4
-  maxSpeed: 4
-  force_base: 0
-  force: 1
-  rotationSpeed: 2
+  attack_base: 3
+  ap_damage_base: 4
+  defense_base: 2.26
+  force_base: 1
   mass_base: 0
+  HP: 0
+  attack: 0
+  ap_damage: 0
+  defense: 0
+  force: 0
   mass: 0
-  attack_interval: 0.3
+  maxSpeed: 3
+  acceleration: 13
+  rotationSpeed: 2
+  attack_interval: 0.5
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &8439075207578192998
@@ -1273,8 +1273,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688219866204652566}
   serializedVersion: 4
-  m_Mass: 100
-  m_Drag: 0
+  m_Mass: 1000
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
