@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject cycle;
     public Material cycleMaterial;
 
+    public GameObject selectionPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -202,26 +204,41 @@ public class GameManager : MonoBehaviour
         }
         if (numberOfLivingEnemies == 0)
         {
-            NewWave();
+            selectionPanel.SetActive(true);
+            //NewWave();
         }
         if(totalAlliesRemaining == 0 && numberOfLivingAllies == 0)
         {
             playingInterfaces.showLoseScreen();
         }            
     }
-    public void NewWave(){
+    public void NewWave(int allyIndex, int incrementValue){
         waveNum++;
+        //Destroy existing allies
         GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
 
         foreach (GameObject allie in allies)
         {
             Destroy(allie);
         }
+
         SpawnEnemy();
-        for(int i = 0; i < allieRemain.Length; i++){
-            allieRemain[i] = allieRatio[i] * waveNum;
+
+
+
+        // check the index is valid
+        if(allyIndex >= 0 && allyIndex < allieRemain.Length)
+        {
+            allieRemain[allyIndex] += incrementValue; // increse according number
         }
+        else
+        {
+            Debug.LogWarning("Invalid weapon index!");
+        }
+
         isGameActive = true;
         playingInterfaces.updateAllies();
     }
+
+    
 }

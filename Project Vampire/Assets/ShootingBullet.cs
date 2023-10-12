@@ -30,8 +30,10 @@ public class ShootingBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindNearestEnemy();
-        ShootNearestEnemy();
+        if (!attributes.isDead){
+            FindNearestEnemy();
+            ShootNearestEnemy();
+        }
     }
 
     private void FindNearestEnemy()

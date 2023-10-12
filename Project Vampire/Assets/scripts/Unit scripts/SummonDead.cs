@@ -16,6 +16,8 @@ public class SummonDead : MonoBehaviour
     private Animator wizardAnim; 
     private bool summonStart = false;
     private ParticleSystem magicCircle;
+    public LayerMask deadUnits;
+    public GameObject skeleton_1;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +33,12 @@ public class SummonDead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        FindNearestDead();
-        MoveToNearestDead();
-        if (summonReady && haveDead) {
-            SummonSkeleton();
+        if (!attributes.isDead) {
+            FindNearestDead();
+            MoveToNearestDead();
+            if (summonReady && haveDead) {
+                SummonSkeleton();
+            }
         }
     }
 
@@ -43,11 +47,32 @@ public class SummonDead : MonoBehaviour
         enemyRb.isKinematic = true;
         summonStart = true;
         wizardAnim.SetTrigger("summonDead");
-        StartCoroutine(animCoroutine());
+        StartCoroutine(convertDeadToSkeleton());
+        StartCoroutine(AnimCoroutine());
         StartCoroutine(StartCD());
     }
 
-    IEnumerator animCoroutine() {
+    IEnumerator convertDeadToSkeleton() {
+        yield return new WaitForSeconds(2);
+        Collider[] deads = Physics.OverlapSphere(transform.position, summonRange, deadUnits);
+        Debug.Log("Here is the number of deads" + deads.Length);
+        foreach (Collider dead in deads) {
+            var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
+            ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+            summonEffect.Play();
+            GameObject body = newSkeleton.transform.GetChild(1).gameObject;
+            StartCoroutine(RevealBody(body));
+            Destroy(dead.gameObject);
+            // TODO:Need to bounce back any gameObject near the summoning area
+        }
+    }
+
+    IEnumerator RevealBody(GameObject body) {
+        yield return new WaitForSeconds(4);
+        body.SetActive(true);
+    }
+
+    IEnumerator AnimCoroutine() {
         yield return new WaitForSeconds(6);
         wizardAnim.SetTrigger("summonAnimEnd");
         summonStart = false;
