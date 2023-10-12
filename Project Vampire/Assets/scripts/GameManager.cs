@@ -212,24 +212,33 @@ public class GameManager : MonoBehaviour
             playingInterfaces.showLoseScreen();
         }            
     }
-    public void NewWave(){
+    public void NewWave(int allyIndex, int incrementValue){
         waveNum++;
+        //Destroy existing allies
         GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
 
         foreach (GameObject allie in allies)
         {
             Destroy(allie);
         }
+
         SpawnEnemy();
-        for(int i = 0; i < allieRemain.Length; i++){
-            allieRemain[i] = allieRatio[i] * waveNum;
+
+
+
+        // check the index is valid
+        if(allyIndex >= 0 && allyIndex < allieRemain.Length)
+        {
+            allieRemain[allyIndex] += incrementValue; // increse according number
         }
+        else
+        {
+            Debug.LogWarning("Invalid weapon index!");
+        }
+
         isGameActive = true;
         playingInterfaces.updateAllies();
     }
+
     
-    public void StartNewWaveAfterSelection(){
-        selectionPanel.SetActive(false);
-        NewWave();
-    }
 }

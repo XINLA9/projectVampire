@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class NewWavePanel : MonoBehaviour
 {
+
+    //UI components
     public GameObject addNumberButton;
     public GameObject addWeaponButton;
 
     public GameObject addNumberObject;
     public GameObject addWeaponObject;
 
-    public GameObject continueButton;
+
+    public GameManager gameManager; //reference to GameManager script
+    public GameObject selectionPanel;
+
+    public int[] incrementValues;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        incrementValues = new int[] {3, 2, 1, 3, 2, 1};        
     }
 
     // Update is called once per frame
@@ -32,7 +38,6 @@ public class NewWavePanel : MonoBehaviour
         addWeaponButton.SetActive(false);
    
         //show the target objetcs
-        continueButton.SetActive(true);
         addNumberObject.SetActive(true);
 
     }
@@ -44,8 +49,46 @@ public class NewWavePanel : MonoBehaviour
         addWeaponButton.SetActive(false);
    
         //show the target objetcs
-        continueButton.SetActive(true);
+
         addWeaponObject.SetActive(true);
 
+    }
+    //Finish updating the number of weapons, start the next wave
+    // public void OnStartNewWaveAfterSelectionClick(){
+    // selectionPanel.SetActive(false);
+    // gameManager.NewWave();
+    // }
+
+    public void IncreaseAllyCountButton0(){
+        IncreaseAllyCount(0);
+    }
+
+    public void IncreaseAllyCountButton1(){
+        IncreaseAllyCount(1);
+    }
+
+    public void IncreaseAllyCountButton2(){
+        IncreaseAllyCount(2);
+    }
+
+    public void IncreaseAllyCountButton3(){
+        IncreaseAllyCount(3);
+    }
+
+    public void IncreaseAllyCountButton4(){
+        IncreaseAllyCount(4);
+    }
+
+    public void IncreaseAllyCountButton5(){
+        IncreaseAllyCount(5);
+    }
+    
+    public void IncreaseAllyCount(int allyIndex){
+
+        // Then, let the GameManager handle the game logic
+        int incrementValue = incrementValues[allyIndex];
+        selectionPanel.SetActive(false);
+
+        gameManager.NewWave(allyIndex, incrementValue);
     }
 }
