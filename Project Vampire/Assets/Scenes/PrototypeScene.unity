@@ -29773,7 +29773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -33394,7 +33394,7 @@ MonoBehaviour:
   addWeaponObject: {fileID: 686694496}
   gameManager: {fileID: 217283294}
   selectionPanel: {fileID: 638170451}
-  incrementValues: 
+  incrementValues: 030000000200000001000000030000000200000001000000
 --- !u!1001 &838895883
 PrefabInstance:
   m_ObjectHideFlags: 0

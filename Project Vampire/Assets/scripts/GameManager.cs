@@ -214,6 +214,18 @@ public class GameManager : MonoBehaviour
     }
     public void NewWave(int allyIndex, int incrementValue){
         waveNum++;
+
+        // check the index is valid
+        if(allyIndex >= 0 && allyIndex < allieRemain.Length)
+        {
+            allieRemain[allyIndex] += incrementValue; // increse according number
+            Debug.Log("Increasing successfully!!");
+        }
+        else
+        {
+            Debug.LogWarning("Invalid weapon index!");
+        }
+        
         //Destroy existing allies
         GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
 
@@ -225,16 +237,6 @@ public class GameManager : MonoBehaviour
         SpawnEnemy();
 
 
-
-        // check the index is valid
-        if(allyIndex >= 0 && allyIndex < allieRemain.Length)
-        {
-            allieRemain[allyIndex] += incrementValue; // increse according number
-        }
-        else
-        {
-            Debug.LogWarning("Invalid weapon index!");
-        }
 
         isGameActive = true;
         playingInterfaces.updateAllies();

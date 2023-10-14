@@ -60,30 +60,38 @@ public class NewWavePanel : MonoBehaviour
     // }
 
     public void IncreaseAllyCountButton0(){
+        Debug.Log("Button 1 clicked");
         IncreaseAllyCount(0);
     }
 
     public void IncreaseAllyCountButton1(){
+        Debug.Log("Button 2 clicked");
         IncreaseAllyCount(1);
     }
 
     public void IncreaseAllyCountButton2(){
+        Debug.Log("Button 3 clicked");
         IncreaseAllyCount(2);
     }
 
     public void IncreaseAllyCountButton3(){
+        Debug.Log("Button 4 clicked");
         IncreaseAllyCount(3);
     }
 
     public void IncreaseAllyCountButton4(){
+        Debug.Log("Button 5 clicked");
         IncreaseAllyCount(4);
     }
 
     public void IncreaseAllyCountButton5(){
+        Debug.Log("Button 6 clicked");
         IncreaseAllyCount(5);
     }
     
     public void IncreaseAllyCount(int allyIndex){
+
+        Debug.Log("IncreaseAllyCount method is called");
 
         // Then, let the GameManager handle the game logic
         int incrementValue = incrementValues[allyIndex];
