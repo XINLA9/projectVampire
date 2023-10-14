@@ -11,23 +11,38 @@ public class CharacterMapButton : MonoBehaviour
     public TextMeshProUGUI characterDescription;
     public TextMeshProUGUI mapDescription;
 
+    public GameObject weaponList1;
+    public GameObject weaponList2;
+    public GameObject weaponList3;
+
     //when click the character buttons
     public void OnCharacterClicked(int characterIndex){
         switch(characterIndex){
             case 0:
-            characterDescription.text = "Character 1 is avaliable now";
-            PlayerPrefs.SetInt("characterNum", 1);
-            break;
+
+                weaponList1.SetActive(true);
+                weaponList2.SetActive(false);
+                weaponList3.SetActive(false);
+                characterDescription.text = "Character 1 is avaliable now";
+                PlayerPrefs.SetInt("characterNum", 1);
+                break;
 
             case 1:
-            characterDescription.text = "Character 2 is unavaliable now";
-            PlayerPrefs.SetInt("characterNum", 2);
-            break;
+                // weaponList1.SetActive(false);
+                weaponList2.SetActive(true);
+                // weaponList3.SetActive(false);
+                characterDescription.text = "Character 2 is unavaliable now";
+                PlayerPrefs.SetInt("characterNum", 2);
+                break;
 
             case 2:
-            characterDescription.text = "Character 3 is unavaliable now";
-            PlayerPrefs.SetInt("characterNum", 3);
-            break;
+
+                // weaponList1.SetActive(false);
+                // weaponList2.SetActive(false);
+                weaponList3.SetActive(true);
+                characterDescription.text = "Character 3 is unavaliable now";
+                PlayerPrefs.SetInt("characterNum", 3);
+                break;
         }
     }
     //when click the map  buttons
