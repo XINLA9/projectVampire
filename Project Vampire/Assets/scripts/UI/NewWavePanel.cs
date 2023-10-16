@@ -8,27 +8,15 @@ public class NewWavePanel : MonoBehaviour
     //UI components
     public GameObject addNumberButton;
     public GameObject addWeaponButton;
-
     public GameObject addNumberObject;
     public GameObject addWeaponObject;
-
-
     public GameManager gameManager; //reference to GameManager script
     public GameObject selectionPanel;
-
     public int[] incrementValues;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        incrementValues = new int[] {3, 2, 1, 3, 2, 1};        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        incrementValues = new int[] {4, 4, 2, 2, 1, 1};        
     }
 
     public void OnAddNumberButtonClick(){
@@ -36,7 +24,6 @@ public class NewWavePanel : MonoBehaviour
         //hide the buttons
         addNumberButton.SetActive(false);
         addWeaponButton.SetActive(false);
-   
         //show the target objetcs
         addNumberObject.SetActive(true);
 
@@ -49,7 +36,6 @@ public class NewWavePanel : MonoBehaviour
         addWeaponButton.SetActive(false);
    
         //show the target objetcs
-
         addWeaponObject.SetActive(true);
 
     }
@@ -90,13 +76,10 @@ public class NewWavePanel : MonoBehaviour
     }
     
     public void IncreaseAllyCount(int allyIndex){
-
         Debug.Log("IncreaseAllyCount method is called");
-
         // Then, let the GameManager handle the game logic
-        int incrementValue = incrementValues[allyIndex];
         selectionPanel.SetActive(false);
-
-        gameManager.NewWave(allyIndex, incrementValue);
+        gameManager.addAllieMaxNum(allyIndex, incrementValues[allyIndex]);
+        gameManager.NewWave();
     }
 }

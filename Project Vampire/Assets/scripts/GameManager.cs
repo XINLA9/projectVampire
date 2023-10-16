@@ -10,84 +10,119 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs_forest;
-    // public GameObject[] hunterPrefabs_graveyYard;
-    // public GameObject[] hunterPrefabs_castle;
-    public GameObject[] alliePrefabs;
-    private GameObject[] activeEnemyPrefabs = {};
-    public GameObject ForestMap;
-    // public GameObject GraveyYardMap;
-    public GameObject CastleMap;
-    private float spawnRangeX = 12;
-    private float spawnRangeZ = 6;
-    private float outerBoundaryX = 43f;
-    private float outerBoundaryZ = 24f;
-    private float innerBoundaryX = 37f;
-    private float innerBoundaryZ = 16f;
-    private int allieNo = -1;
-    private bool isGameActive = false;
-    private int enemyVar;
-    private int allieVar;
-    private int[] enemyRatio = new int[10];
-    private int[] allieRatio = new int[10];
-    public int[] allieRemain = new int[10];
-    public int waveNum = 1;
-    public PlayingInterfaces playingInterfaces;
-    public GameObject cycle;
-    public Material cycleMaterial;
+    public GameObject ForestMap;//Map_1
+    public GameObject GraveyYardMap;//Map_2
+    public GameObject CastleMap;//Map_3
+    public PlayingInterfaces playingInterfaces;//UI controller when playing
+    public GameObject selectionPanel;//UI between waves
+    public GameObject mousePointer;//A cycle that follow the mouse
+    public Material cycleMaterial;//The material for the cycle
+    public GameObject[] forestEnemyPrefabs;//enemy prefabs for forestMap
+    public GameObject[] graveyEnemyPrefabs;//enemy prefabs for graveyMap
+    public GameObject[] castleEnemyPrefabs;//enemy prefabs for castleMap
+    public GameObject[] forestAlliePrefabs;//allie prefabs for forestMap
+    public GameObject[] graveyAlliePrefabs;//allie prefabs for graveyMap
+    public GameObject[] castleAlliePrefabs;//allie prefabs for castleMap
 
-    public GameObject selectionPanel;
+    private GameObject[] activeAlliePrefabs = {};//Allie units that been chosen in a game
+    private GameObject[] activeEnemyPrefabs = {};//Enemy units that been chosen in a map
+    private int enemyVar = 4;//The number of type for enemy
+    private int allieVar = 6;//The number of type for allie
+    private int[] allieRemain = new int[6];//The number of remaining allies
+    private int[] allieMaxNum = {6, 6, 3, 3, 1, 1};//The number of allies at the beginning of the wave
+    private int enemyRemain;//The number of remaining enemys
+    private int allieNo = -1;//units that been currently chosen
+    private bool isGameActive = false;//Game active flag
+    private int waveNum = 0;//current wave number
+    private int charactorType = -1;//Charactor chosen
+    private int mapType = -1;//Map chosen
+
+    //Boundarys for maps
+    private float[] spawnRangeX = {12.0f, 12.0f, 12.0f};
+    private float[] spawnRangeZ = {6.0f, 6.0f, 6.0f};
+    private float[] outerBoundaryX = {43.0f, 43.0f, 43.0f};
+    private float[] outerBoundaryZ = {24.0f, 24.0f, 24.0f};
+    private float[] innerBoundaryX = {37.0f, 37.0f, 37.0f};
+    private float[] innerBoundaryZ = {16.0f, 16.0f, 16.0f};
+
+    //Enemy spawn in each wave, 5 waves and 4 types of enemy for each map.
+    private int[][] activeEnemyWave = new int[5][];
+    private int[][] enemyInForestWave = new int[5][]{
+        new int[] { 4, 2, 0, 0},
+        new int[] { 6, 3, 1, 0},
+        new int[] { 6, 4, 2, 1},
+        new int[] { 8, 6, 3, 1},
+        new int[] { 8, 8, 4, 2}
+    };
+    private int[][] enemyInGraveyWave = new int[5][]{
+        new int[] { 4, 2, 0, 0},
+        new int[] { 6, 3, 1, 0},
+        new int[] { 6, 4, 2, 1},
+        new int[] { 8, 6, 3, 1},
+        new int[] { 8, 8, 4, 2}
+    };
+    private int[][] enemyInCastleWave = new int[5][]{
+        new int[] { 4, 2, 0, 0},
+        new int[] { 6, 3, 1, 0},
+        new int[] { 6, 4, 2, 1},
+        new int[] { 8, 6, 3, 1},
+        new int[] { 8, 8, 4, 2}
+    };
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < allieVar; i++){
-            enemyRatio[i] = 4 / (i + 1) + 1;//will be modified later
-            allieRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
-        }
         playingInterfaces = FindObjectOfType<PlayingInterfaces>();
     }
+
     // begin the game
     public void StartGame()
-    {
-        int charactorNum = PlayerPrefs.GetInt("characterNum");
-        int mapNum = PlayerPrefs.GetInt("mapNum");
-        switch(charactorNum){
-            case 1:
-                activeEnemyPrefabs = enemyPrefabs_forest;
-                break;
-            default:
-                Debug.Log("Will be developed later");
-                break;
-        }
-        switch(mapNum){
-            case 1:
+    {   
+        //initialize map and unit sets
+        charactorType = PlayerPrefs.GetInt("characterType");
+        mapType = PlayerPrefs.GetInt("mapType");
+        switch(mapType){
+            case 0:
                 ForestMap.SetActive(true);
+                activeEnemyPrefabs = forestEnemyPrefabs;
+                activeEnemyWave = enemyInForestWave;
+                break;
+            case 1:
+                GraveyYardMap.SetActive(true);
+                activeEnemyPrefabs = graveyEnemyPrefabs;
+                activeEnemyWave = enemyInGraveyWave;                
                 break;
             case 2:
                 CastleMap.SetActive(true);
-                break;            
+                activeEnemyPrefabs = castleEnemyPrefabs;
+                activeEnemyWave = enemyInCastleWave;                
+                break;
             default:
-                Debug.Log("Will be developed later");
+                Debug.Log("Error in map choosing");
                 break;
         }
-        allieVar = alliePrefabs.Length;
+        switch(charactorType){
+            case 0:
+                activeAlliePrefabs = forestAlliePrefabs;
+                break;
+            case 1:
+                activeAlliePrefabs = graveyAlliePrefabs;
+                break;            
+            case 2:
+                activeAlliePrefabs = castleAlliePrefabs;
+                break;           
+            default:
+                Debug.Log("Error in charactor choosing");
+                break;
+        }
+        allieVar = activeAlliePrefabs.Length;
         enemyVar = activeEnemyPrefabs.Length;
-        for(int i = 0; i < allieVar; i++){
-            enemyRatio[i] = 4 / (i + 1) + 1;//will be modified later
-            allieRatio[i] = 6 / (2 * i + 1) + 1;//will be modified later
-        }
-        for(int i = 0; i < allieRemain.Length; i++){
-            allieRemain[i] = allieRatio[i] * waveNum;
-        }
-        Debug.Log(allieRemain);
-        isGameActive = true;
-        cycle.SetActive(true);
-        SpawnEnemy();
-        playingInterfaces.updateAllies();
+        mousePointer.SetActive(true);
+        NewWave();
     }
     void Update()
     {
+        //Find mouse position
         Vector3 mousePosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.up * 2f);
@@ -95,13 +130,15 @@ public class GameManager : MonoBehaviour
         if (groundPlane.Raycast(ray, out rayDistance))
         {
             Vector3 clickPosition = ray.GetPoint(rayDistance);
-            cycle.transform.position = clickPosition;
+            mousePointer.transform.position = clickPosition;
+            //If the position can be placed, show green, othervise show red
             if(IsInAllowedRange(clickPosition)){
                 cycleMaterial.color = Color.green;
             }
             else{
                 cycleMaterial.color = Color.red;
             }
+            //Spawn a allie unit
             if (Input.GetMouseButtonDown(0))
             {
                 if(allieNo < 0){
@@ -113,10 +150,9 @@ public class GameManager : MonoBehaviour
                         SpawnAllies(allieNo, clickPosition);
                     }
                 }
-
             }
         }
-        
+        //Choose the type of the allie unit to be placed
         for (int i = 1; i <= 9; i++)
         {
             if (Input.GetKeyDown(i.ToString()))
@@ -125,62 +161,54 @@ public class GameManager : MonoBehaviour
                 playingInterfaces.setRed(i);
             }
         }
+        //Check if the wave ends and update the UI
         if(isGameActive){
             WaveCheck();
             playingInterfaces.updateAllies();
         }
     }
+    //Generate a Position for spwan enemy
     Vector3 GenerateSpawnPosition()
     {
-        float xPos = UnityEngine.Random.Range(-spawnRangeX, spawnRangeX);
-        float zPos = UnityEngine.Random.Range(spawnRangeZ, -spawnRangeZ);
+        float xPos = UnityEngine.Random.Range(-spawnRangeX[mapType], spawnRangeX[mapType]);
+        float zPos = UnityEngine.Random.Range(spawnRangeZ[mapType], -spawnRangeZ[mapType]);
         return new Vector3(xPos, 1, zPos);
     }
-
+    //Spwan enemy
     void SpawnEnemy()
     {
         for (int i = 0; i < enemyVar; i++){
-            for (int j = 0; j < waveNum * enemyRatio[i]; j++){
+            for (int j = 0; j < activeEnemyWave[waveNum][j]; j++){
                 GameObject Enemy = Instantiate(activeEnemyPrefabs[i], GenerateSpawnPosition(), activeEnemyPrefabs[i].transform.rotation);
                 Enemy.tag = "hunter";
             }
         }
     }
-    public void SetAllieNo(int allieNo)
-    {
-        this.allieNo = allieNo;
-    }
-
+    //Range check for spawn allies
     bool IsInAllowedRange(Vector3 position)
     {
-        if (position.x < -outerBoundaryX || position.x > outerBoundaryX){
-            Debug.Log("Can't place outside the map" + position);
+        if (position.x < -outerBoundaryX[mapType] || position.x > outerBoundaryX[mapType]){
             return false;
         }
-        if (position.z < -outerBoundaryZ || position.z > outerBoundaryZ){
-            Debug.Log("Can't place outside the map" + position); 
+        if (position.z < -outerBoundaryZ[mapType] || position.z > outerBoundaryZ[mapType]){
             return false;
         }
-        if (position.z < innerBoundaryZ && position.z > -innerBoundaryZ && position.x < innerBoundaryX && position.x > -innerBoundaryX){
-            Debug.Log("Can't place inside the forest, its too close to the enemy!" + position);
+        if (position.z < innerBoundaryZ[mapType] && position.z > -innerBoundaryZ[mapType] && position.x < innerBoundaryX[mapType] && position.x > -innerBoundaryX[mapType]){
             return false;
         }
         return true;
     }
-
+    //Spawn allies
     void SpawnAllies(int allieNO, Vector3 position)
     {
         if (allieRemain[allieNO] > 0)
         {
-            GameObject Allies =  Instantiate(alliePrefabs[allieNO], position, alliePrefabs[allieNO].transform.rotation);
+            GameObject Allies =  Instantiate(activeAlliePrefabs[allieNO], position, activeAlliePrefabs[allieNO].transform.rotation);
             Allies.tag = "monster";
             allieRemain[allieNO]--;
         }
     }
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    //Check if the wave ends
     public void WaveCheck()
     {
         Attributes[] enemyAttributes = GameObject.FindGameObjectsWithTag("hunter")
@@ -188,59 +216,64 @@ public class GameManager : MonoBehaviour
         .Where(attributes => attributes != null && attributes.isDead == false)
         .ToArray();
 
-        int numberOfLivingEnemies = enemyAttributes.Length;
+        int numberOfLivingEnemies = enemyAttributes.Length;//Check the number of remaining enemys on the board
 
         Attributes[] allieAttributes = GameObject.FindGameObjectsWithTag("monster")
         .Select(go => go.GetComponent<Attributes>())
         .Where(attributes => attributes != null && attributes.isDead == false)
         .ToArray();
 
-        int numberOfLivingAllies = allieAttributes.Length;
+        int numberOfLivingAllies = allieAttributes.Length;//Check the number of remaining allies on the board
 
-        int totalAlliesRemaining = 0;
+        int totalAlliesRemaining = 0;//Count how many allies are not been placed yet
         foreach (int remaining in allieRemain)
         {
             totalAlliesRemaining += remaining;
         }
-        if (numberOfLivingEnemies == 0)
-        {
-            selectionPanel.SetActive(true);
-            //NewWave();
-        }
+        //No allies remaining, game lose
         if(totalAlliesRemaining == 0 && numberOfLivingAllies == 0)
         {
             playingInterfaces.showLoseScreen();
-        }            
+            isGameActive = false;
+        }
+        //No enemys remaining, next wave             
+        if (numberOfLivingEnemies == 0)
+        {
+            selectionPanel.SetActive(true);
+            isGameActive = false;
+        }
     }
-    public void NewWave(int allyIndex, int incrementValue){
+    //Begin a new wave
+    public void NewWave(){
         waveNum++;
-
-        // check the index is valid
-        if(allyIndex >= 0 && allyIndex < allieRemain.Length)
-        {
-            allieRemain[allyIndex] += incrementValue; // increse according number
-            Debug.Log("Increasing successfully!!");
-        }
-        else
-        {
-            Debug.LogWarning("Invalid weapon index!");
-        }
-        
         //Destroy existing allies
         GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
-
         foreach (GameObject allie in allies)
         {
             Destroy(allie);
         }
-
         SpawnEnemy();
-
-
-
+        allieMaxNum.CopyTo(allieRemain, 0);
         isGameActive = true;
         playingInterfaces.updateAllies();
     }
-
-    
+    //Add allie max number
+    public void addAllieMaxNum(int allieNo, int num){
+        allieMaxNum[allieNo] += num;
+    }
+    //Restart Game
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    //Getter functions
+    public int getWaveNum(){
+        return waveNum;
+    }
+    public GameObject[] getAlliePrefebs(){
+        return activeAlliePrefabs;
+    }
+    public int[] getAllieRemains(){
+        return allieRemain;
+    }
 }
