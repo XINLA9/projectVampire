@@ -19,7 +19,7 @@ public class DeathWizardSpell : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       ParticleSystem magicCircle = animator.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+       ParticleSystem magicCircle = animator.gameObject.transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
        magicCircle.Play();
        animator.ResetTrigger("summonAnimEnd");
     }

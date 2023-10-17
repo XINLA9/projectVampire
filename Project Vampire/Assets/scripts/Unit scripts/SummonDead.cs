@@ -26,7 +26,7 @@ public class SummonDead : MonoBehaviour
         SB = GetComponent<ShootingBullet>();
         wizardAnim = GetComponent<Animator>();
         nearestDead = null;
-        magicCircle = transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+        magicCircle = transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
         magicCircle.Stop();
     }
 

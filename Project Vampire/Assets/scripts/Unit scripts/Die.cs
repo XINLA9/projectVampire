@@ -22,6 +22,7 @@ public class Die : MonoBehaviour
         _isDead = _attributes.isDead;  
         if (_HP <= 0 && !_isDead)
         {
+            
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.constraints = RigidbodyConstraints.FreezePositionY;
             rb.isKinematic = true;
