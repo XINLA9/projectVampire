@@ -16,7 +16,6 @@ public class PlayingInterfaces : MonoBehaviour
     public TextMeshProUGUI loseText;
     public GameObject gameScreen;
     public List<TextMeshProUGUI> allieText;
-    private TextMeshProUGUI waveText;
     private GameManager gameManager;
     
 
@@ -29,10 +28,10 @@ public class PlayingInterfaces : MonoBehaviour
     }
 
     public void updateAllies(){
-        allieText[0].text = "Wave " + gameManager.waveNum;
-        for(int i = 1; i < gameManager.alliePrefabs.Length + 1; i++)
+        allieText[0].text = "Wave " + gameManager.getWaveNum();
+        for(int i = 1; i < gameManager.getAlliePrefebs().Length + 1; i++)
         {
-            allieText[i].text = i + "\\" + gameManager.alliePrefabs[i - 1].name + ":" + gameManager.allieRemain[i - 1];
+            allieText[i].text = i + "\\" + gameManager.getAlliePrefebs()[i - 1].name + ":" + gameManager.getAllieRemains()[i - 1];
         }
     }
 

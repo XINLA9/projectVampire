@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class Move : MonoBehaviour
-{   
+{
     private Attributes _attributes;
     private Animator _animator;
     private Rigidbody _rb;
@@ -46,14 +46,14 @@ public class Move : MonoBehaviour
             _rb.angularVelocity = Vector3.zero;
             _animator.SetFloat("speed", speed);
         }
-        // if(_attributes.moveGoal == null)
-        // {
-        //     _animator.SetBool("noEnemy", true);
-        // }
-        // else
-        // {
-        //     _animator.SetBool("noEnemy", false);
-        // }
+        if (_attributes.moveGoal == null)
+        {
+            _animator.SetBool("noEnemy", true);
+        }
+        else
+        {
+            _animator.SetBool("noEnemy", false);
+        }
         stayInMap();
     }
     private void MoveTowardsNearestHunter()
@@ -69,7 +69,7 @@ public class Move : MonoBehaviour
 
         _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
         // Define the minimum angle at which acceleration can start
-        float minAngleToAccelerate = 10f; 
+        float minAngleToAccelerate = 10f;
 
         if (angle <= minAngleToAccelerate)
         {
@@ -95,19 +95,16 @@ public class Move : MonoBehaviour
         string enemyTag;
         if (gameObject.tag == "hunter")
         {
-            alleyTag = "hunter";
             enemyTag = "monster";
         }
-        else {
-            alleyTag = "monster"; 
-            enemyTag = "hunter"; 
+        else
+        {
+            enemyTag = "hunter";
         }
-        if (other.gameObject.CompareTag(enemyTag)){
+        if (other.gameObject.CompareTag(enemyTag))
+        {
             _rb.velocity = Vector3.zero;
         }
-        else if (other.gameObject.CompareTag(alleyTag)) {
-            _rb.velocity = Vector3.forward.normalized * 0.2f;
-                }
     }
     private void stayInMap()
     {
