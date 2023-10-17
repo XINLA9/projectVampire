@@ -255,9 +255,14 @@ public class GameManager : MonoBehaviour
         waveNum++;
         //Destroy existing allies
         GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
+        GameObject[] bodys = GameObject.FindGameObjectsWithTag("dead");
         foreach (GameObject allie in allies)
         {
             Destroy(allie);
+        }
+        foreach (GameObject body in bodys)
+        {
+            Destroy(body);
         }
         SpawnEnemy();
         allieMaxNum.CopyTo(allieRemain, 0);
