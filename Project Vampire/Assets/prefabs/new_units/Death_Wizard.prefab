@@ -545,8 +545,7 @@ MonoBehaviour:
   deadUnits:
     serializedVersion: 2
     m_Bits: 64
-  skeleton_1: {fileID: 154630687620561001, guid: 36325cfe315fc6247acf6203ca20261b, type: 3}
-  skeleton_2: {fileID: 2378156475882777583, guid: 162bc80e19e643e4b8190f0eabbc2bbe, type: 3}
+  skeleton_1: {fileID: 2378156475882777583, guid: 162bc80e19e643e4b8190f0eabbc2bbe, type: 3}
 --- !u!114 &8079064125381627516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
+  HP_max: 0
   attack: 0
   armor_piercing_damage: 0
   defense: 3

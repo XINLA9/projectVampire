@@ -21,6 +21,7 @@ public class EnableComponent : StateMachineBehaviour
     {
        SkeletonLogic SL = animator.gameObject.GetComponent<SkeletonLogic>();
        SL.enabled = true;
+       animator.gameObject.tag = "hunter";
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

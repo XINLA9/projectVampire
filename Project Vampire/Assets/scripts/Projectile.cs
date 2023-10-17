@@ -41,9 +41,11 @@ public class Projectile : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
+        ParticleSystem PS = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+        PS.Stop();
+        Destroy(gameObject);
         if (other.gameObject.CompareTag("monster"))
         {
-            Destroy(gameObject);
             Attributes enemyAttributes = other.gameObject.GetComponent<Attributes>();
             Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
             float damage = attack - enemyAttributes.defense;
@@ -53,10 +55,6 @@ public class Projectile : MonoBehaviour
             }
             Vector3 away = (other.transform.position - transform.position).normalized;
             enemyRb.AddForce(away * force, ForceMode.Impulse);
-        }
-        
-        if (other.gameObject.CompareTag("hunter")) {
-            Destroy(gameObject);
         }
     }
 }
