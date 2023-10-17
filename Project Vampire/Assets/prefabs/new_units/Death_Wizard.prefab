@@ -547,7 +547,7 @@ MonoBehaviour:
   deadUnits:
     serializedVersion: 2
     m_Bits: 64
-  skeleton_1: {fileID: 2378156475882777583, guid: 162bc80e19e643e4b8190f0eabbc2bbe, type: 3}
+  skeleton_1: {fileID: 2378156475882777583, guid: 087e3404381b97b449d8bb0f74b5bf2b, type: 3}
 --- !u!114 &8079064125381627516
 MonoBehaviour:
   m_ObjectHideFlags: 0

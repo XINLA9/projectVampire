@@ -22,8 +22,9 @@ public class Die : MonoBehaviour
         _isDead = _attributes.isDead;  
         if (_HP <= 0 && !_isDead)
         {
-            
+            Collider BC = gameObject.GetComponent<BoxCollider>();
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            BC.isTrigger = true;
             rb.constraints = RigidbodyConstraints.FreezePositionY;
             rb.isKinematic = true;
             _attributes.isDead = true;
