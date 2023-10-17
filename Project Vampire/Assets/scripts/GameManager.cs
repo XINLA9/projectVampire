@@ -170,9 +170,14 @@ public class GameManager : MonoBehaviour
     //Generate a Position for spwan enemy
     Vector3 GenerateSpawnPosition()
     {
-        float xPos = UnityEngine.Random.Range(-spawnRangeX[mapType], spawnRangeX[mapType]);
-        float zPos = UnityEngine.Random.Range(spawnRangeZ[mapType], -spawnRangeZ[mapType]);
-        return new Vector3(xPos, 1, zPos);
+        if(mapType != -1){
+            float xPos = UnityEngine.Random.Range(-spawnRangeX[mapType], spawnRangeX[mapType]);
+            float zPos = UnityEngine.Random.Range(spawnRangeZ[mapType], -spawnRangeZ[mapType]);
+            return new Vector3(xPos, 1, zPos);
+        }
+        else{
+            return new Vector3(0, 1, 0);
+        }
     }
     //Spwan enemy
     void SpawnEnemy()
@@ -187,16 +192,19 @@ public class GameManager : MonoBehaviour
     //Range check for spawn allies
     bool IsInAllowedRange(Vector3 position)
     {
-        if (position.x < -outerBoundaryX[mapType] || position.x > outerBoundaryX[mapType]){
-            return false;
+        if(mapType != -1){
+            if (position.x < -outerBoundaryX[mapType] || position.x > outerBoundaryX[mapType]){
+                return false;
+            }
+            if (position.z < -outerBoundaryZ[mapType] || position.z > outerBoundaryZ[mapType]){
+                return false;
+            }
+            if (position.z < innerBoundaryZ[mapType] && position.z > -innerBoundaryZ[mapType] && position.x < innerBoundaryX[mapType] && position.x > -innerBoundaryX[mapType]){
+                return false;
+            }
+            return true;
         }
-        if (position.z < -outerBoundaryZ[mapType] || position.z > outerBoundaryZ[mapType]){
-            return false;
-        }
-        if (position.z < innerBoundaryZ[mapType] && position.z > -innerBoundaryZ[mapType] && position.x < innerBoundaryX[mapType] && position.x > -innerBoundaryX[mapType]){
-            return false;
-        }
-        return true;
+        else return false;
     }
     //Spawn allies
     void SpawnAllies(int allieNO, Vector3 position)
@@ -255,7 +263,7 @@ public class GameManager : MonoBehaviour
         waveNum++;
         //Destroy existing allies
         GameObject[] allies = GameObject.FindGameObjectsWithTag("monster");
-        GameObject[] bodys = GameObject.FindGameObjectsWithTag("dead");
+        GameObject[] bodys = GameObject.FindGameObjectsWithTag("Dead");
         foreach (GameObject allie in allies)
         {
             Destroy(allie);
