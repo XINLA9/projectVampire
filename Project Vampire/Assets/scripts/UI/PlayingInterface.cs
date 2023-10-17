@@ -33,12 +33,19 @@ public class PlayingInterfaces : MonoBehaviour
         {
             allieText[i].text = i + "\\" + gameManager.getAlliePrefebs()[i - 1].name + ":" + gameManager.getAllieRemains()[i - 1];
         }
+        allieText[7].text = "Enemy Remain: " + gameManager.getEnemyRemain().ToString();
     }
 
     public void showLoseScreen(){
         restartButton.gameObject.SetActive(true);
         gameScreen.SetActive(false);
         loseText.gameObject.SetActive(true);
+    }
+
+    public void showWinScreen(){
+        restartButton.gameObject.SetActive(true);
+        gameScreen.SetActive(false);
+        winText.gameObject.SetActive(true);
     }
 
     public void setRed(int i){
