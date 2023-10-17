@@ -217,6 +217,7 @@ public class GameManager : MonoBehaviour
         .ToArray();
 
         int numberOfLivingEnemies = enemyAttributes.Length;//Check the number of remaining enemys on the board
+        enemyRemain = numberOfLivingEnemies;
 
         Attributes[] allieAttributes = GameObject.FindGameObjectsWithTag("monster")
         .Select(go => go.GetComponent<Attributes>())
@@ -239,8 +240,14 @@ public class GameManager : MonoBehaviour
         //No enemys remaining, next wave             
         if (numberOfLivingEnemies == 0)
         {
-            selectionPanel.SetActive(true);
             isGameActive = false;
+            if(waveNum <= 5){
+                selectionPanel.SetActive(true);
+            }
+            else{
+            playingInterfaces.showLoseScreen();
+
+            }
         }
     }
     //Begin a new wave
@@ -275,5 +282,8 @@ public class GameManager : MonoBehaviour
     }
     public int[] getAllieRemains(){
         return allieRemain;
+    }
+    public int getEnemyRemain(){
+        return enemyRemain;
     }
 }
