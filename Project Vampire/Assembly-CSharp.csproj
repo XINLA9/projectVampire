@@ -75,6 +75,7 @@
     <Compile Include="Assets\scripts\Unit scripts\Die.cs" />
     <Compile Include="Assets\scripts\Unit scripts\SkeletonLogic.cs" />
     <Compile Include="Assets\scripts\AOE.cs" />
+    <Compile Include="Assets\scripts\UI\TutorialsButtons.cs" />
     <Compile Include="Assets\store_library\Mini Simple Characters Skeleton Demo\Readme\Scripts\Readme.cs" />
     <Compile Include="Assets\scripts\UI\WeaponInfo.cs" />
     <Compile Include="Assets\scripts\UI\MoveCameraByKeyboard.cs" />

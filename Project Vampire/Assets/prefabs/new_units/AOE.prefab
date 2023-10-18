@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3518584063611239298}
   - {fileID: 932596592115359604}
+  - {fileID: 3518584063611239298}
   - {fileID: 4356730039426539615}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,11 +51,11 @@ MonoBehaviour:
   heal: 0
   healRate: 0
   slow: 0
-  slowRate: 0
+  slowAmount: 0
   poison: 0
   poisonRate: 0
   speedUp: 0
-  speedUpRate: 0
+  speedUpAmount: 0
   trapped: 0
   trappedSeconds: 0
   allUnits:

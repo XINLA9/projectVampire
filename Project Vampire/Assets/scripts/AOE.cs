@@ -27,6 +27,9 @@ public class AOE : MonoBehaviour
             speedDictionary.Add(unit.gameObject.name, unitRb.velocity);
         }
         colliders = units;
+        ParticleSystem PS = gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+        // Change the size of effect
+
     }
 
     // Update is called once per frame
@@ -35,7 +38,7 @@ public class AOE : MonoBehaviour
         Collider[] units = Physics.OverlapSphere(transform.position, range, allUnits);
     }
 
-    public void resumeSpeed() {
-
+    public void resumeSpeed(Collider unit) {
+        
     }
 }
