@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class NewWavePanel : MonoBehaviour
 {
 
@@ -14,9 +15,63 @@ public class NewWavePanel : MonoBehaviour
     public GameObject selectionPanel;
     public int[] incrementValues;
 
+    public Text[] allyButtonTexts;
+    private Dictionary<string, string[]> characterAllies = new Dictionary<string, string[]>();
+
+    public int characterChosenType;
+    public string characterName;
+
+    public TextMeshProUGUI weaponButton1Text1;
+    public TextMeshProUGUI weaponButton2Text2; 
+    public TextMeshProUGUI weaponButton3Text3;
+    public TextMeshProUGUI weaponButton4Text4;
+    public TextMeshProUGUI weaponButton5Text5;
+    public TextMeshProUGUI weaponButton6Text6;
+
+
+
+
     void Start()
     {
-        incrementValues = new int[] {4, 4, 2, 2, 1, 1};        
+        incrementValues = new int[] {4, 4, 2, 2, 1, 1};       
+
+
+
+        characterChosenType = gameManager.charactorType;
+
+        switch(characterChosenType){
+            case 0:
+
+                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
+                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more Bear";
+                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more Black Window";
+                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more Blue Dragon";
+                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more Chest Monster";
+                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more Beholder";
+                break;
+            case 1:
+                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
+                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more Bear";
+                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more Black Window";
+                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more Blue Dragon";
+                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more unique 2.1";
+                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more unique 2.2";
+                break;            
+            case 2:
+                characterName = "Character3";
+                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
+                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more Bear";
+                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more Black Window";
+                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more Blue Dragon";
+                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more unique 3.1";
+                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more unique 3.2";
+                // UpdateButtonTextsBasedOnCharacter();
+                break;           
+            default:
+                Debug.Log("Error in charactor choosing");
+                break;
+        }
+
     }
 
     public void OnAddNumberButtonClick(){
@@ -39,11 +94,6 @@ public class NewWavePanel : MonoBehaviour
         addWeaponObject.SetActive(true);
 
     }
-    //Finish updating the number of weapons, start the next wave
-    // public void OnStartNewWaveAfterSelectionClick(){
-    // selectionPanel.SetActive(false);
-    // gameManager.NewWave();
-    // }
 
     public void IncreaseAllyCountButton0(){
         Debug.Log("Button 1 clicked");
@@ -82,4 +132,5 @@ public class NewWavePanel : MonoBehaviour
         gameManager.addAllieMaxNum(allyIndex, incrementValues[allyIndex]);
         gameManager.NewWave();
     }
+
 }

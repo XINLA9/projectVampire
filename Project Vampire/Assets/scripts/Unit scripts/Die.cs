@@ -20,10 +20,12 @@ public class Die : MonoBehaviour
     {
         _HP = _attributes.HP;
         _isDead = _attributes.isDead;  
-        if (_HP <= 0 && !_isDead)
+        bool isSkeleton = gameObject.name == "Big_Skeleton";
+        if (_HP <= 0 && !_isDead && !isSkeleton)
         {
-            
+            Collider BC = gameObject.GetComponent<Collider>();
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            BC.isTrigger = true;
             rb.constraints = RigidbodyConstraints.FreezePositionY;
             rb.isKinematic = true;
             _attributes.isDead = true;
@@ -31,6 +33,9 @@ public class Die : MonoBehaviour
             gameObject.tag = "Dead";
             int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");
             gameObject.layer = LayerIgnoreRaycast;
+        }
+        if (_HP <= 0 && !_isDead && isSkeleton) {
+            Destroy(gameObject);
         }
     }
     public void OnDeathAnimationEnd()

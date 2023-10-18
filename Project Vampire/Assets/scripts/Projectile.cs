@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        ParticleSystem PS = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+        ParticleSystem PS = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
         PS.Stop();
         Destroy(gameObject);
         if (other.gameObject.CompareTag("monster"))
