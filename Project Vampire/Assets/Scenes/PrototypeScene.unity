@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2218,7 +2218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3 more weapon 4
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6818,6 +6818,7 @@ MonoBehaviour:
   - {fileID: 3374143480701978135, guid: 2382677031d7fdb4baa93ebb1fc4e6f8, type: 3}
   - {fileID: 3374143480701978135, guid: 2382677031d7fdb4baa93ebb1fc4e6f8, type: 3}
   - {fileID: 3374143480701978135, guid: 2382677031d7fdb4baa93ebb1fc4e6f8, type: 3}
+  charactorType: -1
 --- !u!114 &217283295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30261,7 +30262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 more BlueDragon
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31241,7 +31242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3 more Footman '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32383,6 +32384,15 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   selectionPanel: {fileID: 0}
   incrementValues: 
+  allyButtonTexts: []
+  characterChosenType: 0
+  characterName: 
+  weaponButton1Text1: {fileID: 0}
+  weaponButton2Text2: {fileID: 0}
+  weaponButton3Text3: {fileID: 0}
+  weaponButton4Text4: {fileID: 0}
+  weaponButton5Text5: {fileID: 0}
+  weaponButton6Text6: {fileID: 0}
 --- !u!1001 &724048570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35277,6 +35287,15 @@ MonoBehaviour:
   gameManager: {fileID: 217283294}
   selectionPanel: {fileID: 638170451}
   incrementValues: 030000000200000001000000030000000200000001000000
+  allyButtonTexts: []
+  characterChosenType: 0
+  characterName: 
+  weaponButton1Text1: {fileID: 683175040}
+  weaponButton2Text2: {fileID: 661245301}
+  weaponButton3Text3: {fileID: 1204960305}
+  weaponButton4Text4: {fileID: 65741507}
+  weaponButton5Text5: {fileID: 1672962148}
+  weaponButton6Text6: {fileID: 1902333330}
 --- !u!1 &838668063
 GameObject:
   m_ObjectHideFlags: 0
@@ -38671,6 +38690,15 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   selectionPanel: {fileID: 0}
   incrementValues: 
+  allyButtonTexts: []
+  characterChosenType: 0
+  characterName: 
+  weaponButton1Text1: {fileID: 0}
+  weaponButton2Text2: {fileID: 0}
+  weaponButton3Text3: {fileID: 0}
+  weaponButton4Text4: {fileID: 0}
+  weaponButton5Text5: {fileID: 0}
+  weaponButton6Text6: {fileID: 0}
 --- !u!1001 &930847894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51514,7 +51542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 more Ork
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -68217,7 +68245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 more weapon 5
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -78928,7 +78956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 more weapon 5
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

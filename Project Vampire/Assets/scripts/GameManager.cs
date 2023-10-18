@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private int allieNo = -1;//units that been currently chosen
     private bool isGameActive = false;//Game active flag
     private int waveNum = 0;//current wave number
-    private int charactorType = -1;//Charactor chosen
+    public int charactorType = -1;//Charactor chosen
     private int mapType = -1;//Map chosen
 
     //Boundarys for maps
