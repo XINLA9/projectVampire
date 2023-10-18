@@ -8,11 +8,11 @@ public class AOE : MonoBehaviour
     public bool heal;
     public float healRate;
     public bool slow;
-    public float slowRate;
+    public float slowAmount;
     public bool poison;
     public float poisonRate;
     public bool speedUp;
-    public float speedUpRate;
+    public float speedUpAmount;
     public bool trapped;
     public int trappedSeconds;
     private Dictionary<string, Vector3> speedDictionary; 
