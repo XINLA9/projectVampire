@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             Vector3 clickPosition = ray.GetPoint(rayDistance);
             mousePointer.transform.position = clickPosition;
 
-            Debug.Log(clickPosition);
+            // Debug.Log(clickPosition);
 
             //If the position can be placed, show green, othervise show red
             if(IsInAllowedRange(clickPosition)){
