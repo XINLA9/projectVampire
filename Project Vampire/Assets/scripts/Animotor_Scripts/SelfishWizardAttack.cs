@@ -28,7 +28,13 @@ public class SelfishWizardAttack : StateMachineBehaviour
        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
        ParticleSystem PS = newBullet.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
        PS.Play();
-       rb.AddForce((-SB.moveAway) * SB.GetAttributes().maxSpeed, ForceMode.Impulse);
+       if (!SB.aggressive) {
+         rb.AddForce((-SB.moveAway) * SB.GetAttributes().maxSpeed, ForceMode.Impulse);
+       } else {
+         ChaseArrow CA = newBullet.GetComponent<ChaseArrow>();
+         CA.Target = SB.targetEnemy;
+         Debug.Log("Here is the name" + newBullet.name);
+       }
        portal.SetActive(false);
     }
 

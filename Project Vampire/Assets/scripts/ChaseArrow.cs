@@ -5,10 +5,11 @@ using UnityEngine;
 public class ChaseArrow : MonoBehaviour
 {
     public GameObject Target;
-    public float speed = 10.0f;
+    public float speed = 1.0f;
     private Rigidbody arrowRB;
     public float attack;
     public float force;
+    public Vector3 moveDir;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,10 @@ public class ChaseArrow : MonoBehaviour
     void Update()
     {
         if (Target != null) {
-            if (GameObject.Find(Target.name) != null) {
-                Vector3 moveDir = (Target.transform.position - transform.position).normalized;
-                arrowRB.AddForce(moveDir * speed);
-            }
+            moveDir = (Target.transform.position - transform.position).normalized;
+            Vector3 moveSpeed = moveDir * speed;
+            Vector3 actualMove = new Vector3(moveSpeed.x, moveSpeed.y + 1, moveSpeed.z);
+            arrowRB.AddForce(actualMove);
         }
     }
 

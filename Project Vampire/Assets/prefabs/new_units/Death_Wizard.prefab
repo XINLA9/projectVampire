@@ -528,6 +528,7 @@ MonoBehaviour:
   distanceTol: 1
   attackCoolDown: 2
   moveAway: {x: 0, y: 0, z: 0}
+  aggressive: 0
 --- !u!114 &5355828378403939567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +573,7 @@ MonoBehaviour:
   defense: 3
   force: 0
   mass: 0
-  maxSpeed: 5
+  maxSpeed: 15
   acceleration: 0
   rotationSpeed: 270
   attack_interval: 0

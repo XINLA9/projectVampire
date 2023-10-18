@@ -6,11 +6,11 @@ public class ShootingBullet : MonoBehaviour
 {
     public GameObject bullet;
     // Initiate the movement speed and attackRange
+    public float attentionRange = 10.0f;
     public float attackRange = 10.0f;
-    public float rotationSpeed = 20.0f;
     private Attributes attributes;
     public GameObject nearestEnemy;
-    private GameObject targetEnemy;
+    public GameObject targetEnemy;
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
@@ -18,6 +18,7 @@ public class ShootingBullet : MonoBehaviour
     public float distanceTol = 1.0f;
     public float attackCoolDown = 2.0f;
     public Vector3 moveAway;
+    public Vector3 moveDir;
     public bool aggressive = false;
 
     // Start is called before the first frame update
@@ -37,7 +38,9 @@ public class ShootingBullet : MonoBehaviour
                 FindNearestEnemy();
                 ShootNearestEnemy();
             } else {
-                ChaseNearestEnemy();
+                if (nearestEnemy == null) {
+                    ChaseNearestEnemy();
+                }
                 FindNearestEnemy();
                 ShootNearestEnemy();
             }
@@ -52,7 +55,7 @@ public class ShootingBullet : MonoBehaviour
         if (gameObject.tag == "hunter") {
             targetTag = "monster";
         }
-        GameObject[] targetUnits = GameObject.FindGameObjectsWithTag("targetTag");
+        GameObject[] targetUnits = GameObject.FindGameObjectsWithTag(targetTag);
         float leastDistance = Mathf.Infinity;
         if (targetUnits.Length > 0) {
             foreach (GameObject target in targetUnits) {
@@ -62,12 +65,21 @@ public class ShootingBullet : MonoBehaviour
                     targetEnemy = target;
                 }
             }
-        } 
-
+        } else {
+            targetEnemy = null;
+            shooterAnim.ResetTrigger("Desire_enemy");
+        }
+        if (targetEnemy != null) {
+            shooterAnim.SetTrigger("Desire_enemy");
+            moveDir = (targetEnemy.transform.position - transform.position).normalized;
+            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
+            enemyRb.AddForce(moveDir * attributes.maxSpeed);
+        }
     }
     private void FindNearestEnemy()
     {
-        Collider[] enemies = Physics.OverlapSphere(transform.position, attackRange, enemiesToShoot);
+        Collider[] enemies = Physics.OverlapSphere(transform.position, attentionRange, enemiesToShoot);
 
         float closestDistance = Mathf.Infinity;
         if (enemies.Length > 0) {
@@ -96,13 +108,21 @@ public class ShootingBullet : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
             shooterAnim.SetTrigger("Enemy_detected");
             float disToNearestEnemy = Vector3.Distance(transform.position, nearestEnemy.transform.position);
-            if (Mathf.Abs(disToNearestEnemy - attackRange) < distanceTol) {
+            if (Mathf.Abs(disToNearestEnemy - attentionRange) < distanceTol) {
                 enemyRb.velocity = Vector3.zero;
             } else {
                 enemyRb.AddForce(moveAway * attributes.maxSpeed);
             }
             
-            if (shootCoolDown) {
+            if (shootCoolDown && (disToNearestEnemy < attackRange)) {
+                shooterAnim.SetTrigger("Ready_fire");
+                shootCoolDown = false;
+                StartCoroutine(ReadyToShoot());
+            }
+        }
+        if (targetEnemy != null) {
+            float disToTargetEnemy = Vector3.Distance(transform.position, targetEnemy.transform.position);
+            if (shootCoolDown && (disToTargetEnemy < attackRange)) {
                 shooterAnim.SetTrigger("Ready_fire");
                 shootCoolDown = false;
                 StartCoroutine(ReadyToShoot());

@@ -1122,13 +1122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 0
+  HP_max: 3
   attack_base: 0
   ap_damage_base: 0
   defense_base: 0
   force_base: 0
   mass_base: 0
-  HP: 1
+  HP: 3
   attack: 2
   ap_damage: 0
   defense: 3
