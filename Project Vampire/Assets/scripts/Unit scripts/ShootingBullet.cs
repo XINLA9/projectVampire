@@ -10,6 +10,7 @@ public class ShootingBullet : MonoBehaviour
     public float rotationSpeed = 20.0f;
     private Attributes attributes;
     public GameObject nearestEnemy;
+    private GameObject targetEnemy;
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
@@ -17,6 +18,7 @@ public class ShootingBullet : MonoBehaviour
     public float distanceTol = 1.0f;
     public float attackCoolDown = 2.0f;
     public Vector3 moveAway;
+    public bool aggressive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +33,38 @@ public class ShootingBullet : MonoBehaviour
     void Update()
     {
         if (!attributes.isDead){
-            FindNearestEnemy();
-            ShootNearestEnemy();
+            if (!aggressive) {
+                FindNearestEnemy();
+                ShootNearestEnemy();
+            } else {
+                ChaseNearestEnemy();
+                FindNearestEnemy();
+                ShootNearestEnemy();
+            }
         }
     }
 
+    private void ChaseNearestEnemy() {
+        string targetTag = null;
+        if (gameObject.tag == "monster") {
+            targetTag = "hunter";
+        } 
+        if (gameObject.tag == "hunter") {
+            targetTag = "monster";
+        }
+        GameObject[] targetUnits = GameObject.FindGameObjectsWithTag("targetTag");
+        float leastDistance = Mathf.Infinity;
+        if (targetUnits.Length > 0) {
+            foreach (GameObject target in targetUnits) {
+                float distance = Vector3.Distance(gameObject.transform.position, target.transform.position);
+                if (distance < leastDistance) {
+                    leastDistance = distance;
+                    targetEnemy = target;
+                }
+            }
+        } 
+
+    }
     private void FindNearestEnemy()
     {
         Collider[] enemies = Physics.OverlapSphere(transform.position, attackRange, enemiesToShoot);
@@ -60,6 +89,7 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootNearestEnemy() {
         if (nearestEnemy != null) {
+            enemyRb.velocity = Vector3.zero;
             moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.LookRotation(shootDir, Vector3.up);

@@ -1052,6 +1052,7 @@ GameObject:
   - component: {fileID: 1908365004256318281}
   - component: {fileID: 6755200586741812644}
   - component: {fileID: 2469156124589802145}
+  - component: {fileID: 8777186022015622768}
   m_Layer: 0
   m_Name: Big_Skeleton
   m_TagString: Untagged
@@ -1121,15 +1122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP_max: 0
+  attack_base: 0
+  ap_damage_base: 0
+  defense_base: 0
+  force_base: 0
+  mass_base: 0
   HP: 1
   attack: 2
-  armor_piercing_damage: 0
+  ap_damage: 0
   defense: 3
-  acceleration: 0
-  maxSpeed: 1
   force: 0
-  rotationSpeed: 270
   mass: 0
+  maxSpeed: 1
+  acceleration: 0
+  rotationSpeed: 270
+  attack_interval: 0
   attackRange: 3
   isDead: 0
   moveGoal: {fileID: 0}
@@ -1172,6 +1180,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658ab59950e74e340a0e0ee1f276c462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8777186022015622768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378156475882777583}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.2531931, z: 0.8881264}
+  m_Center: {x: 0, y: 1.0568849, z: 0.055936813}
 --- !u!1 &2381382224148930164
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,7 +2934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6399615414739308946
 Transform:
   m_ObjectHideFlags: 0
