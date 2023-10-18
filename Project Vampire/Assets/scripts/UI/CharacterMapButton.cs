@@ -22,7 +22,7 @@ public class CharacterMapButton : MonoBehaviour
                 weaponList1.SetActive(true);
                 weaponList2.SetActive(false);
                 weaponList3.SetActive(false);
-                characterDescription.text = "Character 1 is avaliable now";
+                characterDescription.text = "Now character 1 is mixed units";
                 PlayerPrefs.SetInt("characterType", 0);
                 break;
 
@@ -30,7 +30,7 @@ public class CharacterMapButton : MonoBehaviour
                 weaponList1.SetActive(false);
                 weaponList2.SetActive(true);
                 weaponList3.SetActive(false);
-                characterDescription.text = "Character 2 is unavaliable now";
+                characterDescription.text = "Now character 2 only have ork";
                 PlayerPrefs.SetInt("characterType", 1);
                 break;
 
@@ -38,7 +38,7 @@ public class CharacterMapButton : MonoBehaviour
                 weaponList1.SetActive(false);
                 weaponList2.SetActive(false);
                 weaponList3.SetActive(true);
-                characterDescription.text = "Character 3 is unavaliable now";
+                characterDescription.text = "Now character 3 only have spider";
                 PlayerPrefs.SetInt("characterType", 2);
                 break;
         }
@@ -47,17 +47,17 @@ public class CharacterMapButton : MonoBehaviour
     public void OnMapClicked(int mapIndex){
         switch(mapIndex){
             case 0:
-            mapDescription.text = "Map 1 is avaliable now";
+            mapDescription.text = "Forest";
             PlayerPrefs.SetInt("mapType", 0);
             break;
 
             case 1:
-            mapDescription.text = "Map 2 is unavaliable now";
+            mapDescription.text = "Gravey Yard";
             PlayerPrefs.SetInt("mapType", 1);
             break;
 
             case 2:
-            mapDescription.text = "Map 3 is unavaliable now";
+            mapDescription.text = "Castle";
             PlayerPrefs.SetInt("mapType", 2);
             break;
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollowMouse : MonoBehaviour
 {
     private float cameraSpeed = 20.0f; // Adjust the camera movement speed.
-    private float scrollSpeed = 20.0f; // Adjust the scroll speed.
+    private float scrollSpeed = 30.0f; // Adjust the scroll speed.
     private float maxX = 40.0f;
     private float maxZ = 25.0f;
     private float minY = 10.0f;
