@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] forestEnemyPrefabs;//enemy prefabs for forestMap
     public GameObject[] graveyEnemyPrefabs;//enemy prefabs for graveyMap
     public GameObject[] castleEnemyPrefabs;//enemy prefabs for castleMap
-    public GameObject[] forestAlliePrefabs;//allie prefabs for forestMap
-    public GameObject[] graveyAlliePrefabs;//allie prefabs for graveyMap
-    public GameObject[] castleAlliePrefabs;//allie prefabs for castleMap
+    public GameObject[] alliePrefabs_C1;//allie prefabs for charactor1
+    public GameObject[] alliePrefabs_C2;//allie prefabs for charactor2
+    public GameObject[] alliePrefabs_C3;//allie prefabs for charactor3
 
     private GameObject[] activeAlliePrefabs = {};//Allie units that been chosen in a game
     private GameObject[] activeEnemyPrefabs = {};//Enemy units that been chosen in a map
@@ -38,12 +38,12 @@ public class GameManager : MonoBehaviour
     private int mapType = -1;//Map chosen
 
     //Boundarys for maps
-    private float[] spawnRangeX = {12.0f, 12.0f, 12.0f};
-    private float[] spawnRangeZ = {6.0f, 6.0f, 6.0f};
-    private float[] outerBoundaryX = {43.0f, 43.0f, 43.0f};
-    private float[] outerBoundaryZ = {24.0f, 24.0f, 24.0f};
-    private float[] innerBoundaryX = {37.0f, 37.0f, 37.0f};
-    private float[] innerBoundaryZ = {16.0f, 16.0f, 16.0f};
+    private float[] spawnRangeX = {12.0f, 24.0f, 20.0f};
+    private float[] spawnRangeZ = {6.0f, 8.0f, 10.0f};
+    private float[] outerBoundaryX = {43.0f, 36.0f, 48.0f};
+    private float[] outerBoundaryZ = {24.0f, 23.0f, 32.0f};
+    private float[] innerBoundaryX = {37.0f, 31.0f, 22.0f};
+    private float[] innerBoundaryZ = {16.0f, 11.0f, 25.0f};
 
     //Enemy spawn in each wave, 5 waves and 4 types of enemy for each map.
     private int[][] activeEnemyWave = new int[5][];
@@ -103,13 +103,13 @@ public class GameManager : MonoBehaviour
         }
         switch(charactorType){
             case 0:
-                activeAlliePrefabs = forestAlliePrefabs;
+                activeAlliePrefabs = alliePrefabs_C1;
                 break;
             case 1:
-                activeAlliePrefabs = graveyAlliePrefabs;
+                activeAlliePrefabs = alliePrefabs_C2;
                 break;            
             case 2:
-                activeAlliePrefabs = castleAlliePrefabs;
+                activeAlliePrefabs = alliePrefabs_C3;
                 break;           
             default:
                 Debug.Log("Error in charactor choosing");
@@ -131,6 +131,9 @@ public class GameManager : MonoBehaviour
         {
             Vector3 clickPosition = ray.GetPoint(rayDistance);
             mousePointer.transform.position = clickPosition;
+
+            Debug.Log(clickPosition);
+
             //If the position can be placed, show green, othervise show red
             if(IsInAllowedRange(clickPosition)){
                 cycleMaterial.color = Color.green;
