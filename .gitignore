@@ -1,10 +1,8 @@
 /Project Vampire/Library
 /Project Vampire/Logs
 /Project Vampire/obj
+/Project Vampire/Assembly-CSharp-Editor.csproj
+/Project Vampire/Assembly-CSharp.csproj
+/Project Vampire/UserSettings
 .DS_Store
-Project Vampire/UserSettings/Layouts/default-2022.dwlt
-Project Vampire/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
-Project Vampire/Temp/__Backupscenes/0.backup
-Project Vampire/Logs/shadercompiler-AssetImportWorker0.log
-Project Vampire/Logs/AssetImportWorker1.log
-Project Vampire/Logs/AssetImportWorker0.log
+
