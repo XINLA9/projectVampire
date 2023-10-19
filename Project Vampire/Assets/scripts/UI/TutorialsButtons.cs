@@ -19,6 +19,13 @@ public class TutorialsButtons : MonoBehaviour
     {
         
     }
+
+    public void OnTutorialButtonClick(){
+  
+    Tutorial1Image.SetActive(true);
+
+    }
+
     public void OnTutorial1NextButtonClick(){
   
     Tutorial1Image.SetActive(false);
