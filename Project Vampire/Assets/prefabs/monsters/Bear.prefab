@@ -2218,6 +2218,7 @@ MonoBehaviour:
   acceleration: 13
   rotationSpeed: 2
   attack_interval: 0.8
+  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &5695360707978797210
@@ -2304,8 +2305,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4414349, y: 1.755083, z: 2.963211}
-  m_Center: {x: 0.011616707, y: 0.84220797, z: 0.15682602}
+  m_Size: {x: 1.1796741, y: 1.755083, z: 2.3175316}
+  m_Center: {x: 0.0028905869, y: 0.84220797, z: 0.23535347}
 --- !u!54 &8386880886509253310
 Rigidbody:
   m_ObjectHideFlags: 0
