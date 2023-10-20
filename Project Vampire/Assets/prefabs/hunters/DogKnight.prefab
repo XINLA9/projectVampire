@@ -2185,13 +2185,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 5
+  HP_max: 20
+  mana_max: 0
   attack_base: 5
   ap_damage_base: 0.5
   defense_base: 1.5
   force_base: 1
   mass_base: 0
   HP: 0
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 0
