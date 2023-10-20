@@ -28,7 +28,8 @@ public class Spawn_units : MonoBehaviour
             Vector3 spawnPosition = transform.position;
             for (int i = 0; i < spawn_number; i++)
             {
-                Instantiate(spawn_unit, spawnPosition, Quaternion.identity);
+                GameObject spawnedUnit = Instantiate(spawn_unit, spawnPosition, Quaternion.identity);
+                spawnedUnit.tag = gameObject.tag;
             }
             _attributes.mana -= manaCost;
             
