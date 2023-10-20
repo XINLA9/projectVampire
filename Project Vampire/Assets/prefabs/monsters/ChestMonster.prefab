@@ -163,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 3374143480701978135}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.257343, y: -0.099999666, z: 47.86877}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -206,12 +206,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 10
+  mana_max: 0
   attack_base: 1
-  ap_damage_base: 1
-  defense_base: 3
+  ap_damage_base: 30
+  defense_base: 1000
   force_base: 1
   mass_base: 1
   HP: 10
+  mana: 0
   attack: 1
   ap_damage: 0
   defense: 0
@@ -220,7 +222,7 @@ MonoBehaviour:
   maxSpeed: 2
   acceleration: 13
   rotationSpeed: 2
-  attack_interval: 0
+  attack_interval: 2
   attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
@@ -1028,15 +1030,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

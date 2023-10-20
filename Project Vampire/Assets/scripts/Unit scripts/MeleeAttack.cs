@@ -69,15 +69,14 @@ public class MeleeAttack : MonoBehaviour
 
         Vector3 back = enemy.transform.forward;
         back.y = 0;
-        back = back.normalized;
+        //back = back.normalized;
 
-        float pushDuration = 0.5f; 
-        float startTime = Time.time;
-        while (Time.time - startTime < pushDuration)
-        {
-            enemyRb.AddForce(- back * (_force / e_attributes.mass), ForceMode.VelocityChange);
-            yield return null;
-        }
+        //float pushDuration = 0.5f; 
+        //float startTime = Time.time;
+        //while (Time.time - startTime < pushDuration)
+        //{
+        //    yield return null;
+        //}
         yield return new WaitForSeconds(_attack_interval);
 
         _isAttacking = false;

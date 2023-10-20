@@ -82,6 +82,7 @@
     <Compile Include="Assets\scripts\AOE.cs" />
     <Compile Include="Assets\scripts\UI\TutorialsButtons.cs" />
     <Compile Include="Assets\scripts\Unit scripts\spell and abilities\Fire_ball.cs" />
+    <Compile Include="Assets\scripts\Unit scripts\Unit_UI\ManaBar.cs" />
     <Compile Include="Assets\store_library\Mini Simple Characters Skeleton Demo\Readme\Scripts\Readme.cs" />
     <Compile Include="Assets\scripts\UI\WeaponInfo.cs" />
     <Compile Include="Assets\scripts\UI\MoveCameraByKeyboard.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\scripts\Animotor_Scripts\DeathWizardQuitSpell.cs" />
     <Compile Include="Assets\scripts\Unit scripts\spell and abilities\War_Stomp.cs" />
     <Compile Include="Assets\UnityAssets\DizzyMedia\_Utilities\Camera\ExtendedFlycam.cs" />
+    <Compile Include="Assets\scripts\Unit scripts\spell and abilities\Spawn_units.cs" />
     <Compile Include="Assets\scripts\UI\CharacterMapButton.cs" />
     <Compile Include="Assets\scripts\Unit scripts\ShootingBullet.cs" />
     <Compile Include="Assets\scripts\Unit scripts\SummonDead.cs" />

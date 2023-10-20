@@ -1222,12 +1222,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 50
-  attack_base: 3
-  ap_damage_base: 4
+  mana_max: 0
+  attack_base: 10
+  ap_damage_base: 10
   defense_base: 2.26
   force_base: 1
   mass_base: 0
   HP: 0
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 0
@@ -1236,7 +1238,7 @@ MonoBehaviour:
   maxSpeed: 3
   acceleration: 13
   rotationSpeed: 2
-  attack_interval: 0.5
+  attack_interval: 3
   attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
