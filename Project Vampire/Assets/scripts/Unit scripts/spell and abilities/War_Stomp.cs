@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class War_Stomp : MonoBehaviour
 {
-    private Animator animator;
+    private Animator _animator;
+    private Attributes _attributes;
+    public float manaCost;
+    public float coolDown;
+    public float damage;
+    public float force;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
+        _attributes = GetComponent<Attributes>();
     }
 
     // Update is called once per frame

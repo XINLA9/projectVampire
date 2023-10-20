@@ -66,7 +66,7 @@ Transform:
   m_GameObject: {fileID: 488973148880883594}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.82597, y: -0.10000038, z: 46.12497}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,12 +157,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 25
+  mana_max: 0
   attack_base: 0
   ap_damage_base: 7
   defense_base: 0
   force_base: 1
   mass_base: 1
   HP: 0
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 0
@@ -171,7 +173,8 @@ MonoBehaviour:
   maxSpeed: 5
   acceleration: 13
   rotationSpeed: 2
-  attack_interval: 0
+  attack_interval: 2
+  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &3093809100972313575
