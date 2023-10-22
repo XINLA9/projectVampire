@@ -29,6 +29,7 @@ public class Die : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezePositionY;
             rb.isKinematic = true;
             _attributes.isDead = true;
+            _animator.SetBool("dead",true);
             _animator.SetTrigger("isDead");
             gameObject.tag = "Dead";
             int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");

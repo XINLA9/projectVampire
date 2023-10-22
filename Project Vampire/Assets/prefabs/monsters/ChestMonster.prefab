@@ -139,9 +139,9 @@ GameObject:
   m_Component:
   - component: {fileID: 393861310376563453}
   - component: {fileID: 6001130299355146742}
+  - component: {fileID: 2755222043984072183}
   - component: {fileID: 43797647575152494}
   - component: {fileID: 7497980538913194876}
-  - component: {fileID: 2755222043984072183}
   - component: {fileID: 8143862480870248440}
   - component: {fileID: 9009276880436026228}
   - component: {fileID: 4227415452247493526}
@@ -163,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 3374143480701978135}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.257343, y: -0.099999666, z: 47.86877}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,6 +193,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2755222043984072183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374143480701978135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP_max: 10
+  mana_max: 0
+  attack_base: 1
+  ap_damage_base: 30
+  defense_base: 1000
+  force_base: 1
+  mass_base: 1
+  HP: 10
+  mana: 0
+  attack: 1
+  ap_damage: 0
+  defense: 0
+  force: 1
+  mass: 0
+  maxSpeed: 2
+  acceleration: 13
+  rotationSpeed: 2
+  attack_interval: 2
+  attackRange: 0
+  isDead: 0
+  moveGoal: {fileID: 0}
 --- !u!65 &43797647575152494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -241,37 +274,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2755222043984072183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3374143480701978135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP_max: 10
-  attack_base: 0
-  ap_damage_base: 0
-  defense_base: 0
-  force_base: 0
-  mass_base: 0
-  HP: 10
-  attack: 1
-  ap_damage: 0
-  defense: 0
-  force: 1
-  mass: 0
-  maxSpeed: 0
-  acceleration: 0
-  rotationSpeed: 0
-  attack_interval: 0
-  attackRange: 0
-  isDead: 0
-  moveGoal: {fileID: 0}
 --- !u!114 &8143862480870248440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,15 +1030,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

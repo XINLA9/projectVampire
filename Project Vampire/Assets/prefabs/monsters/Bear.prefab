@@ -2160,7 +2160,7 @@ Transform:
   m_GameObject: {fileID: 9012056714206255872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.830454, y: -0.10000038, z: 47.624493}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2203,12 +2203,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 60
-  attack_base: 2
-  ap_damage_base: 4
+  mana_max: 0
+  attack_base: 4
+  ap_damage_base: 6
   defense_base: 1
   force_base: 0
   mass_base: 0
   HP: 0
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 0
@@ -2217,7 +2219,8 @@ MonoBehaviour:
   maxSpeed: 3.2
   acceleration: 13
   rotationSpeed: 2
-  attack_interval: 0.8
+  attack_interval: 1.34
+  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &5695360707978797210
@@ -2304,8 +2307,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4414349, y: 1.755083, z: 2.963211}
-  m_Center: {x: 0.011616707, y: 0.84220797, z: 0.15682602}
+  m_Size: {x: 1.1796741, y: 1.755083, z: 2.3175316}
+  m_Center: {x: 0.0028905869, y: 0.84220797, z: 0.23535347}
 --- !u!54 &8386880886509253310
 Rigidbody:
   m_ObjectHideFlags: 0

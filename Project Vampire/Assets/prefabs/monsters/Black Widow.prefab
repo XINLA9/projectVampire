@@ -913,6 +913,7 @@ GameObject:
   - component: {fileID: 5686291083823698488}
   - component: {fileID: 9027441067701470632}
   - component: {fileID: 6282206614675533973}
+  - component: {fileID: 3830994309180040275}
   m_Layer: 0
   m_Name: Black Widow
   m_TagString: monster
@@ -929,7 +930,7 @@ Transform:
   m_GameObject: {fileID: 3414900401335737387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.34236}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -978,12 +979,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 50
+  mana_max: 20
   attack_base: 2
   ap_damage_base: 2
   defense_base: 2
   force_base: 1
   mass_base: 0
   HP: 0
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 0
@@ -992,7 +995,8 @@ MonoBehaviour:
   maxSpeed: 1.3
   acceleration: 13
   rotationSpeed: 2
-  attack_interval: 0.5
+  attack_interval: 2
+  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &3186821922622376202
@@ -1079,8 +1083,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2424018, y: 1.8039072, z: 2.936685}
-  m_Center: {x: -0.018270612, y: 0.84044826, z: -0.18270618}
+  m_Size: {x: 1.072124, y: 1.8039072, z: 2.29492}
+  m_Center: {x: -0.011978865, y: 0.84044826, z: 0.08784193}
 --- !u!54 &6282206614675533973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1108,6 +1112,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3830994309180040275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414900401335737387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce38332a13bb7b54c88f985d757fa8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn_unit: {fileID: 4661876411490346980, guid: 9030cad437400b14aa48108c42787920, type: 3}
+  spawn_number: 2
+  manaCost: 10
 --- !u!1 &3431287187397060655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,13 +3204,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8619121143714488317}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7072302, z: -0.7069834, w: 0}
+  m_LocalRotation: {x: 0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 0, y: -0.010850857, z: -2.18}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6905513439961043730}
-  m_LocalEulerAnglesHint: {x: 89.98, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!137 &7195194137318738819
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
