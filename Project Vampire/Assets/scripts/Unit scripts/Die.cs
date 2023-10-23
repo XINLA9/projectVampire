@@ -8,6 +8,7 @@ public class Die : MonoBehaviour
     private Animator _animator;
     private bool _isDead;
     private float _HP;
+    public bool isSkeleton; 
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,7 @@ public class Die : MonoBehaviour
     {
         _HP = _attributes.HP;
         _isDead = _attributes.isDead;  
-        bool isSkeleton = gameObject.name == "Big_Skeleton";
-        if (_HP <= 0 && !_isDead && !isSkeleton)
+        if (_HP <= 0 && !_isDead)
         {
             Collider BC = gameObject.GetComponent<Collider>();
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
@@ -34,10 +34,15 @@ public class Die : MonoBehaviour
             gameObject.tag = "Dead";
             int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");
             gameObject.layer = LayerIgnoreRaycast;
+            if (isSkeleton) {
+                StartCoroutine(DestorySkeleton());
+            }
         }
-        if (_HP <= 0 && !_isDead && isSkeleton) {
-            Destroy(gameObject);
-        }
+    }
+
+    IEnumerator DestorySkeleton() {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
     public void OnDeathAnimationEnd()
     {

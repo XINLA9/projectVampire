@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 5355828378403939567}
   - component: {fileID: 8079064125381627516}
   - component: {fileID: 4157145518474195031}
+  - component: {fileID: 26387090485015913}
   m_Layer: 0
   m_Name: Death_Wizard
   m_TagString: hunter
@@ -518,9 +519,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 993010969779785875, guid: 0e269d1eec9ea8f47af793aa21ce6214, type: 3}
+  attentionRange: 10
   attackRange: 10
-  rotationSpeed: 270
   nearestEnemy: {fileID: 0}
+  targetEnemy: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
     m_Bits: 8
@@ -528,6 +530,7 @@ MonoBehaviour:
   distanceTol: 1
   attackCoolDown: 2
   moveAway: {x: 0, y: 0, z: 0}
+  moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
 --- !u!114 &5355828378403939567
 MonoBehaviour:
@@ -562,12 +565,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 30
+  mana_max: 0
   attack_base: 0
   ap_damage_base: 0
   defense_base: 0
   force_base: 0
   mass_base: 0
   HP: 30
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 3
@@ -607,6 +612,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &26387090485015913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949341009844693329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbabd081c80b4c4ebfa7a42a9f9ab0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2222023715416765995
 GameObject:
   m_ObjectHideFlags: 0

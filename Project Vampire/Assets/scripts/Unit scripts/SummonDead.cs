@@ -57,13 +57,16 @@ public class SummonDead : MonoBehaviour
         Collider[] deads = Physics.OverlapSphere(transform.position, summonRange, deadUnits);
         Debug.Log("Here is the number of deads" + deads.Length);
         foreach (Collider dead in deads) {
-            var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
+            Die dieState = dead.gameObject.GetComponent<Die>();
+            if (!dieState.isSkeleton) {
+                var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
             ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
             summonEffect.Play();
             GameObject body = newSkeleton.transform.GetChild(1).gameObject;
             StartCoroutine(RevealBody(body));
             Destroy(dead.gameObject);
             // TODO:Need to bounce back any gameObject near the summoning area
+            }
         }
     }
 
