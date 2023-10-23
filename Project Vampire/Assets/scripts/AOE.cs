@@ -15,7 +15,6 @@ public class AOE : MonoBehaviour
     public bool speedUp;
     public float speedUpRate;
     public bool trapped;
-    public int trappedSeconds;
     private Dictionary<string, Vector3> speedDictionary = new Dictionary<string, Vector3>();
     public LayerMask allUnits;
     public Collider[] colliders;
