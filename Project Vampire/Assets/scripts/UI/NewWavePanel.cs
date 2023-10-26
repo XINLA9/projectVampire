@@ -7,8 +7,7 @@ public class NewWavePanel : MonoBehaviour
 {
 
     //UI components
-    public GameObject addNumberButton;
-    public GameObject addWeaponButton;
+
     public GameObject addNumberObject;
     public GameObject addWeaponObject;
     public GameManager gameManager; //reference to GameManager script
@@ -71,27 +70,6 @@ public class NewWavePanel : MonoBehaviour
                 Debug.Log("Error in charactor choosing");
                 break;
         }
-
-    }
-
-    public void OnAddNumberButtonClick(){
-
-        //hide the buttons
-        addNumberButton.SetActive(false);
-        addWeaponButton.SetActive(false);
-        //show the target objetcs
-        addNumberObject.SetActive(true);
-
-    }
-
-    public void OnAddWeaponButtonClick(){
-
-        //hide the buttons
-        addNumberButton.SetActive(false);
-        addWeaponButton.SetActive(false);
-   
-        //show the target objetcs
-        addWeaponObject.SetActive(true);
 
     }
 

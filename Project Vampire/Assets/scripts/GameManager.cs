@@ -258,8 +258,11 @@ public class GameManager : MonoBehaviour
         if (numberOfLivingEnemies == 0)
         {
             isGameActive = false;
+
             if(waveNum <= 5){
                 selectionPanel.SetActive(true);
+                BlackWindownSideImage.SetActive(false);
+                OrkImage.SetActive(false);
             }
             else{
             playingInterfaces.showLoseScreen();
