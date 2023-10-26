@@ -10,6 +10,7 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject HowToPlayImage;// Instruction Image
     public GameObject ForestMap;//Map_1
     public GameObject GraveyYardMap;//Map_2
     public GameObject CastleMap;//Map_3
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
         switch(mapType){
             case 0:
                 ForestMap.SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = forestEnemyPrefabs;
                 activeEnemyWave = enemyInForestWave;
                 break;
