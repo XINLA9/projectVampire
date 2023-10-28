@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SkeletonLogic : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SkeletonLogic : MonoBehaviour
     private bool EnemyAround = false;
     private GameObject nearestEnemy;
     private bool attackCD = false;
+    private NavMeshAgent navAgent;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class SkeletonLogic : MonoBehaviour
         attributes = GetComponent<Attributes>();
         skeletonAnim = GetComponent<Animator>();
         nearestEnemy = null;
+        navAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -60,10 +63,7 @@ public class SkeletonLogic : MonoBehaviour
 
     void RushToFight() {
         skeletonAnim.SetTrigger("hasEnemy");
-        Vector3 moveDir = (nearestEnemy.transform.position - transform.position).normalized;
-        enemyRb.AddForce(moveDir * attributes.maxSpeed);
-        Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
+        navAgent.destination = nearestEnemy.transform.position;
     }
 
     void Attack() {
