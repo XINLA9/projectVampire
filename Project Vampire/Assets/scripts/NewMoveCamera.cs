@@ -15,7 +15,7 @@ public class CameraFollowMouse : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
 
         // Define a threshold for the screen edges (in pixels) where camera movement will start.
-        int edgeThreshold = 20; // Adjust this value as needed.
+        int edgeThreshold = 10; // Adjust this value as needed.
 
         // Get the screen dimensions in pixels.
         int screenWidth = Screen.width;

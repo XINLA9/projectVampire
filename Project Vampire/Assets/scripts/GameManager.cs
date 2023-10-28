@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -164,7 +165,7 @@ public class GameManager : MonoBehaviour
                 cycleMaterial.color = Color.red;
             }
             //Spawn a allie unit
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 if(allieNo < 0){
                     Debug.Log("Press number button to choose a unit before placing it!");
@@ -339,8 +340,10 @@ public class GameManager : MonoBehaviour
     public int getEnemyRemain(){
         return enemyRemain;
     }
-
     public Sprite[] getAllieProfolios(){
         return activeAllieProfolios;
+    }
+    public void setAllieNo(int number){
+        this.allieNo = number;
     }
 }
