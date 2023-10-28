@@ -15,7 +15,7 @@ public class Move : MonoBehaviour
     private float _mapBound = 50.0f;
     private bool _isDead;
 
-    public float speed;
+    public float current_speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +31,9 @@ public class Move : MonoBehaviour
     {
         _isDead = _attributes.isDead;
         _moveGoal = _attributes.moveGoal;
-        _acceleration = _attributes.acceleration;
-        speed = _rb.velocity.magnitude;
-        _animator.SetFloat("speed", speed);
+        current_speed = _agent.velocity.magnitude;
+
+        _animator.SetFloat("speed", current_speed);
 
         if (!_isDead && _moveGoal != null)
         {
@@ -41,7 +41,7 @@ public class Move : MonoBehaviour
             _agent.speed = _attributes.maxSpeed;
             _agent.acceleration = _attributes.acceleration;
         }
-        else
+        else if (!_isDead && _moveGoal == null)
         {
             _agent.speed = 0;
         }

@@ -37,7 +37,7 @@ public class NavMove : MonoBehaviour
         _moveGoal = _attributes.moveGoal;
         _acceleration = _attributes.acceleration;
         speed = _rb.velocity.magnitude;
-        _animator.SetFloat("speed", speed);
+        _animator.SetFloat("current_speed", speed);
 
         if (!_isDead && _moveGoal != null)
         {

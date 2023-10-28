@@ -13,7 +13,7 @@ public class OldMoveCamera : MonoBehaviour
         // Calculate the movement vector
         Vector3 moveDirection = new Vector3(-horizontalInput, 0.0f, -verticalInput); // Lock Y-axis to 0.0f
 
-        // Normalize the vector to maintain constant speed when moving diagonally
+        // Normalize the vector to maintain constant current_speed when moving diagonally
         moveDirection.Normalize();
 
         // Move the camera based on input, preserving Y position
