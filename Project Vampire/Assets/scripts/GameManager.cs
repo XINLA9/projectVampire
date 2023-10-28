@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] alliePrefabs_C2;//allie prefabs for charactor2
     public GameObject[] alliePrefabs_C3;//allie prefabs for charactor3
 
+    public Sprite[] allieProfolios_C1;//
+
+
+    private Sprite[] activeAllieProfolios = {};
     private GameObject[] activeAlliePrefabs = {};//Allie units that been chosen in a game
     private GameObject[] activeEnemyPrefabs = {};//Enemy units that been chosen in a map
     private int enemyVar = 4;//The number of type for enemy
@@ -108,12 +112,15 @@ public class GameManager : MonoBehaviour
         switch(charactorType){
             case 0:
                 activeAlliePrefabs = alliePrefabs_C1;
+                activeAllieProfolios = allieProfolios_C1;
                 break;
             case 1:
                 activeAlliePrefabs = alliePrefabs_C2;
+                activeAllieProfolios = allieProfolios_C1;
                 break;            
             case 2:
                 activeAlliePrefabs = alliePrefabs_C3;
+                activeAllieProfolios = allieProfolios_C1;
                 break;           
             default:
                 Debug.Log("Error in charactor choosing");
@@ -309,5 +316,9 @@ public class GameManager : MonoBehaviour
     }
     public int getEnemyRemain(){
         return enemyRemain;
+    }
+
+    public Sprite[] getAllieProfolios(){
+        return activeAllieProfolios;
     }
 }
