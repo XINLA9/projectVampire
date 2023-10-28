@@ -146,7 +146,8 @@ GameObject:
   - component: {fileID: 9009276880436026228}
   - component: {fileID: 4227415452247493526}
   - component: {fileID: 8932967340697710215}
-  - component: {fileID: 4641634062238367542}
+  - component: {fileID: 9102252168625899506}
+  - component: {fileID: 3534375342536703608}
   m_Layer: 0
   m_Name: ChestMonster
   m_TagString: monster
@@ -220,8 +221,8 @@ MonoBehaviour:
   force: 1
   mass: 0
   maxSpeed: 2
-  acceleration: 13
-  rotationSpeed: 2
+  acceleration: 8
+  rotationSpeed: 120
   attack_interval: 2
   attackRange: 0
   isDead: 0
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbabd081c80b4c4ebfa7a42a9f9ab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkeleton: 0
 --- !u!114 &9009276880436026228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +328,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveGoal: {fileID: 0}
   speed: 0
---- !u!114 &4641634062238367542
+--- !u!195 &9102252168625899506
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374143480701978135}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &3534375342536703608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1043,6 +1067,14 @@ PrefabInstance:
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

@@ -1148,7 +1148,8 @@ GameObject:
   - component: {fileID: 455892356765697266}
   - component: {fileID: 5767666006098061593}
   - component: {fileID: 2643679665517122481}
-  - component: {fileID: 1005792764421651961}
+  - component: {fileID: 949840309208620401}
+  - component: {fileID: 1365130067300091028}
   m_Layer: 3
   m_Name: BlueDargon
   m_TagString: monster
@@ -1236,8 +1237,8 @@ MonoBehaviour:
   force: 0
   mass: 0
   maxSpeed: 3
-  acceleration: 13
-  rotationSpeed: 2
+  acceleration: 8
+  rotationSpeed: 120
   attack_interval: 3
   attackRange: 0
   isDead: 0
@@ -1254,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbabd081c80b4c4ebfa7a42a9f9ab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkeleton: 0
 --- !u!114 &6034382419780189591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,7 +1330,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.94834, y: 4, z: 5.4600167}
   m_Center: {x: -0.045329727, y: 2, z: 0.16213039}
---- !u!114 &1005792764421651961
+--- !u!114 &949840309208620401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1340,7 +1342,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20393a723ed53142baf5e2e5ab3889e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 549783241595449515}
+  uiElement: {fileID: 0}
+--- !u!195 &1365130067300091028
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688219866204652566}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4140918018494916395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,6 +2351,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2412,11 +2444,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
---- !u!1 &549783241595449515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
-  m_PrefabInstance: {fileID: 4711654659211908696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3911401764412589754 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}

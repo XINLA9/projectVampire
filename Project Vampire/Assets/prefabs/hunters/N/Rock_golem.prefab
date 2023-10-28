@@ -306,10 +306,11 @@ GameObject:
   - component: {fileID: 7703923910898434732}
   - component: {fileID: 3683835237002389457}
   - component: {fileID: 8969603918932605500}
-  - component: {fileID: 925644155783709841}
+  - component: {fileID: 4293264272317823909}
+  - component: {fileID: 5046534860092760786}
   m_Layer: 0
   m_Name: Rock_golem
-  m_TagString: Untagged
+  m_TagString: hunter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,8 +362,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2639497554028791361}
   serializedVersion: 4
-  m_Mass: 200
-  m_Drag: 0
+  m_Mass: 2000
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -399,8 +400,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5933189, y: 4.178705, z: 1.5523987}
-  m_Center: {x: 0.03068924, y: 2.0600805, z: 0.13298416}
+  m_Size: {x: 3.6438966, y: 4.178705, z: 1.5523987}
+  m_Center: {x: 0.021925986, y: 2.0600805, z: 0.13298416}
 --- !u!114 &4278731525503365610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,9 +428,9 @@ MonoBehaviour:
   defense: 0
   force: 0
   mass: 100
-  maxSpeed: 0.38
-  acceleration: 13
-  rotationSpeed: 3
+  maxSpeed: 1
+  acceleration: 8
+  rotationSpeed: 120
   attack_interval: 4
   attackRange: 0
   isDead: 0
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbabd081c80b4c4ebfa7a42a9f9ab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkeleton: 0
 --- !u!114 &7703923910898434732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveGoal: {fileID: 0}
   speed: 0
---- !u!114 &925644155783709841
+--- !u!114 &4293264272317823909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,6 +501,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 0}
+--- !u!195 &5046534860092760786
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639497554028791361}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.7
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2752214579420823889
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1001,14 @@ PrefabInstance:
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x
