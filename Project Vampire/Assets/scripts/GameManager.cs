@@ -10,6 +10,9 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject HowToPlayImage;// Instruction Image
+    public GameObject BlackWindownSideImage;
+    public GameObject OrkImage;
     public GameObject ForestMap;//Map_1
     public GameObject GraveyYardMap;//Map_2
     public GameObject CastleMap;//Map_3
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
     private int enemyRemain;//The number of remaining enemys
     private int allieNo = -1;//units that been currently chosen
     private bool isGameActive = false;//Game active flag
-    private int waveNum = 0;//current wave number
+    public int waveNum = 0;//current wave number
     public int charactorType = -1;//Charactor chosen
     private int mapType = -1;//Map chosen
 
@@ -84,6 +87,7 @@ public class GameManager : MonoBehaviour
         switch(mapType){
             case 0:
                 ForestMap.SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = forestEnemyPrefabs;
                 activeEnemyWave = enemyInForestWave;
                 break;
@@ -162,6 +166,7 @@ public class GameManager : MonoBehaviour
             {
                 allieNo = i - 1;
                 playingInterfaces.setRed(i);
+                playingInterfaces.setAllyUnitInfoActive(i);
             }
         }
         //Check if the wave ends and update the UI
@@ -186,7 +191,8 @@ public class GameManager : MonoBehaviour
     void SpawnEnemy()
     {
         for (int i = 0; i < enemyVar; i++){
-            for (int j = 0; j < activeEnemyWave[waveNum][j]; j++){
+            for (int j = 0; j < activeEnemyWave[waveNum - 1][i]; j++){
+                Debug.Log("Enemy" + j + ": " + activeEnemyWave[waveNum - 1][i]);
                 GameObject Enemy = Instantiate(activeEnemyPrefabs[i], GenerateSpawnPosition(), activeEnemyPrefabs[i].transform.rotation);
                 Enemy.tag = "hunter";
             }
@@ -252,12 +258,14 @@ public class GameManager : MonoBehaviour
         if (numberOfLivingEnemies == 0)
         {
             isGameActive = false;
-            if(waveNum <= 5){
+
+            if(waveNum <= 4){
                 selectionPanel.SetActive(true);
+                BlackWindownSideImage.SetActive(false);
+                OrkImage.SetActive(false);
             }
             else{
-            playingInterfaces.showLoseScreen();
-
+                playingInterfaces.showWinScreen();
             }
         }
     }

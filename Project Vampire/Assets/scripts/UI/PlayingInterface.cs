@@ -54,4 +54,23 @@ public class PlayingInterfaces : MonoBehaviour
         }
         allieText[i].color = new Color(1.0f, 0.0f, 0.0f);
     }
+
+        public void setAllyUnitInfoActive(int i){
+            switch(i){
+
+                case 1:
+                    gameManager.OrkImage.SetActive(true);
+                    gameManager.BlackWindownSideImage.SetActive(false);
+                    break;
+
+                case 2:
+                    gameManager.BlackWindownSideImage.SetActive(true);
+                    gameManager.OrkImage.SetActive(false);
+                    break;
+                default:
+                    Debug.Log("Error in charactor choosing");
+                    break;
+            }
+  
+    }
 }
