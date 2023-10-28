@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 5046534860092760786}
   m_Layer: 0
   m_Name: Rock_golem
-  m_TagString: hunter
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,6 +421,9 @@ MonoBehaviour:
   defense_base: 5
   force_base: 20
   mass_base: 100
+  unitsName: n
+  description: d
+  profolio: {fileID: 0}
   HP: 0
   mana: 0
   attack: 0
@@ -448,6 +451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 0
+  isWizard: 0
+  isDeadWizard: 0
 --- !u!114 &7703923910898434732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveGoal: {fileID: 0}
-  speed: 0
+  current_speed: 0
 --- !u!114 &4293264272317823909
 MonoBehaviour:
   m_ObjectHideFlags: 0

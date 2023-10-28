@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveGoal: {fileID: 0}
-  speed: 0
+  current_speed: 0
 --- !u!54 &8248675789982207339
 Rigidbody:
   m_ObjectHideFlags: 0

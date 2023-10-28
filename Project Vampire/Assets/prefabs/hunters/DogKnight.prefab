@@ -2193,6 +2193,9 @@ MonoBehaviour:
   defense_base: 1.5
   force_base: 1
   mass_base: 0
+  unitsName: n
+  description: d
+  profolio: {fileID: 0}
   HP: 0
   mana: 0
   attack: 0
@@ -2220,6 +2223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 0
+  isWizard: 0
+  isDeadWizard: 0
 --- !u!114 &6773891110820918150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2233,7 +2238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveGoal: {fileID: 0}
-  speed: 0
+  current_speed: 0
 --- !u!114 &3008020064973354920
 MonoBehaviour:
   m_ObjectHideFlags: 0

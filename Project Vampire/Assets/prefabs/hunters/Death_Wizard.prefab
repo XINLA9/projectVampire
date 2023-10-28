@@ -536,6 +536,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
   isPriest: 0
+  healingCircle: {fileID: 0}
 --- !u!114 &5355828378403939567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +578,7 @@ MonoBehaviour:
   mass_base: 0
   unitsName: n
   description: d
+  profolio: {fileID: 0}
   HP: 30
   mana: 0
   attack: 0

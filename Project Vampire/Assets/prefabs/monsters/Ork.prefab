@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveGoal: {fileID: 0}
-  speed: 0
+  current_speed: 0
 --- !u!114 &6816186752012773960
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1164,6 +1164,7 @@ MonoBehaviour:
   mass_base: 0
   unitsName: n
   description: d
+  profolio: {fileID: 0}
   HP: 45
   mana: 0
   attack: 0
@@ -1207,6 +1208,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
   isPriest: 1
+  healingCircle: {fileID: 0}
 --- !u!195 &6911343386405067141
 NavMeshAgent:
   m_ObjectHideFlags: 0

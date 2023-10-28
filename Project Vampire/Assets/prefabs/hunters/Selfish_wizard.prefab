@@ -2584,15 +2584,19 @@ MonoBehaviour:
   attackRange: 10
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
+  injuredAlly: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
     m_Bits: 8
   shootCoolDown: 1
   distanceTol: 1
   attackCoolDown: 2
+  healingRange: 15
   moveAway: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
+  isPriest: 0
+  healingCircle: {fileID: 0}
 --- !u!54 &2600761200355170991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2641,6 +2645,7 @@ MonoBehaviour:
   mass_base: 0
   unitsName: n
   description: d
+  profolio: {fileID: 0}
   HP: 25
   mana: 0
   attack: 0
