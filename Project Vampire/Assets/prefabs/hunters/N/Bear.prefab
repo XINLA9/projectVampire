@@ -2210,6 +2210,8 @@ MonoBehaviour:
   defense_base: 1
   force_base: 0
   mass_base: 0
+  unitsName: bear
+  description: bear
   HP: 0
   mana: 0
   attack: 0
