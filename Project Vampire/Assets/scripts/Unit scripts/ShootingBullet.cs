@@ -105,6 +105,7 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootNearestEnemy() {
         if (nearestEnemy != null) {
+            navAgent.destination = transform.position;
             enemyRb.velocity = Vector3.zero;
             moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;
