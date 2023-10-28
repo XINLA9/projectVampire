@@ -150,7 +150,8 @@ public class GameManager : MonoBehaviour
         float rayDistance;
         if (groundPlane.Raycast(ray, out rayDistance))
         {
-            Vector3 clickPosition = ray.GetPoint(rayDistance);
+            if(isGameActive){
+                Vector3 clickPosition = ray.GetPoint(rayDistance);
             mousePointer.transform.position = clickPosition;
 
             // Debug.Log(clickPosition);
@@ -179,6 +180,7 @@ public class GameManager : MonoBehaviour
                         StartCoroutine(ShowBoundaryWarning());
                     }
                 }
+            }
             }
         }
         //Choose the type of the allie unit to be placed
