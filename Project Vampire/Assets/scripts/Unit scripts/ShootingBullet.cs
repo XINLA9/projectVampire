@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShootingBullet : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class ShootingBullet : MonoBehaviour
     public Vector3 moveAway;
     public Vector3 moveDir;
     public bool aggressive = false;
+    private NavMeshAgent navAgent;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class ShootingBullet : MonoBehaviour
         enemyRb = GetComponent<Rigidbody>();
         shooterAnim = GetComponent<Animator>();
         attributes = GetComponent<Attributes>();
+        navAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -71,10 +74,11 @@ public class ShootingBullet : MonoBehaviour
         }
         if (targetEnemy != null) {
             shooterAnim.SetTrigger("Desire_enemy");
+            navAgent.destination = targetEnemy.transform.position;
+            navAgent.stoppingDistance = attackRange;
             moveDir = (targetEnemy.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
-            enemyRb.AddForce(moveDir * attributes.maxSpeed);
         }
     }
     private void FindNearestEnemy()
@@ -101,6 +105,7 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootNearestEnemy() {
         if (nearestEnemy != null) {
+            navAgent.destination = transform.position;
             enemyRb.velocity = Vector3.zero;
             moveAway = (transform.position - nearestEnemy.transform.position).normalized;
             Vector3 shootDir = (nearestEnemy.transform.position - transform.position).normalized;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SummonDead : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class SummonDead : MonoBehaviour
     private ParticleSystem magicCircle;
     public LayerMask deadUnits;
     public GameObject skeleton_1;
+    private NavMeshAgent navAgent;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class SummonDead : MonoBehaviour
         nearestDead = null;
         magicCircle = transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
         magicCircle.Stop();
+        navAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -60,11 +63,11 @@ public class SummonDead : MonoBehaviour
             Die dieState = dead.gameObject.GetComponent<Die>();
             if (!dieState.isSkeleton) {
                 var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
-            ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-            summonEffect.Play();
-            GameObject body = newSkeleton.transform.GetChild(1).gameObject;
-            StartCoroutine(RevealBody(body));
-            Destroy(dead.gameObject);
+                ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+                summonEffect.Play();
+                GameObject body = newSkeleton.transform.GetChild(1).gameObject;
+                StartCoroutine(RevealBody(body));
+                Destroy(dead.gameObject);
             // TODO:Need to bounce back any gameObject near the summoning area
             }
         }
@@ -94,7 +97,8 @@ public class SummonDead : MonoBehaviour
             Vector3 moveDir = (nearestDead.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
-            enemyRb.AddForce(moveDir * attributes.maxSpeed);
+            navAgent.destination = nearestDead.transform.position;
+            navAgent.stoppingDistance = summonRange;
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attributes : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Attributes : MonoBehaviour
     public float mass_base;
     public string unitsName = "n";
     public string description = "d";
+
+    public Sprite profolio;
 
     // Current Attributes
     public float HP;

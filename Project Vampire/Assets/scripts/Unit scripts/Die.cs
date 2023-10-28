@@ -9,6 +9,8 @@ public class Die : MonoBehaviour
     private bool _isDead;
     private float _HP;
     public bool isSkeleton; 
+    public bool isWizard;
+    public bool isDeadWizard;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,15 @@ public class Die : MonoBehaviour
         _HP = _attributes.HP;
         _isDead = _attributes.isDead;  
         if (_HP <= 0 && !_isDead)
-        {
+        {   
+            if (isWizard) {
+                ShootingBullet SB = GetComponent<ShootingBullet>();
+                SB.enabled = false;
+            }
+            if (isDeadWizard) {
+                SummonDead SD = GetComponent<SummonDead>();
+                SD.enabled = false;
+            }
             Collider BC = gameObject.GetComponent<Collider>();
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             BC.isTrigger = true;

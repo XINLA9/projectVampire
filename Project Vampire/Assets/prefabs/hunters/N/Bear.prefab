@@ -2212,6 +2212,7 @@ MonoBehaviour:
   mass_base: 0
   unitsName: bear
   description: bear
+  profolio: {fileID: 21300000, guid: 0c190dc10b27841d09190a9d60fc4486, type: 3}
   HP: 0
   mana: 0
   attack: 0
@@ -2239,6 +2240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 0
+  isWizard: 0
+  isDeadWizard: 0
 --- !u!114 &7163892973977163066
 MonoBehaviour:
   m_ObjectHideFlags: 0

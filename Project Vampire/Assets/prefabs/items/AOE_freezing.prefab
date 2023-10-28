@@ -59,7 +59,6 @@ MonoBehaviour:
   speedUp: 0
   speedUpRate: 0
   trapped: 0
-  trappedSeconds: 0
   allUnits:
     serializedVersion: 2
     m_Bits: 8
@@ -395,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986504087968017091, guid: 12a56ee4630040c4eb17ae9707ed4cef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8037160467862551414, guid: 12a56ee4630040c4eb17ae9707ed4cef, type: 3}
       propertyPath: m_LocalPosition.x

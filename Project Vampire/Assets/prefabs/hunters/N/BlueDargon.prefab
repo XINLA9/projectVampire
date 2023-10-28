@@ -1229,6 +1229,9 @@ MonoBehaviour:
   defense_base: 2.26
   force_base: 1
   mass_base: 0
+  unitsName: n
+  description: d
+  profolio: {fileID: 21300000, guid: e3871d5b2ab8d4cfc889d43b514284a4, type: 3}
   HP: 0
   mana: 0
   attack: 0
@@ -1256,6 +1259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 0
+  isWizard: 0
+  isDeadWizard: 0
 --- !u!114 &6034382419780189591
 MonoBehaviour:
   m_ObjectHideFlags: 0
