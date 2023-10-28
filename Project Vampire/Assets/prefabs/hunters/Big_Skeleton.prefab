@@ -1111,6 +1111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 1
+  isWizard: 0
+  isDeadWizard: 0
 --- !u!114 &1908365004256318281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,8 +1204,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.2531931, z: 0.8881264}
-  m_Center: {x: 0, y: 1.0568849, z: 0.055936813}
+  m_Size: {x: 1, y: 2.1982923, z: 0.8881264}
+  m_Center: {x: 0, y: 1.0843353, z: 0.055936813}
 --- !u!1 &2381382224148930164
 GameObject:
   m_ObjectHideFlags: 0
