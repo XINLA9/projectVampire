@@ -11,12 +11,12 @@ public class OldMoveCamera : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // Calculate the movement vector
-        Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0.0f);
+        Vector3 moveDirection = new Vector3(-horizontalInput, 0.0f, -verticalInput); // Lock Y-axis to 0.0f
 
         // Normalize the vector to maintain constant speed when moving diagonally
         moveDirection.Normalize();
 
-        // Move the camera based on input
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        // Move the camera based on input, preserving Y position
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
     }
 }
