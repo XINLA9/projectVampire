@@ -32,6 +32,8 @@ public class Die : MonoBehaviour
             _animator.SetBool("dead",true);
             _animator.SetTrigger("isDead");
             gameObject.tag = "Dead";
+            GameObject uiElement = gameObject.transform.GetChild(0).gameObject;
+            uiElement.SetActive(false);
             int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");
             gameObject.layer = LayerIgnoreRaycast;
             if (isSkeleton) {

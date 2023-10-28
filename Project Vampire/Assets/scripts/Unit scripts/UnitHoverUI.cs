@@ -9,18 +9,18 @@ public class UnitHoverUI : MonoBehaviour
     private void Start()
     {
         uiElement = gameObject.transform.GetChild(0).gameObject;
-        uiElement.SetActive(false);
-    }
-
-    private void OnMouseEnter()
-    {
         uiElement.SetActive(true);
     }
 
-    private void OnMouseExit()
-    {
-        uiElement.SetActive(false);
-    }
+    //private void OnMouseEnter()
+    //{
+    //    uiElement.SetActive(true);
+    //}
+
+    //private void OnMouseExit()
+    //{
+    //    uiElement.SetActive(false);
+    //}
 
     
 }

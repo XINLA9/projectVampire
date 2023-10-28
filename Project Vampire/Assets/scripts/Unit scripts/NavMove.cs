@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
-public class Move : MonoBehaviour
+public class NavMove : MonoBehaviour
 {
     private Attributes _attributes;
     private Animator _animator;
     private Rigidbody _rb;
     public GameObject _moveGoal = null;
     private NavMeshAgent _agent;
+    private float _maxSpeed;
     private float _acceleration;
+    private float _rotationSpeed;
     private float _mapBound = 50.0f;
     private bool _isDead;
 
@@ -23,6 +25,8 @@ public class Move : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         // Get necessary attributes from the object attribute script
+        _maxSpeed = _attributes.maxSpeed;
+        _rotationSpeed = _attributes.rotationSpeed;
         _agent = GetComponent<NavMeshAgent>();
     }
 
@@ -53,11 +57,12 @@ public class Move : MonoBehaviour
         {
             _animator.SetBool("noEnemy", false);
         }
-
+        
     }
-
+    
     private void OnCollisionStay(Collision other)
     {
+        string alleyTag;
         string enemyTag;
         if (gameObject.tag == "hunter")
         {
@@ -72,4 +77,6 @@ public class Move : MonoBehaviour
             _agent.speed = _attributes.maxSpeed / 10;
         }
     }
+    
 }
+
