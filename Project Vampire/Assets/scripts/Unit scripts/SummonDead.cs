@@ -58,7 +58,6 @@ public class SummonDead : MonoBehaviour
     IEnumerator convertDeadToSkeleton() {
         yield return new WaitForSeconds(2);
         Collider[] deads = Physics.OverlapSphere(transform.position, summonRange, deadUnits);
-        Debug.Log("Here is the number of deads" + deads.Length);
         foreach (Collider dead in deads) {
             Die dieState = dead.gameObject.GetComponent<Die>();
             if (!dieState.isSkeleton) {

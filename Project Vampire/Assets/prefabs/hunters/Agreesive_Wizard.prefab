@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 4463091176235849784}
   - component: {fileID: 6571363851777507956}
   - component: {fileID: 1655971687810732236}
+  - component: {fileID: 7294283860074860774}
   m_Layer: 7
   m_Name: Agreesive_Wizard
   m_TagString: hunter
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 30
-  mana_max: 0
+  mana_max: 60
   attack_base: 0
   ap_damage_base: 0
   defense_base: 0
@@ -480,7 +481,7 @@ MonoBehaviour:
   unitsName: n
   description: d
   HP: 10
-  mana: 0
+  mana: 30
   attack: 0
   ap_damage: 0
   defense: 0
@@ -530,6 +531,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7294283860074860774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180552009572623758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c891ce771fc894bae1752c477a319b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AOE: {fileID: 8874371455486762562, guid: 50937b0d49c6e2740bd0d3d7324b847c, type: 3}
 --- !u!1 &5350031833080153327
 GameObject:
   m_ObjectHideFlags: 0

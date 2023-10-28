@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelfishWizardAttack : StateMachineBehaviour
+public class PriestResetTri : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       GameObject portal = animator.gameObject.transform.GetChild(3).gameObject;
-       portal.SetActive(true);
+        ShootingBullet SB = animator.gameObject.GetComponent<ShootingBullet>();
+        Instantiate(SB.healingCircle, SB.injuredAlly.transform.position, SB.healingCircle.transform.rotation);
+       ParticleSystem healCircle = animator.gameObject.transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
+       animator.gameObject.transform.GetChild(4).gameObject.SetActive(true);
+       healCircle.Play();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -20,21 +23,9 @@ public class SelfishWizardAttack : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       GameObject selfishWizard = animator.gameObject;
-       ShootingBullet SB = selfishWizard.GetComponent<ShootingBullet>();
-       GameObject portal = selfishWizard.transform.GetChild(3).gameObject;
-       animator.ResetTrigger("Ready_fire");
-       var newBullet = Instantiate(SB.bullet, selfishWizard.transform.GetChild(2).position, selfishWizard.transform.rotation);
-       Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-       ParticleSystem PS = newBullet.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-       PS.Play();
-       if (!SB.aggressive) {
-         rb.AddForce((-SB.moveAway) * SB.GetAttributes().maxSpeed, ForceMode.Impulse);
-       } else {
-         ChaseArrow CA = newBullet.GetComponent<ChaseArrow>();
-         CA.Target = SB.targetEnemy;
-       }
-       portal.SetActive(false);
+        ParticleSystem healCircle = animator.gameObject.transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
+        animator.gameObject.transform.GetChild(4).gameObject.SetActive(false);
+        healCircle.Stop();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -126,6 +126,7 @@ public class AOE : MonoBehaviour
         ParticleSystem PS = gameObject.transform.GetChild(circleNum).gameObject.GetComponent<ParticleSystem>();
         var main = PS.main;
         main.startSize = PSrange;
+        main.startLifetime = existTime;
         ParticleSystem PSone = gameObject.transform.GetChild(circleNum).GetChild(0).gameObject.GetComponent<ParticleSystem>();
         var mainOne = PSone.main;
         mainOne.startSizeX = PSrange/2;
@@ -142,6 +143,7 @@ public class AOE : MonoBehaviour
         ParticleSystem PS = gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
         var main = PS.main;
         main.startSize = PSrange;
+        main.startLifetime = existTime;
         ParticleSystem PSone = gameObject.transform.GetChild(2).GetChild(0).gameObject.GetComponent<ParticleSystem>();
         var shapeOne = PSone.shape;
         shapeOne.radius = PSrange/2;
@@ -160,6 +162,7 @@ public class AOE : MonoBehaviour
         ParticleSystem PS = gameObject.transform.GetChild(3).gameObject.GetComponent<ParticleSystem>();
         var main = PS.main;
         main.startSize = PSrange;
+        main.startLifetime = existTime;
         ParticleSystem PSone = gameObject.transform.GetChild(3).GetChild(0).gameObject.GetComponent<ParticleSystem>();
         var shapeOne = PSone.shape;
         shapeOne.radius = PSrange/2;
@@ -172,6 +175,7 @@ public class AOE : MonoBehaviour
         ParticleSystem PS = gameObject.transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
         var main = PS.main;
         main.startSize = PSrange;
+        main.startLifetime = existTime;
         ParticleSystem PSone = gameObject.transform.GetChild(4).GetChild(0).gameObject.GetComponent<ParticleSystem>();
         var shapeOne = PSone.shape;
         shapeOne.radius = PSrange/2;
