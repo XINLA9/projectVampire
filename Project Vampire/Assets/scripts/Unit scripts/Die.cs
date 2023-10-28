@@ -20,7 +20,7 @@ public class Die : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {S
+    {
         _HP = _attributes.HP;
         _isDead = _attributes.isDead;  
         if (_HP <= 0 && !_isDead)
@@ -40,7 +40,7 @@ public class Die : MonoBehaviour
             rb.isKinematic = true;
             _attributes.isDead = true;
             _animator.SetBool("dead",true);
-            _animator.SetTrigger("isDead");S
+            _animator.SetTrigger("isDead");
             gameObject.tag = "Dead";
             GameObject uiElement = gameObject.transform.GetChild(0).gameObject;
             uiElement.SetActive(false);
