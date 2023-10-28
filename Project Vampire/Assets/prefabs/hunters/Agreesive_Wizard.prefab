@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6017198508533200641, guid: 24b6e2a274d8b2542a941e2d9d98356f, type: 3}
   attentionRange: 25
-  attackRange: 10
+  attackRange: 30
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
   enemiesToShoot:
@@ -506,6 +506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 0
+  isWizard: 0
+  isDeadWizard: 0
 --- !u!195 &1655971687810732236
 NavMeshAgent:
   m_ObjectHideFlags: 0
