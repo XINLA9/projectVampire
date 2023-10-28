@@ -10,6 +10,10 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject HowToPlayImage;// Instruction Image
+
+    public GameObject BlackWindownSideImage;
+    public GameObject OrkImage;
     public GameObject ForestMap;//Map_1
     public GameObject GraveyYardMap;//Map_2
     public GameObject CastleMap;//Map_3
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
         switch(mapType){
             case 0:
                 ForestMap.SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = forestEnemyPrefabs;
                 activeEnemyWave = enemyInForestWave;
                 break;
@@ -162,6 +167,7 @@ public class GameManager : MonoBehaviour
             {
                 allieNo = i - 1;
                 playingInterfaces.setRed(i);
+                playingInterfaces.setAllyUnitInfoActive(i);
             }
         }
         //Check if the wave ends and update the UI
@@ -252,8 +258,11 @@ public class GameManager : MonoBehaviour
         if (numberOfLivingEnemies == 0)
         {
             isGameActive = false;
+
             if(waveNum <= 5){
                 selectionPanel.SetActive(true);
+                BlackWindownSideImage.SetActive(false);
+                OrkImage.SetActive(false);
             }
             else{
             playingInterfaces.showLoseScreen();
