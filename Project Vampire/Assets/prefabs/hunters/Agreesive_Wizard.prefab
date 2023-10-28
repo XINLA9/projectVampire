@@ -372,7 +372,7 @@ Animator:
   m_GameObject: {fileID: 5180552009572623758}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3dc717adf98c7b043a3e77ed0130d470, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0a15c11dbbde189499421a0ca9e248fa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 28d1b863ee529354b9217e3549227015, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -470,12 +470,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_max: 30
+  mana_max: 0
   attack_base: 0
   ap_damage_base: 0
   defense_base: 0
   force_base: 0
   mass_base: 0
   HP: 10
+  mana: 0
   attack: 0
   ap_damage: 0
   defense: 0
@@ -500,6 +502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbabd081c80b4c4ebfa7a42a9f9ab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkeleton: 0
+  isWizard: 1
+  isDeadWizard: 0
 --- !u!1 &5350031833080153327
 GameObject:
   m_ObjectHideFlags: 0

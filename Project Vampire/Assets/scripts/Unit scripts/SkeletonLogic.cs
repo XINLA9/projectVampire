@@ -28,7 +28,6 @@ public class SkeletonLogic : MonoBehaviour
             RushToFight();
         }
         if (EnemyAround & !attackCD) {
-            Debug.Log("Here");
             enemyRb.velocity = Vector3.zero;
             Attack();
         }

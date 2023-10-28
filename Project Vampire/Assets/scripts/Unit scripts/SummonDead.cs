@@ -60,11 +60,11 @@ public class SummonDead : MonoBehaviour
             Die dieState = dead.gameObject.GetComponent<Die>();
             if (!dieState.isSkeleton) {
                 var newSkeleton = Instantiate(skeleton_1, dead.gameObject.transform.position, dead.gameObject.transform.rotation);
-            ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-            summonEffect.Play();
-            GameObject body = newSkeleton.transform.GetChild(1).gameObject;
-            StartCoroutine(RevealBody(body));
-            Destroy(dead.gameObject);
+                ParticleSystem summonEffect = newSkeleton.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+                summonEffect.Play();
+                GameObject body = newSkeleton.transform.GetChild(1).gameObject;
+                StartCoroutine(RevealBody(body));
+                Destroy(dead.gameObject);
             // TODO:Need to bounce back any gameObject near the summoning area
             }
         }
