@@ -157,6 +157,7 @@
     <None Include="Assets\store_library\Units\WizardPolyArt\SRP\HowToTestSRPs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\store_library\Magic_effect\Magic effects pack\Demo scene\Readme.txt" />
+    <None Include="Assets\UnityAssets\Ground - Earth and Rocks - Free &apos;Texture A&apos; (Hand-Painted)\Textures\README.txt" />
     <None Include="Assets\store_library\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Distortion.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
