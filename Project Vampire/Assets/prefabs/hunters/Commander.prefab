@@ -347,13 +347,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 60
+  HP_max: 250
   mana_max: 0
-  attack_base: 3
-  ap_damage_base: 3
-  defense_base: 4
-  force_base: 1
-  mass_base: 10
+  attack_base: 80
+  ap_damage_base: 20
+  defense_base: 60
+  maxSpeed: 4
+  acceleration: 2
+  rotationSpeed: 120
+  attack_interval: 1.5
+  attackRange: 0
   description: Knights and commanders of the kingdom's army, most of whom hail from
     noble or royal families. Lans IV was once among their ranks when he was a prince.
     These seasoned warriors wield the finest armor and weapons available.
@@ -363,13 +366,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 0
-  maxSpeed: 2
-  acceleration: 8
-  rotationSpeed: 120
-  attack_interval: 0.5
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &5319931714084373261

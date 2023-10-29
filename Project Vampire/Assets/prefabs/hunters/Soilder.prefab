@@ -2325,13 +2325,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 100
+  HP_max: 150
   mana_max: 0
-  attack_base: 3
+  attack_base: 50
   ap_damage_base: 3
-  defense_base: 3
-  force_base: 0
-  mass_base: 0
+  defense_base: 40
+  maxSpeed: 3
+  acceleration: 2
+  rotationSpeed: 10
+  attack_interval: 2
+  attackRange: 0
   description: The backbone of the kingdom's forces, these soldiers are the basic
     melee units, drilled in the arts of war and loyal to the crown.
   profolio: {fileID: 0}
@@ -2340,13 +2343,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 0
-  maxSpeed: 3
-  acceleration: 9
-  rotationSpeed: 10
-  attack_interval: 1
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &911243224924003464
