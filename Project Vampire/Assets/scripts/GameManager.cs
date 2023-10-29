@@ -65,25 +65,25 @@ public class GameManager : MonoBehaviour
     //Enemy spawn in each wave, 5 waves and 4 types of enemy for each map.
     private int[][] activeEnemyWave = new int[5][];
     private int[][] enemyInForestWave = new int[5][]{
-        new int[] { 3, 3, 1, 1},
-        new int[] { 4, 4, 1, 1},
-        new int[] { 4, 4, 2, 2},
-        new int[] { 6, 6, 2, 2},
-        new int[] { 6, 6, 3, 3}
+        new int[] { 3, 3, 0, 0},
+        new int[] { 3, 3, 1, 0},
+        new int[] { 6, 3, 1, 0},
+        new int[] { 6, 6, 1, 0},
+        new int[] { 6, 6, 1, 1}
     };
     private int[][] enemyInGraveyWave = new int[5][]{
-        new int[] { 2, 2, 2, 2},
-        new int[] { 3, 3, 2, 2},
+        new int[] { 3, 0, 3, 0},
+        new int[] { 3, 0, 3, 3},
         new int[] { 3, 3, 3, 3},
-        new int[] { 4, 4, 3, 3},
-        new int[] { 4, 4, 4, 4}
+        new int[] { 6, 3, 3, 3},
+        new int[] { 6, 6, 3, 3}
     };
     private int[][] enemyInCastleWave = new int[5][]{
-        new int[] { 6, 2, 2, 1},
-        new int[] { 6, 3, 3, 1},
-        new int[] { 8, 3, 3, 1},
-        new int[] { 8, 4, 4, 1},
-        new int[] { 8, 4, 4, 2}
+        new int[] { 5, 3, 0, 0},
+        new int[] { 5, 3, 3, 0},
+        new int[] { 10, 3, 3, 0},
+        new int[] { 10, 3, 6, 0},
+        new int[] { 5, 6, 6, 1}
     };
 
     // Start is called before the first frame update
