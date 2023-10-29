@@ -522,8 +522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 993010969779785875, guid: 0e269d1eec9ea8f47af793aa21ce6214, type: 3}
-  attentionRange: 10
-  attackRange: 10
+  attentionRange: 15
+  attackRange: 15
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
   injuredAlly: {fileID: 0}
@@ -555,7 +555,6 @@ MonoBehaviour:
   summonRange: 15
   summonCoolDown: 15
   nearestDead: {fileID: 0}
-  skeletonList: []
   deadUnits:
     serializedVersion: 2
     m_Bits: 64
@@ -577,7 +576,7 @@ MonoBehaviour:
   attack_base: 3
   ap_damage_base: 0
   defense_base: 3
-  maxSpeed: 15
+  maxSpeed: 10
   acceleration: 0
   rotationSpeed: 270
   attack_interval: 0

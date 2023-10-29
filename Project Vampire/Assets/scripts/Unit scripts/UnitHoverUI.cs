@@ -7,6 +7,7 @@ public class UnitHoverUI : MonoBehaviour
     public GameObject uiElement;
     public bool isRangePower;
     public bool isRange;
+    public bool isSkeleton;
 
     private void Start()
     {
@@ -15,6 +16,9 @@ public class UnitHoverUI : MonoBehaviour
             uiElement.SetActive(true);
         } else if (isRange) {
             uiElement = gameObject.transform.GetChild(4).gameObject;
+            uiElement.SetActive(true);
+        } else if (isSkeleton) {
+            uiElement = gameObject.transform.GetChild(2).gameObject;
             uiElement.SetActive(true);
         } else {
             uiElement = gameObject.transform.GetChild(0).gameObject;

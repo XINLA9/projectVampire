@@ -1222,11 +1222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 500
+  HP_max: 400
   mana_max: 0
   attack_base: 70
   ap_damage_base: 50
-  defense_base: 80
+  defense_base: 60
   maxSpeed: 4
   acceleration: 2
   rotationSpeed: 120
@@ -1352,6 +1352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 0}
+  isRangePower: 0
+  isRange: 0
 --- !u!195 &1365130067300091028
 NavMeshAgent:
   m_ObjectHideFlags: 0

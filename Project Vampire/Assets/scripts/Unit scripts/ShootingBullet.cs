@@ -152,6 +152,7 @@ public class ShootingBullet : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, attentionRange, enemiesToShoot);
 
         float closestDistance = Mathf.Infinity;
+        Debug.Log("THe number of enemy is " + enemies.Length);
         if (enemies.Length > 0) {
             foreach (Collider enemy in enemies)
             {
