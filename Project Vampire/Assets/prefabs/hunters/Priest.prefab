@@ -1223,7 +1223,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4591190659787460659}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1251,6 +1251,7 @@ MonoBehaviour:
   uiElement: {fileID: 0}
   isRangePower: 1
   isRange: 0
+  isSkeleton: 0
 --- !u!1 &4675206295127988834
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,11 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
+<<<<<<< HEAD
                 "value": "{\"m_Value\":\"D:/projects/GaveDEV/comp3540-2023-game-project/Project Vampire/WebGL Builds;;;;;;;;;\"}"
+=======
+                "value": "{\"m_Value\":\"E:/UnityProject/comp3540-2023-game-project/Project Vampire/WebGL Builds;;;;;;;;;\"}"
+>>>>>>> 47f2a5edb54bd0bda2edf45c7629a1f17e572efd
             }
         ]
     }

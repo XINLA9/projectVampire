@@ -1648,7 +1648,7 @@ MonoBehaviour:
   HP_max: 250
   mana_max: 0
   attack_base: 50
-  ap_damage_base: 15
+  ap_damage_base: 30
   defense_base: 65
   maxSpeed: 2.5
   acceleration: 1.2
@@ -1764,6 +1764,7 @@ MonoBehaviour:
   uiElement: {fileID: 0}
   isRangePower: 0
   isRange: 0
+  isSkeleton: 0
 --- !u!1 &8501928086603903559
 GameObject:
   m_ObjectHideFlags: 0

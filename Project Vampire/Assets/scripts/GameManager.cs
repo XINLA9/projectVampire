@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
     private int allieVar = 6;//The number of type for allie
     private int[] allieRemain = new int[6];//The number of remaining allies
     private int[][] allieMax = new int[3][]{
-        new int[] {6, 0, 0, 0, 1, 0},
+        new int[] {10, 0, 3, 0, 1, 0},
         new int[] {5, 0, 0, 2, 0, 0},
-        new int[] {3, 3, 0, 0, 0, 0}
+        new int[] {4, 4, 0, 0, 1, 1}
     };
     private int[] allieMaxNum = new int[6];//The number of allies at the beginning of the wave
     private int enemyRemain;//The number of remaining enemys
@@ -74,10 +74,10 @@ public class GameManager : MonoBehaviour
         new int[] { 6, 6, 1, 1}
     };
     private int[][] enemyInGraveyWave = new int[5][]{
-        new int[] { 3, 0, 3, 0},
-        new int[] { 3, 0, 3, 3},
+        new int[] { 0, 2, 1, 0},
+        new int[] { 2, 3, 1, 0},
         new int[] { 3, 3, 3, 3},
-        new int[] { 6, 3, 3, 3},
+        new int[] { 3, 6, 3, 3},
         new int[] { 6, 6, 3, 3}
     };
     private int[][] enemyInCastleWave = new int[5][]{
