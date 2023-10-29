@@ -32,6 +32,7 @@ public class SummonDead : MonoBehaviour
         magicCircle.Stop();
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.speed = attributes.maxSpeed;
+        navAgent.stoppingDistance = summonRange;
     }
 
     // Update is called once per frame
@@ -91,14 +92,16 @@ public class SummonDead : MonoBehaviour
     }
 
     void MoveToNearestDead() {
-        bool canMove = (summonReady && !haveDead) || (!summonReady);
-        if (canMove && !(nearestDead == null) && (SB.nearestEnemy == null) && !summonStart) {
+        if (!(nearestDead == null) && (SB.nearestEnemy == null) && !summonStart) {
             wizardAnim.SetTrigger("haveDead");
             Vector3 moveDir = (nearestDead.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
-            navAgent.destination = nearestDead.transform.position;
-            navAgent.stoppingDistance = summonRange;
+            if (Vector3.Distance(nearestDead.transform.position, transform.position) < summonRange) {
+                navAgent.destination = transform.position;
+            } else {
+                navAgent.destination = nearestDead.transform.position;
+            }
         }
     }
 
@@ -113,7 +116,10 @@ public class SummonDead : MonoBehaviour
                     nearestDead = deads;
                 }
             }
-        } 
+        } else {
+            nearestDead = null;
+            navAgent.destination = transform.position;
+        }
         if (leastDistance < summonRange) {
             haveDead = true;
         }
