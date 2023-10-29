@@ -165,7 +165,7 @@ MonoBehaviour:
   description: Contrary to popular belief, slimes are extremely powerful and dangerous
     creatures capable of crushing entire armies with their sheer size and strength.
     They boast high defense and attack, but are slow and have low health.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: c3ad1af8129a74303a3e8978033cb17f, type: 3}
   HP: 0
   mana: 0
   attack: 0

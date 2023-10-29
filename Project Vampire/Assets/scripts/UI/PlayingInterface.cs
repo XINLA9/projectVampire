@@ -18,6 +18,8 @@ public class PlayingInterfaces : MonoBehaviour
     public List<TextMeshProUGUI> allieText;
     public List<TextMeshProUGUI> unitTextInfo;
     public List<GameObject> allieProfolio;
+
+    public Image allyUnitProfolio;
     private GameManager gameManager;
     
 
@@ -39,12 +41,19 @@ public class PlayingInterfaces : MonoBehaviour
         }
         allieText[7].text = "Enemy Remain: " + gameManager.getEnemyRemain().ToString();
 
-        unitTextInfo[0].text = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].name;
-        unitTextInfo[1].text = "HP: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().HP_max.ToString();
-        unitTextInfo[2].text = "Attack: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().attack_base.ToString();
-        unitTextInfo[3].text = "Defense: " +gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().defense_base.ToString();
-        unitTextInfo[4].text = "Speed: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().maxSpeed.ToString();
-        unitTextInfo[5].text = "Description: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().description.ToString();
+        if(gameManager.getAllieNo() != null && gameManager.getAllieNo() >= 0){
+            allyUnitProfolio.sprite = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().profolio;
+            unitTextInfo[0].text = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].name;
+            unitTextInfo[1].text = "+HP: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().HP_max.ToString();
+            unitTextInfo[2].text = "+Attack: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().attack_base.ToString();
+            unitTextInfo[3].text = "+Defense: " +gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().defense_base.ToString();
+            unitTextInfo[4].text = "+Speed: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().maxSpeed.ToString();
+            unitTextInfo[5].text = "+Ap Damage: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().ap_damage.ToString();
+            unitTextInfo[6].text = "+Description: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().description.ToString();
+
+        }
+
+
     }
 
     public void showLoseScreen(){
@@ -68,53 +77,36 @@ public class PlayingInterfaces : MonoBehaviour
         allieText[i].color = new Color(1.0f, 0.0f, 0.0f);
     }
 
-    public void setAllyUnitInfoActive(int i){
-        switch(i){
-
-            case 1:
-                gameManager.OrkImage.SetActive(true);
-                gameManager.BlackWindownSideImage.SetActive(false);
-                break;
-
-            case 2:
-                gameManager.BlackWindownSideImage.SetActive(true);
-                gameManager.OrkImage.SetActive(false);
-                break;
-            default:
-                Debug.Log("Error in charactor choosing");
-                break;
-        }
-    }
 
     public void onClick_0(){
         gameManager.setAllieNo(0);
         gameManager.playingInterfaces.setRed(1);
-        gameManager.playingInterfaces.setAllyUnitInfoActive(1);
+        gameManager.unitInfoPanel.SetActive(true);
     }
     public void onClick_1(){
         gameManager.setAllieNo(1);
         gameManager.playingInterfaces.setRed(2);
-        gameManager.playingInterfaces.setAllyUnitInfoActive(2);
+        gameManager.unitInfoPanel.SetActive(true);
     }
     public void onClick_2(){
         gameManager.setAllieNo(2);
         gameManager.playingInterfaces.setRed(3);
-        gameManager.playingInterfaces.setAllyUnitInfoActive(3);
+        gameManager.unitInfoPanel.SetActive(true);
     }
     public void onClick_3(){
         gameManager.setAllieNo(3);
         gameManager.playingInterfaces.setRed(4);
-        gameManager.playingInterfaces.setAllyUnitInfoActive(4);
+        gameManager.unitInfoPanel.SetActive(true);
     }
     public void onClick_4(){
         gameManager.setAllieNo(4);
         gameManager.playingInterfaces.setRed(5);
-        gameManager.playingInterfaces.setAllyUnitInfoActive(5);
+        gameManager.unitInfoPanel.SetActive(true);
     }
     public void onClick_5(){
         gameManager.setAllieNo(5);
         gameManager.playingInterfaces.setRed(6);
-        gameManager.playingInterfaces.setAllyUnitInfoActive(6);
+        gameManager.unitInfoPanel.SetActive(true);
     }
 
 }

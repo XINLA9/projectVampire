@@ -428,7 +428,7 @@ MonoBehaviour:
     These silent and loyal creatures often serve as guards in the liches' laboratories.
     They possess extremely high armor, attack power, and health, but are very slow.
     Nearly unstoppable in melee combat.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: e46351aea8d074bb59ebe4da64622b8a, type: 3}
   HP: 0
   mana: 0
   attack: 0

@@ -1658,7 +1658,7 @@ MonoBehaviour:
   description: Giant beetles dwelling underground, with sharp horns and solid carapaces.
     They are the Beetle King's most trusted kin and warriors, their status in the
     subterranean kingdom akin to knights in the human realm.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: 38c9c88a29165436999f09552b58030c, type: 3}
   HP: 0
   mana: 0
   attack: 0

@@ -1870,7 +1870,7 @@ MonoBehaviour:
   description: Juvenile spiders from the underground, not as large as their mothers
     but still formidable enough to terrify those who wander into the Black Forest.
     They are fragile, but their attacks are swift and deadly.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: 4e762379b72d24eb5a20f716f00c176a, type: 3}
   HP: 0
   mana: 0
   attack: 0

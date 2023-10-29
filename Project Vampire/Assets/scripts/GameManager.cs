@@ -12,8 +12,8 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     public GameObject HowToPlayImage;// Instruction Image
-    public GameObject BlackWindownSideImage;
-    public GameObject OrkImage;
+
+    public GameObject unitInfoPanel;
     public GameObject ForestMap;//Map_1
     public GameObject GraveyYardMap;//Map_2
     public GameObject CastleMap;//Map_3
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private GameObject BoundaryWarner;
 
     public Sprite[] allieProfolios_C1;//
+    public Sprite[] allieProfolios_C2;//
+    public Sprite[] allieProfolios_C3;//
 
     private Sprite[] activeAllieProfolios = {};
     private GameObject[] activeAlliePrefabs = {};//Allie units that been chosen in a game
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
             case 1:
                 GraveyYardMap.SetActive(true);
                 NavMeshs[1].SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = graveyEnemyPrefabs;
                 activeEnemyWave = enemyInGraveyWave;         
                 BoundaryWarner = BoundaryWarners[1];       
@@ -110,6 +113,7 @@ public class GameManager : MonoBehaviour
             case 2:
                 CastleMap.SetActive(true);
                 NavMeshs[2].SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = castleEnemyPrefabs;
                 activeEnemyWave = enemyInCastleWave;      
                 BoundaryWarner = BoundaryWarners[2];          
@@ -125,11 +129,11 @@ public class GameManager : MonoBehaviour
                 break;
             case 1:
                 activeAlliePrefabs = alliePrefabs_C2;
-                activeAllieProfolios = allieProfolios_C1;
+                activeAllieProfolios = allieProfolios_C2;
                 break;            
             case 2:
                 activeAlliePrefabs = alliePrefabs_C3;
-                activeAllieProfolios = allieProfolios_C1;
+                activeAllieProfolios = allieProfolios_C3;
                 break;           
             default:
                 Debug.Log("Error in charactor choosing");
@@ -190,7 +194,8 @@ public class GameManager : MonoBehaviour
             {
                 allieNo = i - 1;
                 playingInterfaces.setRed(i);
-                playingInterfaces.setAllyUnitInfoActive(i);
+                unitInfoPanel.SetActive(true);
+            
             }
         }
         //Check if the wave ends and update the UI
@@ -285,8 +290,8 @@ public class GameManager : MonoBehaviour
 
             if(waveNum <= 4){
                 selectionPanel.SetActive(true);
-                BlackWindownSideImage.SetActive(false);
-                OrkImage.SetActive(false);
+                unitInfoPanel.SetActive(false);
+          
             }
             else{
                 playingInterfaces.showWinScreen();

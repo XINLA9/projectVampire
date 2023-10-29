@@ -41,29 +41,29 @@ public class NewWavePanel : MonoBehaviour
         switch(characterChosenType){
             case 0:
 
-                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
-                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more Bear";
-                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more Black Window";
-                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more Blue Dragon";
-                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more Chest Monster";
-                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more Beholder";
+                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more " + gameManager.getAlliePrefebs()[0].name;
+                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more " + gameManager.getAlliePrefebs()[1].name;
+                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more " + gameManager.getAlliePrefebs()[2].name;
+                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more " + gameManager.getAlliePrefebs()[3].name;
+                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more " + gameManager.getAlliePrefebs()[4].name;
+                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more " + gameManager.getAlliePrefebs()[5].name;
                 break;
             case 1:
                 weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
-                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more Bear";
-                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more Black Window";
-                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more Blue Dragon";
-                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more unique 2.1";
-                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more unique 2.2";
+                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more " + gameManager.getAlliePrefebs()[0].name;
+                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more " + gameManager.getAlliePrefebs()[1].name;
+                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more " + gameManager.getAlliePrefebs()[2].name;
+                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more " + gameManager.getAlliePrefebs()[3].name;
+                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more " + gameManager.getAlliePrefebs()[4].name;
+                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more " + gameManager.getAlliePrefebs()[5].name;
                 break;            
             case 2:
-                characterName = "Character3";
-                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
-                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more Bear";
-                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more Black Window";
-                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more Blue Dragon";
-                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more unique 3.1";
-                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more unique 3.2";
+                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more " + gameManager.getAlliePrefebs()[0].name;
+                weaponButton2Text2.text = "Add " +incrementValues[1]+ " more " + gameManager.getAlliePrefebs()[1].name;
+                weaponButton3Text3.text = "Add " +incrementValues[2]+ " more " + gameManager.getAlliePrefebs()[2].name;
+                weaponButton4Text4.text = "Add " +incrementValues[3]+ " more " + gameManager.getAlliePrefebs()[3].name;
+                weaponButton5Text5.text = "Add " +incrementValues[4]+ " more " + gameManager.getAlliePrefebs()[4].name;
+                weaponButton6Text6.text = "Add " +incrementValues[5]+ " more " + gameManager.getAlliePrefebs()[5].name;
                 // UpdateButtonTextsBasedOnCharacter();
                 break;           
             default:
