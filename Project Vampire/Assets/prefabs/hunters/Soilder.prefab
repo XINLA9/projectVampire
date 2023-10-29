@@ -2332,8 +2332,8 @@ MonoBehaviour:
   defense_base: 3
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: The backbone of the kingdom's forces, these soldiers are the basic
+    melee units, drilled in the arts of war and loyal to the crown.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

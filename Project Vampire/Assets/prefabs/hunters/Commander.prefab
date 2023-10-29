@@ -354,8 +354,9 @@ MonoBehaviour:
   defense_base: 4
   force_base: 1
   mass_base: 10
-  unitsName: n
-  description: d
+  description: Knights and commanders of the kingdom's army, most of whom hail from
+    noble or royal families. Lans IV was once among their ranks when he was a prince.
+    These seasoned warriors wield the finest armor and weapons available.
   profolio: {fileID: 21300000, guid: 741102fc538914f28a27b690fc14c2a0, type: 3}
   HP: 0
   mana: 0

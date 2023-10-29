@@ -2411,8 +2411,8 @@ MonoBehaviour:
   defense_base: 3
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: A famed adventurer who is said to have stood against an entire army
+    of orcs on his own, excelling in combating large numbers of basic units.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

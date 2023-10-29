@@ -1132,8 +1132,9 @@ MonoBehaviour:
   defense_base: 0
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: Skeleton warriors revived through necromancy, retaining all their
+    combat prowess from life. They are good for offensive strategies but somewhat
+    fragile.
   profolio: {fileID: 0}
   HP: 3
   mana: 0

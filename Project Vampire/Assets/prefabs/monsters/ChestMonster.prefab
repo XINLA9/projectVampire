@@ -213,8 +213,10 @@ MonoBehaviour:
   defense_base: 1000
   force_base: 1
   mass_base: 1
-  unitsName: n
-  description: d
+  description: Magical creatures resembling treasure chests, another of the liches'
+    experiments. Not all who visit the castle seek knowledge, and these creatures
+    are the liches' gift to such crude individuals. They have high armor and attack
+    but are slow.
   profolio: {fileID: 0}
   HP: 10
   mana: 0

@@ -164,8 +164,10 @@ MonoBehaviour:
   defense_base: 0
   force_base: 1
   mass_base: 1
-  unitsName: n
-  description: d
+  description: Floating magical creatures with enormous eyes, one of the liches'
+    experiments. Initially, liches just wanted more eyes to monitor intruders but
+    later found it easier to eliminate them outright. They are fragile and will self-destruct
+    upon contact with an enemy, releasing a deadly area-of-effect attack.
   profolio: {fileID: 21300000, guid: 6d819afac2d9c4ed18cb60a61cc246ee, type: 3}
   HP: 0
   mana: 0

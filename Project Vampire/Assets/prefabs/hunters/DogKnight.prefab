@@ -2193,8 +2193,8 @@ MonoBehaviour:
   defense_base: 1.5
   force_base: 1
   mass_base: 0
-  unitsName: n
-  description: d
+  description: Noble canine paladins from foreign lands, though beastly in appearance,
+    their swordsmanship rivals that of human knights.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

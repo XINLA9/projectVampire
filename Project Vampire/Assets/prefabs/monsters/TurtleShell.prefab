@@ -288,8 +288,10 @@ MonoBehaviour:
   defense_base: 5
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: A spiked-shelled magical creature, one of the liches' mad experiments.
+    Considered a failure and discarded by its creators, these beings have thrived
+    in the Black Forest. They possess extremely high armor and numbers but are mediocre
+    in other aspects.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

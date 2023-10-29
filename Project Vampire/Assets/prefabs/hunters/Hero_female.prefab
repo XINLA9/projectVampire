@@ -2583,8 +2583,8 @@ MonoBehaviour:
   defense_base: 3
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: A renowned adventurer famed for slaying a dragon single-handedly,
+    adept at combating large beasts.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

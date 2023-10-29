@@ -421,8 +421,10 @@ MonoBehaviour:
   defense_base: 5
   force_base: 20
   mass_base: 100
-  unitsName: n
-  description: d
+  description: Giant golems made of hard rock, yet another of the liches' experiments.
+    These silent and loyal creatures often serve as guards in the liches' laboratories.
+    They possess extremely high armor, attack power, and health, but are very slow.
+    Nearly unstoppable in melee combat.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

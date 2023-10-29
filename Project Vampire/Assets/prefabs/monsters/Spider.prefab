@@ -1864,8 +1864,9 @@ MonoBehaviour:
   defense_base: 1
   force_base: 1
   mass_base: 1
-  unitsName: n
-  description: d
+  description: Juvenile spiders from the underground, not as large as their mothers
+    but still formidable enough to terrify those who wander into the Black Forest.
+    They are fragile, but their attacks are swift and deadly.
   profolio: {fileID: 0}
   HP: 0
   mana: 0

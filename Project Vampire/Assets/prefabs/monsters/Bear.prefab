@@ -2210,8 +2210,9 @@ MonoBehaviour:
   defense_base: 1
   force_base: 0
   mass_base: 0
-  unitsName: bear
-  description: bear
+  description: Bears of the Black Forest, with sharp claws and thick fur. More feared
+    by the forest's edge dwellers than tigers or wolves for their brute strength
+    and human-like cunning.
   profolio: {fileID: 21300000, guid: 0c190dc10b27841d09190a9d60fc4486, type: 3}
   HP: 0
   mana: 0
@@ -2225,7 +2226,7 @@ MonoBehaviour:
   rotationSpeed: 120
   attack_interval: 1.34
   attackRange: 0
-  isDead: 0
+  isDead: 1
   moveGoal: {fileID: 0}
 --- !u!114 &5695360707978797210
 MonoBehaviour:

@@ -986,8 +986,10 @@ MonoBehaviour:
   defense_base: 2
   force_base: 1
   mass_base: 0
-  unitsName: n
-  description: d
+  description: Giant female spiders that live underground. Unlike the largely subterranean
+    giant beetles, black widows often surface to hunt food for their offspring. They
+    are more fragile compared to other beasts but can spawn spiderlings to fight
+    for them.
   profolio: {fileID: 21300000, guid: 4c7cc400a79cb49529357f4d5cd2fd14, type: 3}
   HP: 0
   mana: 0

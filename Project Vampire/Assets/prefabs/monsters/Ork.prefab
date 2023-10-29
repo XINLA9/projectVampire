@@ -578,8 +578,9 @@ MonoBehaviour:
   defense_base: 1
   force_base: 6
   mass_base: 1
-  unitsName: n
-  description: d
+  description: Orcs that wander the world, though their weapons and armor are primitive
+    compared to human soldiers, their brute strength allows them to match several
+    human knights in battle. They have high health and attack but low armor.
   profolio: {fileID: 21300000, guid: 089e3d02df8504aa0a287e1ceaf81695, type: 3}
   HP: 0
   mana: 0

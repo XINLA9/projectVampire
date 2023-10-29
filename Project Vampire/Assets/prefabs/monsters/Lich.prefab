@@ -482,8 +482,10 @@ MonoBehaviour:
   defense_base: 0
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: Many mages, thirsty for knowledge, brave the dangers of the Black
+    Forest to visit the castle. Those who succeed return laden with the knowledge
+    they seek, while those who fail receive an even greater reward. Capable of using
+    various spells in battle.
   profolio: {fileID: 0}
   HP: 10
   mana: 30

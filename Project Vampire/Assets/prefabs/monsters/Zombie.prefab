@@ -295,8 +295,9 @@ MonoBehaviour:
   defense_base: 3
   force_base: 1
   mass_base: 1
-  unitsName: n
-  description: d
+  description: The most basic of undead units, they are slow but numerous and have
+    high health, making them ideal for overwhelming opponents, though they are mediocre
+    in other aspects.
   profolio: {fileID: 0}
   HP: 0
   mana: 0
