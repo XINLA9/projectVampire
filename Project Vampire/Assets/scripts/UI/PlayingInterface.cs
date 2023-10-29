@@ -18,6 +18,8 @@ public class PlayingInterfaces : MonoBehaviour
     public List<TextMeshProUGUI> allieText;
     public List<TextMeshProUGUI> unitTextInfo;
     public List<GameObject> allieProfolio;
+
+    public Image allyUnitProfolio;
     private GameManager gameManager;
     
 
@@ -40,13 +42,14 @@ public class PlayingInterfaces : MonoBehaviour
         allieText[7].text = "Enemy Remain: " + gameManager.getEnemyRemain().ToString();
 
         if(gameManager.getAllieNo() != null && gameManager.getAllieNo() >= 0){
-
+            allyUnitProfolio.sprite = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().profolio;
             unitTextInfo[0].text = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].name;
             unitTextInfo[1].text = "+HP: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().HP_max.ToString();
             unitTextInfo[2].text = "+Attack: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().attack_base.ToString();
             unitTextInfo[3].text = "+Defense: " +gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().defense_base.ToString();
             unitTextInfo[4].text = "+Speed: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().maxSpeed.ToString();
-            unitTextInfo[5].text = "+Description: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().description.ToString();
+            unitTextInfo[5].text = "+Ap Damage: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().ap_damage.ToString();
+            unitTextInfo[6].text = "+Description: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().description.ToString();
 
         }
 

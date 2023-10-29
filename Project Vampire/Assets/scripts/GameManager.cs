@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
             case 1:
                 GraveyYardMap.SetActive(true);
                 NavMeshs[1].SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = graveyEnemyPrefabs;
                 activeEnemyWave = enemyInGraveyWave;         
                 BoundaryWarner = BoundaryWarners[1];       
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
             case 2:
                 CastleMap.SetActive(true);
                 NavMeshs[2].SetActive(true);
+                HowToPlayImage.SetActive(true);
                 activeEnemyPrefabs = castleEnemyPrefabs;
                 activeEnemyWave = enemyInCastleWave;      
                 BoundaryWarner = BoundaryWarners[2];          
@@ -190,6 +192,7 @@ public class GameManager : MonoBehaviour
             {
                 allieNo = i - 1;
                 playingInterfaces.setRed(i);
+                unitInfoPanel.SetActive(true);
             
             }
         }
@@ -285,7 +288,6 @@ public class GameManager : MonoBehaviour
 
             if(waveNum <= 4){
                 selectionPanel.SetActive(true);
-                unitInfoPanel.SetActive(true);
                 unitInfoPanel.SetActive(false);
           
             }
