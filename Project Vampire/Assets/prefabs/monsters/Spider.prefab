@@ -1857,15 +1857,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 15
+  HP_max: 80
   mana_max: 0
-  attack_base: 0
-  ap_damage_base: 3
-  defense_base: 1
-  maxSpeed: 7
-  acceleration: 8
+  attack_base: 60
+  ap_damage_base: 0
+  defense_base: 10
+  maxSpeed: 4
+  acceleration: 2
   rotationSpeed: 120
-  attack_interval: 0
+  attack_interval: 1.51
   attackRange: 0
   description: Juvenile spiders from the underground, not as large as their mothers
     but still formidable enough to terrify those who wander into the Black Forest.
