@@ -11,12 +11,12 @@ public class Attributes : MonoBehaviour
     public float attack_base;
     public float ap_damage_base;
     public float defense_base;
-    public string description = "d";
     public float maxSpeed;
     public float acceleration;
     public float rotationSpeed;
     public float attack_interval;
     public float attackRange;
+    public string description = "d";
 
     public Sprite profolio;
 
