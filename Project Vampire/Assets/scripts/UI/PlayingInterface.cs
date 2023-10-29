@@ -39,7 +39,7 @@ public class PlayingInterfaces : MonoBehaviour
             allieProfolio[i - 1].GetComponent<Image>().sprite = gameManager.getAllieProfolios()[i-1];
 
         }
-        allieText[7].text = "Enemy Remain: " + gameManager.getEnemyRemain().ToString();
+        allieText[7].text = "Remaining Enemies: " + gameManager.getEnemyRemain().ToString();
 
         if(gameManager.getAllieNo() != null && gameManager.getAllieNo() >= 0){
             allyUnitProfolio.sprite = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().profolio;

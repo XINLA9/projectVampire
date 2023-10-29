@@ -301,7 +301,7 @@ MonoBehaviour:
   description: The most basic of undead units, they are slow but numerous and have
     high health, making them ideal for overwhelming opponents, though they are mediocre
     in other aspects.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: b8ce2b09cccc74b098af98c442cec03b, type: 3}
   HP: 0
   mana: 0
   attack: 0

@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     public GameObject[] alliePrefabs_C3;//allie prefabs for charactor3
     public GameObject[] NavMeshs;//NavMesh surface
     public GameObject[] BoundaryWarners;//A squre to show where a unit can be placed
-    private GameObject BoundaryWarner;
 
     public Sprite[] allieProfolios_C1;//
     public Sprite[] allieProfolios_C2;//
@@ -41,13 +40,19 @@ public class GameManager : MonoBehaviour
     private int enemyVar = 4;//The number of type for enemy
     private int allieVar = 6;//The number of type for allie
     private int[] allieRemain = new int[6];//The number of remaining allies
-    private int[] allieMaxNum = {6, 6, 3, 3, 1, 1};//The number of allies at the beginning of the wave
+    private int[][] allieMax = new int[3][]{
+        new int[] {6, 0, 0, 0, 1, 0},
+        new int[] {5, 0, 0, 2, 0, 0},
+        new int[] {3, 3, 0, 0, 0, 0}
+    };
+    private int[] allieMaxNum = new int[6];//The number of allies at the beginning of the wave
     private int enemyRemain;//The number of remaining enemys
     private int allieNo = -1;//units that been currently chosen
     private bool isGameActive = false;//Game active flag
     public int waveNum = 0;//current wave number
     public int charactorType = -1;//Charactor chosen
     private int mapType = -1;//Map chosen
+    private GameObject BoundaryWarner;
 
     //Boundarys for maps
     private float[] spawnRangeX = {12.0f, 24.0f, 20.0f};
@@ -60,25 +65,25 @@ public class GameManager : MonoBehaviour
     //Enemy spawn in each wave, 5 waves and 4 types of enemy for each map.
     private int[][] activeEnemyWave = new int[5][];
     private int[][] enemyInForestWave = new int[5][]{
-        new int[] { 4, 2, 0, 0},
-        new int[] { 6, 3, 1, 0},
-        new int[] { 6, 4, 2, 1},
-        new int[] { 8, 6, 3, 1},
-        new int[] { 8, 8, 4, 2}
+        new int[] { 3, 3, 1, 1},
+        new int[] { 4, 4, 1, 1},
+        new int[] { 4, 4, 2, 2},
+        new int[] { 6, 6, 2, 2},
+        new int[] { 6, 6, 3, 3}
     };
     private int[][] enemyInGraveyWave = new int[5][]{
-        new int[] { 4, 2, 0, 0},
-        new int[] { 6, 3, 1, 0},
-        new int[] { 6, 4, 2, 1},
-        new int[] { 8, 6, 3, 1},
-        new int[] { 8, 8, 4, 2}
+        new int[] { 2, 2, 2, 2},
+        new int[] { 3, 3, 2, 2},
+        new int[] { 3, 3, 3, 3},
+        new int[] { 4, 4, 3, 3},
+        new int[] { 4, 4, 4, 4}
     };
     private int[][] enemyInCastleWave = new int[5][]{
-        new int[] { 4, 2, 0, 0},
-        new int[] { 6, 3, 1, 0},
-        new int[] { 6, 4, 2, 1},
-        new int[] { 8, 6, 3, 1},
-        new int[] { 8, 8, 4, 2}
+        new int[] { 6, 2, 2, 1},
+        new int[] { 6, 3, 3, 1},
+        new int[] { 8, 3, 3, 1},
+        new int[] { 8, 4, 4, 1},
+        new int[] { 8, 4, 4, 2}
     };
 
     // Start is called before the first frame update
@@ -126,14 +131,17 @@ public class GameManager : MonoBehaviour
             case 0:
                 activeAlliePrefabs = alliePrefabs_C1;
                 activeAllieProfolios = allieProfolios_C1;
+                allieMaxNum = allieMax[0];
                 break;
             case 1:
                 activeAlliePrefabs = alliePrefabs_C2;
                 activeAllieProfolios = allieProfolios_C2;
+                allieMaxNum = allieMax[1];
                 break;            
             case 2:
                 activeAlliePrefabs = alliePrefabs_C3;
                 activeAllieProfolios = allieProfolios_C3;
+                allieMaxNum = allieMax[2];
                 break;           
             default:
                 Debug.Log("Error in charactor choosing");
@@ -157,9 +165,6 @@ public class GameManager : MonoBehaviour
             if(isGameActive){
                 Vector3 clickPosition = ray.GetPoint(rayDistance);
             mousePointer.transform.position = clickPosition;
-
-            // Debug.Log(clickPosition);
-
             //If the position can be placed, show green, othervise show red
             if(IsInAllowedRange(clickPosition)){
                 cycleMaterial.color = Color.green;

@@ -13,6 +13,11 @@ public class NewWavePanel : MonoBehaviour
     public GameManager gameManager; //reference to GameManager script
     public GameObject selectionPanel;
     public int[] incrementValues;
+    public int[][] incrementSetting = new int[3][]{
+        new int[] { 4, 3, 2, 2, 1, 1},
+        new int[] { 5, 3, 2, 2, 1, 1},
+        new int[] { 3, 3, 3, 3, 2, 1}
+    };
 
     public Text[] allyButtonTexts;
     private Dictionary<string, string[]> characterAllies = new Dictionary<string, string[]>();
@@ -27,20 +32,15 @@ public class NewWavePanel : MonoBehaviour
     public TextMeshProUGUI weaponButton5Text5;
     public TextMeshProUGUI weaponButton6Text6;
 
-
-
-
-    void Start()
+    private void OnEnable()
     {
-        incrementValues = new int[] {4, 4, 2, 2, 1, 1};       
-
-
+        incrementValues = new int[6];     
 
         characterChosenType = gameManager.charactorType;
 
         switch(characterChosenType){
             case 0:
-
+                incrementValues = incrementSetting[0];
                 weaponButton1Text1.text = "Add " +incrementValues[0]+ " more " + gameManager.getAlliePrefebs()[0].name;
                 weaponButton2Text2.text = "Add " +incrementValues[1]+ " more " + gameManager.getAlliePrefebs()[1].name;
                 weaponButton3Text3.text = "Add " +incrementValues[2]+ " more " + gameManager.getAlliePrefebs()[2].name;
@@ -49,7 +49,7 @@ public class NewWavePanel : MonoBehaviour
                 weaponButton6Text6.text = "Add " +incrementValues[5]+ " more " + gameManager.getAlliePrefebs()[5].name;
                 break;
             case 1:
-                weaponButton1Text1.text = "Add " +incrementValues[0]+ " more Ork";
+                incrementValues = incrementSetting[1];
                 weaponButton1Text1.text = "Add " +incrementValues[0]+ " more " + gameManager.getAlliePrefebs()[0].name;
                 weaponButton2Text2.text = "Add " +incrementValues[1]+ " more " + gameManager.getAlliePrefebs()[1].name;
                 weaponButton3Text3.text = "Add " +incrementValues[2]+ " more " + gameManager.getAlliePrefebs()[2].name;
@@ -58,13 +58,13 @@ public class NewWavePanel : MonoBehaviour
                 weaponButton6Text6.text = "Add " +incrementValues[5]+ " more " + gameManager.getAlliePrefebs()[5].name;
                 break;            
             case 2:
+                incrementValues = incrementSetting[2];
                 weaponButton1Text1.text = "Add " +incrementValues[0]+ " more " + gameManager.getAlliePrefebs()[0].name;
                 weaponButton2Text2.text = "Add " +incrementValues[1]+ " more " + gameManager.getAlliePrefebs()[1].name;
                 weaponButton3Text3.text = "Add " +incrementValues[2]+ " more " + gameManager.getAlliePrefebs()[2].name;
                 weaponButton4Text4.text = "Add " +incrementValues[3]+ " more " + gameManager.getAlliePrefebs()[3].name;
                 weaponButton5Text5.text = "Add " +incrementValues[4]+ " more " + gameManager.getAlliePrefebs()[4].name;
                 weaponButton6Text6.text = "Add " +incrementValues[5]+ " more " + gameManager.getAlliePrefebs()[5].name;
-                // UpdateButtonTextsBasedOnCharacter();
                 break;           
             default:
                 Debug.Log("Error in charactor choosing");
