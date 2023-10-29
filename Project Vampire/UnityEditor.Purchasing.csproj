@@ -106,8 +106,8 @@
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\Analytics\Entity\EventSources.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\Analytics\Entity\EventActions.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\Importer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\AppleCapabilities.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\ServiceProjectSettings\Entity\GoogleConfigurationData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\AppleCapabilities.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\ServiceProjectSettings\SimpleStateMachine.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\Analytics\Entity\EventComponents.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Editor\BuildTargetGroupExtensions.cs" />

@@ -813,10 +813,6 @@
       <Project>{CC9A4B45-0094-F853-9C37-E12AD3499D0F}</Project>
       <Name>UnityEngine.Advertisements.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Purchasing.Common.Player.csproj">
-      <Project>{0DB46C12-1C45-C0DC-849F-DC40F3CD19BC}</Project>
-      <Name>Purchasing.Common.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
       <Project>{A15E40C1-847A-AD9A-1833-F244BF8AEE63}</Project>
       <Name>Unity.VisualScripting.Core.Player</Name>
@@ -828,6 +824,10 @@
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
       <Project>{0C428210-6937-16E3-5DCE-F01151946A67}</Project>
       <Name>UnityEngine.UI.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Purchasing.Common.Player.csproj">
+      <Project>{0DB46C12-1C45-C0DC-849F-DC40F3CD19BC}</Project>
+      <Name>Purchasing.Common.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Player.csproj">
       <Project>{D4F4C5F7-63B5-3026-7EF5-606460EC98E0}</Project>

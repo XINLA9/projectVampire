@@ -79,8 +79,8 @@
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\GooglePlay\FakeGooglePlayStoreConfiguration.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\GooglePlay\AAR\Interfaces\IGoogleCachedQuerySkuDetailsService.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\GooglePlay\Interfaces\IGooglePlayConfiguration.cs" />
-    <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\GooglePlay\GooglePlayConfiguration.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\AmazonAppStore\AmazonAppStoreStoreExtensions.cs" />
+    <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\GooglePlay\GooglePlayConfiguration.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\GooglePlay\Services\GooglePlayStoreFinishTransactionService.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\TransactionHistory\FakeTransactionHistoryExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@4.9.3\Runtime\Stores\Android\AmazonAppStore\FakeAmazon.cs" />
