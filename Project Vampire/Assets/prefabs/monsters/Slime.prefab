@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8358347409532644255}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Crown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7186178005882185289}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomEyeCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 2299681816168949666}
   - component: {fileID: 6648460257723047716}
   - component: {fileID: 5990950382923668880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slime
   m_TagString: monster
   m_Icon: {fileID: 0}
@@ -157,8 +157,11 @@ MonoBehaviour:
   attack_base: 2
   ap_damage_base: 10
   defense_base: 3
-  force_base: 0
-  mass_base: 0
+  maxSpeed: 1
+  acceleration: 1
+  rotationSpeed: 0
+  attack_interval: 0
+  attackRange: 0
   description: Contrary to popular belief, slimes are extremely powerful and dangerous
     creatures capable of crushing entire armies with their sheer size and strength.
     They boast high defense and attack, but are slow and have low health.
@@ -168,13 +171,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 0
-  maxSpeed: 1
-  acceleration: 1
-  rotationSpeed: 0
-  attack_interval: 0
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &3273377946606616029
@@ -232,6 +228,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!195 &2299681816168949666
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -311,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5091015479271515597}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperEyeCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661813506731485020}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5655365417607186870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4740712467758246443}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7967275388739415898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Side_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320381754352526540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Side_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868816119504106956}
   - component: {fileID: 4803773011795678351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4354318667650345832}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416149301679637921}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,6 +664,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5799524450946661470}
     m_Modifications:
+    - target: {fileID: 1208941812742595458, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -669,14 +675,38 @@ PrefabInstance:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121738885200203360, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807489900518985140, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202088849422557962, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952083817866750531, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277180835775855782, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -685,6 +715,14 @@ PrefabInstance:
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261738519547894045, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431581453796185093, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1226117525302264592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_mouthSmile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1507266202115243620}
   - component: {fileID: 3507789622046611431}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3096267568874152711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7407277117425419163}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_spine03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6267738213540377261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987878727101739286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5391288948316467338}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8848411340307483838}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_leftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4784348262241386529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4927667024114238978}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_mouthAngry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6825607390833774530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980921316132413862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 644658420578443484}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_spine02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7689678919617280313}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_rightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 372525459557529532}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 8166357202505164926}
   - component: {fileID: -8700141027366952097}
   - component: {fileID: 6864803871648497501}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mushroom
   m_TagString: monster
   m_Icon: {fileID: 0}
@@ -632,9 +632,11 @@ MonoBehaviour:
   attack_base: 3
   ap_damage_base: 2
   defense_base: 1
-  force_base: 0
-  mass_base: 0
-  unitsName: n
+  maxSpeed: 2
+  acceleration: 8
+  rotationSpeed: 120
+  attack_interval: 1
+  attackRange: 0
   description: d
   profolio: {fileID: 0}
   HP: 0
@@ -642,13 +644,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 0
-  maxSpeed: 2
-  acceleration: 8
-  rotationSpeed: 120
-  attack_interval: 1
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &6018853805205989820
@@ -666,6 +661,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 1
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 193649754868780285, guid: 0027055130be91740868bfedc0399fb8, type: 3}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!114 &1924366064360511212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6103402852870770929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_spine01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8161990887824194331}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8010236115677545206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mushroom_skirt03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,6 +893,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5104320918089565017}
     m_Modifications:
+    - target: {fileID: 1208941812742595458, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -899,14 +904,38 @@ PrefabInstance:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121738885200203360, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807489900518985140, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202088849422557962, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952083817866750531, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277180835775855782, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -915,6 +944,14 @@ PrefabInstance:
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261738519547894045, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431581453796185093, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

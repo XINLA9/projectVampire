@@ -537,6 +537,7 @@ MonoBehaviour:
   aggressive: 0
   isPriest: 0
   healingCircle: {fileID: 0}
+  healingCircle: {fileID: 0}
 --- !u!114 &5355828378403939567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +557,7 @@ MonoBehaviour:
   deadUnits:
     serializedVersion: 2
     m_Bits: 64
-  skeleton_1: {fileID: 2378156475882777583, guid: 087e3404381b97b449d8bb0f74b5bf2b, type: 3}
+  skeleton_1: {fileID: 2378156475882777583, guid: 4f53dc3f3e1163a41985655d0e5b6f21, type: 3}
 --- !u!114 &8079064125381627516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,13 +572,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_max: 30
   mana_max: 0
-  attack_base: 0
+  attack_base: 3
   ap_damage_base: 0
-  defense_base: 0
+  defense_base: 3
   force_base: 0
   mass_base: 0
-  description: Reclusive necromancers, joining the crusade against vampires for their
-    own unspeakable reasons.
+  unitsName: n
+  description: d
   profolio: {fileID: 0}
   HP: 30
   mana: 0
@@ -635,6 +636,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 1
   isDeadWizard: 1
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!195 &2204406388279399419
 NavMeshAgent:
   m_ObjectHideFlags: 0

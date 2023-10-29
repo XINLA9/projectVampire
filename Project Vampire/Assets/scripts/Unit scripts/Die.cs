@@ -12,6 +12,12 @@ public class Die : MonoBehaviour
     public bool isSkeleton; 
     public bool isWizard;
     public bool isDeadWizard;
+    public bool isMushroom;
+    public bool isBeholder;
+    public bool isDragon;
+    public GameObject speedUpCir;
+    public GameObject poisonCir;
+    public GameObject trappedCir;
     private NavMeshAgent _navMeshAgent;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +41,15 @@ public class Die : MonoBehaviour
             if (isDeadWizard) {
                 SummonDead SD = GetComponent<SummonDead>();
                 SD.enabled = false;
+            }
+            if (isBeholder) {
+                Instantiate(trappedCir, transform.position, trappedCir.transform.rotation);
+            }
+            if (isMushroom) {
+                Instantiate(speedUpCir, transform.position, speedUpCir.transform.rotation);
+            }
+            if (isDragon) {
+                Instantiate(poisonCir, transform.position, poisonCir.transform.rotation);
             }
             Collider BC = gameObject.GetComponent<Collider>();
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();

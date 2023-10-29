@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061264594707045842}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 1030679272553203112}
   - component: {fileID: 3115734176685247817}
   - component: {fileID: 7347999281690951526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Beholder
   m_TagString: monster
   m_Icon: {fileID: 0}
@@ -162,8 +162,11 @@ MonoBehaviour:
   attack_base: 0
   ap_damage_base: 7
   defense_base: 0
-  force_base: 1
-  mass_base: 1
+  maxSpeed: 5
+  acceleration: 8
+  rotationSpeed: 120
+  attack_interval: 2
+  attackRange: 0
   description: Floating magical creatures with enormous eyes, one of the liches'
     experiments. Initially, liches just wanted more eyes to monitor intruders but
     later found it easier to eliminate them outright. They are fragile and will self-destruct
@@ -174,13 +177,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 0
-  maxSpeed: 5
-  acceleration: 8
-  rotationSpeed: 120
-  attack_interval: 2
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &3093809100972313575
@@ -198,6 +194,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 1
+  isDragon: 0
+  speedUpCir: {fileID: 193649754868780285, guid: 0027055130be91740868bfedc0399fb8, type: 3}
+  poisonCir: {fileID: 5446408963492940087, guid: 554aedb2501fcae4999627a512f6d2ab, type: 3}
+  trappedCir: {fileID: 3502176592314471058, guid: 0eba66eee33977548ae40673604a73e2, type: 3}
 --- !u!114 &5698496306672196364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6601623419261935999}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleF01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2573324936142431889}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Process03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4036848603672640117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1552040214458932775}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperEyelidCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 329344086725454852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleB03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8612071174032019797}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Process04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5156504820385498937}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleD05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4891515967764871197}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6153080764008166488}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleF04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4251821835765006403}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleD03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4084233687752504903}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleE05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8936874587374658100}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleB01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5398614605497988409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2490931459784685457}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleF03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7742437391321404582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Process02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4336942995226623796}
   - component: {fileID: 3872691418977920494}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BeholderMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -902,7 +904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493676854022171182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleE04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1182788116788154563}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleB04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9126597267601695599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleF02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +1000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351520613223517386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleA04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7779793818307695402}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1061,7 +1063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7804388409928549512}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleA01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6129797999641190533}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5939152530089641409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LowerEyelidCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4412615980099580148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleC01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1190,7 +1192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788853582228290254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleA03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,7 +1224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4580552425483716365}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleA05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033641910645538784}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleC05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2348411362537819652}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6888637785089009833}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleB05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1346,7 +1348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 559289681432441806}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleE01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1378,7 +1380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4866159254418544101}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleD04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1410,7 +1412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6659702045010628472}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleA02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1442,7 +1444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8092720487096630616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleB02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,7 +1476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1057054897972445293}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleF05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1505,7 +1507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7176843079279656941}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1537,7 +1539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5180081513147981602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleC04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1569,7 +1571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7486761138715254593}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,7 +1602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7056362753552351097}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeBallCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1631,7 +1633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3434735308459802152}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleE03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1663,7 +1665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497870446724847000}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleE02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1695,7 +1697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1978850414798157365}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Process05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,7 +1728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4333006037247766039}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Process01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1757,7 +1759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7066634765233008070}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleC02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1789,7 +1791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3063262469360787959}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TentacleC03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1821,7 +1823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5473241216247981980}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1851,6 +1853,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 343406788890704991}
     m_Modifications:
+    - target: {fileID: 1208941812742595458, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1858,14 +1864,38 @@ PrefabInstance:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121738885200203360, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807489900518985140, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202088849422557962, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952083817866750531, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277180835775855782, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1874,6 +1904,14 @@ PrefabInstance:
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261738519547894045, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431581453796185093, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

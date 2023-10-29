@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AOE : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class AOE : MonoBehaviour
     public bool speedUp;
     public float speedUpRate;
     public bool trapped;
-    private Dictionary<string, Vector3> speedDictionary = new Dictionary<string, Vector3>();
+    private Dictionary<string, float> speedDictionary = new Dictionary<string, float>();
     public LayerMask allUnits;
     public Collider[] colliders;
     public int existTime;
@@ -27,8 +28,8 @@ public class AOE : MonoBehaviour
         Collider[] units = Physics.OverlapSphere(transform.position, range, allUnits);
         if (units.Length > 0) {
             foreach (Collider unit in units) {
-                Rigidbody unitRb = unit.gameObject.GetComponent<Rigidbody>();
-                speedDictionary.Add(unit.gameObject.name, unitRb.velocity);
+                NavMeshAgent unitNMA = unit.gameObject.GetComponent<NavMeshAgent>();
+                speedDictionary.Add(unit.gameObject.name, unitNMA.speed);
             }
         }
         colliders = units;
@@ -38,35 +39,19 @@ public class AOE : MonoBehaviour
         rescaleDmgCir();
         rescaleTrapCir();
         if (heal) {
-            Debug.Log("I come here");
-            GameObject healingCir = transform.GetChild(0).gameObject;
-            healingCir.SetActive(true);
-            ParticleSystem healPS = healingCir.GetComponent<ParticleSystem>();
-            healPS.Play();
+            activeCircle(0);
         }
         if (slow) {
-            GameObject slowingCir = transform.GetChild(1).gameObject;
-            slowingCir.SetActive(true);
-            ParticleSystem slowPS = slowingCir.GetComponent<ParticleSystem>();
-            slowPS.Play();
+            activeCircle(1);
         }
         if (speedUp) {
-            GameObject speedingCir = transform.GetChild(2).gameObject;
-            speedingCir.SetActive(true);
-            ParticleSystem speedPS = speedingCir.GetComponent<ParticleSystem>();
-            speedPS.Play();
+            activeCircle(2);
         }
         if (trapped) {
-            GameObject trappingCir = transform.GetChild(3).gameObject;
-            trappingCir.SetActive(true);
-            ParticleSystem trapPS = trappingCir.GetComponent<ParticleSystem>();
-            trapPS.Play();
+            activeCircle(3);
         }
         if (poison) {
-            GameObject poisonCir = transform.GetChild(4).gameObject;
-            poisonCir.SetActive(true);
-            ParticleSystem poisonPS = poisonCir.GetComponent<ParticleSystem>();
-            poisonPS.Play();
+            activeCircle(4);
         }
         // Change the size of effect
         StartCoroutine(EndAOE());
@@ -78,14 +63,14 @@ public class AOE : MonoBehaviour
         Collider[] units = Physics.OverlapSphere(transform.position, range, allUnits);
         if (units.Length > 0) {
             foreach (Collider unit in units) {
-                Rigidbody unitRb = unit.gameObject.GetComponent<Rigidbody>();
+                NavMeshAgent unitNMA = unit.gameObject.GetComponent<NavMeshAgent>();
                 Attributes unitAB = unit.gameObject.GetComponent<Attributes>();
                 int pos = Array.IndexOf(colliders, unit);
                 if (pos == -1) {
                     if (!speedDictionary.ContainsKey(unit.gameObject.name)) {
-                        speedDictionary.Add(unit.gameObject.name, unitRb.velocity);
+                        speedDictionary.Add(unit.gameObject.name, unitNMA.speed);
                     } else {
-                        speedDictionary[unit.gameObject.name] = unitRb.velocity;
+                        speedDictionary[unit.gameObject.name] = unitNMA.speed;
                     }
                 }
 
@@ -93,13 +78,13 @@ public class AOE : MonoBehaviour
                     unitAB.HP += healRate * Time.deltaTime;
                 }
                 if (slow) {
-                    unitRb.velocity = (1 - slowRate) * speedDictionary[unit.gameObject.name];
+                    unitNMA.speed = (1 - slowRate) * speedDictionary[unit.gameObject.name];
                 }
                 if (speedUp) {
-                    unitRb.velocity = (1 + speedUpRate) * speedDictionary[unit.gameObject.name];
+                    unitNMA.speed = (1 + speedUpRate) * speedDictionary[unit.gameObject.name];
                 }
                 if (trapped) {
-                    unitRb.velocity = Vector3.zero;
+                    unitNMA.speed = 0;
                 }
                 if (poison) {
                     unitAB.HP -= dmgRate * Time.deltaTime;
@@ -116,9 +101,17 @@ public class AOE : MonoBehaviour
         colliders = units;
     }
 
+    
+    private void activeCircle(int index) {
+        GameObject circle = transform.GetChild(index).gameObject;
+        circle.SetActive(true);
+        ParticleSystem PS = circle.GetComponent<ParticleSystem>();
+        PS.Play();
+    }
+
     public void resumeSpeed(Collider unit) {
-        Rigidbody unitRb = unit.gameObject.GetComponent<Rigidbody>();
-        unitRb.velocity = speedDictionary[unit.gameObject.name];
+        NavMeshAgent unitNMA = unit.gameObject.GetComponent<NavMeshAgent>();
+        unitNMA.speed = speedDictionary[unit.gameObject.name];
     }
 
 
@@ -186,6 +179,12 @@ public class AOE : MonoBehaviour
 
     IEnumerator EndAOE() {
         yield return new WaitForSeconds(existTime);
+        Collider[] units = Physics.OverlapSphere(transform.position, range, allUnits);
+        if (units.Length > 0) {
+            foreach (Collider unit in units) {
+                resumeSpeed(unit);
+            }
+        }
         Destroy(gameObject);
     }
 }

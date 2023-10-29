@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
-public class Move : MonoBehaviour
+public class NavMove : MonoBehaviour
 {
     private Attributes _attributes;
     private Animator _animator;
     private Rigidbody _rb;
     public GameObject _moveGoal = null;
     private NavMeshAgent _agent;
+    private float _maxSpeed;
     private float _acceleration;
+    private float _rotationSpeed;
     private float _mapBound = 50.0f;
     private bool _isDead;
 
-    public float current_speed;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class Move : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         // Get necessary attributes from the object attribute script
+        _maxSpeed = _attributes.maxSpeed;
+        _rotationSpeed = _attributes.rotationSpeed;
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = _attributes.maxSpeed;
         _agent.acceleration = _attributes.acceleration;
@@ -33,15 +37,15 @@ public class Move : MonoBehaviour
     {
         _isDead = _attributes.isDead;
         _moveGoal = _attributes.moveGoal;
-        current_speed = _agent.velocity.magnitude;
-
-        _animator.SetFloat("speed", current_speed);
+        _acceleration = _attributes.acceleration;
+        speed = _rb.velocity.magnitude;
+        _animator.SetFloat("current_speed", speed);
 
         if (!_isDead && _moveGoal != null)
         {
             _agent.destination = _moveGoal.transform.position;
         }
-        else if (!_isDead && _moveGoal == null)
+        else
         {
             _agent.speed = 0;
         }
@@ -53,11 +57,12 @@ public class Move : MonoBehaviour
         {
             _animator.SetBool("noEnemy", false);
         }
-
+        
     }
-
+    
     private void OnCollisionStay(Collision other)
     {
+        string alleyTag;
         string enemyTag;
         if (gameObject.tag == "hunter")
         {
@@ -72,4 +77,7 @@ public class Move : MonoBehaviour
             _agent.speed = _attributes.maxSpeed / 10;
         }
     }
+    
 }
+
+

@@ -35,6 +35,7 @@ public class ShootingBullet : MonoBehaviour
         shooterAnim = GetComponent<Animator>();
         attributes = GetComponent<Attributes>();
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.speed = attributes.maxSpeed;
     }
 
     // Update is called once per frame

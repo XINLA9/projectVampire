@@ -21,6 +21,7 @@ public class SkeletonLogic : MonoBehaviour
         skeletonAnim = GetComponent<Animator>();
         nearestEnemy = null;
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.speed = attributes.maxSpeed;
     }
 
     // Update is called once per frame

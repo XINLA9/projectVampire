@@ -2585,6 +2585,7 @@ MonoBehaviour:
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
   injuredAlly: {fileID: 0}
+  injuredAlly: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
     m_Bits: 8
@@ -2592,9 +2593,12 @@ MonoBehaviour:
   distanceTol: 1
   attackCoolDown: 2
   healingRange: 15
+  healingRange: 15
   moveAway: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
+  isPriest: 0
+  healingCircle: {fileID: 0}
   isPriest: 0
   healingCircle: {fileID: 0}
 --- !u!54 &2600761200355170991
@@ -2639,8 +2643,8 @@ MonoBehaviour:
   HP_max: 25
   mana_max: 0
   attack_base: 0
-  ap_damage_base: 0
-  defense_base: 0
+  ap_damage_base: 3
+  defense_base: 3
   force_base: 0
   mass_base: 0
   description: Court magicians of the kingdom, skilled in the arcane arts and loyal
@@ -2675,6 +2679,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 1
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!195 &950399179849665635
 NavMeshAgent:
   m_ObjectHideFlags: 0

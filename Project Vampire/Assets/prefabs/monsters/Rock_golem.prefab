@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447238221598889681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Index_Proximal_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769948415093259874}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lower_Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 538039631431099582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5241684503376348469}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lower_Reg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665128901434567924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2488239754757758401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Upper_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2884975060329714481}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7461873442170353121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696984975021824625}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 8969603918932605500}
   - component: {fileID: 4293264272317823909}
   - component: {fileID: 5046534860092760786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock_golem
   m_TagString: monster
   m_Icon: {fileID: 0}
@@ -419,8 +419,11 @@ MonoBehaviour:
   attack_base: 5
   ap_damage_base: 10
   defense_base: 5
-  force_base: 20
-  mass_base: 100
+  maxSpeed: 1
+  acceleration: 8
+  rotationSpeed: 120
+  attack_interval: 4
+  attackRange: 0
   description: Giant golems made of hard rock, yet another of the liches' experiments.
     These silent and loyal creatures often serve as guards in the liches' laboratories.
     They possess extremely high armor, attack power, and health, but are very slow.
@@ -431,13 +434,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 100
-  maxSpeed: 1
-  acceleration: 8
-  rotationSpeed: 120
-  attack_interval: 4
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &5531915928841109826
@@ -455,6 +451,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!114 &7703923910898434732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4272508022046507307}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7463877089150345132}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Upper_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663127644079151575}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Upper_Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5279478014823753048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Toes_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6475481439761095447}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Toes_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8235734297229842024}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lower_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3658950947941692522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4922666955688325722}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lower_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4824848487894406294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Index_Proximal_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5255664751823733854}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Upper_Reg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145158037798492091}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5909175924751152518}
   - component: {fileID: 8921716766858067166}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RockGolemMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,6 +995,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6285421548266841106}
     m_Modifications:
+    - target: {fileID: 1208941812742595458, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1000,14 +1006,38 @@ PrefabInstance:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121738885200203360, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807489900518985140, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202088849422557962, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952083817866750531, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277180835775855782, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1016,6 +1046,14 @@ PrefabInstance:
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261738519547894045, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431581453796185093, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x

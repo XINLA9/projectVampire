@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8154461073400145016}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearRightLeg03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7758395262446440581}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearLeftLeg02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977571635828905560}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontLeftLeg02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2002225678751876427}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8932967340697710215}
   - component: {fileID: 9102252168625899506}
   - component: {fileID: 3534375342536703608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChestMonster
   m_TagString: monster
   m_Icon: {fileID: 0}
@@ -211,8 +211,11 @@ MonoBehaviour:
   attack_base: 1
   ap_damage_base: 30
   defense_base: 1000
-  force_base: 1
-  mass_base: 1
+  maxSpeed: 2
+  acceleration: 8
+  rotationSpeed: 120
+  attack_interval: 2
+  attackRange: 0
   description: Magical creatures resembling treasure chests, another of the liches'
     experiments. Not all who visit the castle seek knowledge, and these creatures
     are the liches' gift to such crude individuals. They have high armor and attack
@@ -223,13 +226,6 @@ MonoBehaviour:
   attack: 1
   ap_damage: 0
   defense: 0
-  force: 1
-  mass: 0
-  maxSpeed: 2
-  acceleration: 8
-  rotationSpeed: 120
-  attack_interval: 2
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!65 &43797647575152494
@@ -295,6 +291,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!114 &9009276880436026228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769764152960485284}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperTeethCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8116538092188571266}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 892789953128682862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearRightLeg01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1491259307566388632}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontRightLeg01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 646282870000467721}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontLeftLeg03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8921051177507005557}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearRightLeg02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8703138856907056363}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7926769543078582811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearLeftLeg03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3013712646077057688}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontRightLeg02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4109179470278416657}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LowerTeethCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3837260433467987876}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontLeftLeg01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949844340702231186}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UppderEyeLid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4036506776468526672}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EyeBallCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6009647063894678248}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5188504013362575696}
   - component: {fileID: 6964451925956318776}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChestMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5036628512298967708}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontRightLeg03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8852679472429455880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearLeftLeg01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +1000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 23780443923657913}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LockCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 58143074817767694}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LowerEyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,6 +1061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 393861310376563453}
     m_Modifications:
+    - target: {fileID: 1208941812742595458, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1066,14 +1072,38 @@ PrefabInstance:
     - target: {fileID: 2214475180573652837, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121738885200203360, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807489900518985140, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Name
       value: Unit_attribute_UI
       objectReference: {fileID: 0}
     - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098655324490016499, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202088849422557962, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952083817866750531, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277180835775855782, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1082,6 +1112,14 @@ PrefabInstance:
     - target: {fileID: 7157583348386731044, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261738519547894045, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431581453796185093, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8587027331305296098, guid: c86c41c08adc0d54abbf9246953a74bf, type: 3}
       propertyPath: m_Pivot.x
