@@ -1168,7 +1168,7 @@ MonoBehaviour:
   attack_base: 20
   ap_damage_base: 40
   defense_base: 30
-  maxSpeed: 3
+  maxSpeed: 10
   acceleration: 1
   rotationSpeed: 120
   attack_interval: 2.5
