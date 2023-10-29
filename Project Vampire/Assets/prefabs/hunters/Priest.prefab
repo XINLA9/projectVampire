@@ -1069,7 +1069,7 @@ Animator:
   m_GameObject: {fileID: 4591190659787460659}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
-  m_Controller: {fileID: 9100000, guid: 28d1b863ee529354b9217e3549227015, type: 2}
+  m_Controller: {fileID: 9100000, guid: fa306c8e9ec0049478904012a5b3f079, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1164,6 +1164,7 @@ MonoBehaviour:
   mass_base: 0
   unitsName: n
   description: d
+  profolio: {fileID: 0}
   HP: 45
   mana: 0
   attack: 0
@@ -1202,11 +1203,12 @@ MonoBehaviour:
   shootCoolDown: 1
   distanceTol: 1
   attackCoolDown: 2
-  healingRange: 15
+  healingRange: 20
   moveAway: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
   isPriest: 1
+  healingCircle: {fileID: 1326129987903234227, guid: da0339d3444d9c7499fec192c803f4c6, type: 3}
 --- !u!195 &6911343386405067141
 NavMeshAgent:
   m_ObjectHideFlags: 0

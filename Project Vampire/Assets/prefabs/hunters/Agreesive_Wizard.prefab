@@ -450,15 +450,19 @@ MonoBehaviour:
   attackRange: 30
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
+  injuredAlly: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
     m_Bits: 8
   shootCoolDown: 1
   distanceTol: 1
   attackCoolDown: 2
+  healingRange: 15
   moveAway: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 1
+  isPriest: 0
+  healingCircle: {fileID: 0}
 --- !u!114 &4463091176235849784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,12 +478,13 @@ MonoBehaviour:
   HP_max: 30
   mana_max: 60
   attack_base: 0
-  ap_damage_base: 0
-  defense_base: 0
+  ap_damage_base: 2
+  defense_base: 3
   force_base: 0
   mass_base: 0
   unitsName: n
   description: d
+  profolio: {fileID: 0}
   HP: 10
   mana: 30
   attack: 0
@@ -509,6 +514,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!195 &1655971687810732236
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -196,6 +196,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
+  isMushroom: 0
+  isBeholder: 1
+  isDragon: 0
+  speedUpCir: {fileID: 193649754868780285, guid: 0027055130be91740868bfedc0399fb8, type: 3}
+  poisonCir: {fileID: 5446408963492940087, guid: 554aedb2501fcae4999627a512f6d2ab, type: 3}
+  trappedCir: {fileID: 3502176592314471058, guid: 0eba66eee33977548ae40673604a73e2, type: 3}
 --- !u!114 &5698496306672196364
 MonoBehaviour:
   m_ObjectHideFlags: 0

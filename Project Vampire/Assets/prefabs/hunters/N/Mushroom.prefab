@@ -634,6 +634,9 @@ MonoBehaviour:
   defense_base: 1
   force_base: 0
   mass_base: 0
+  unitsName: n
+  description: d
+  profolio: {fileID: 0}
   HP: 0
   mana: 0
   attack: 0
@@ -661,6 +664,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkeleton: 0
+  isWizard: 0
+  isDeadWizard: 0
+  isMushroom: 1
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 193649754868780285, guid: 0027055130be91740868bfedc0399fb8, type: 3}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!114 &1924366064360511212
 MonoBehaviour:
   m_ObjectHideFlags: 0

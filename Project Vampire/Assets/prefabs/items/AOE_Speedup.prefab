@@ -61,7 +61,7 @@ MonoBehaviour:
   trapped: 0
   allUnits:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   colliders: []
   existTime: 15
 --- !u!1001 &1656256534384816032

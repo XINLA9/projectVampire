@@ -31,6 +31,7 @@ public class SummonDead : MonoBehaviour
         magicCircle = transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
         magicCircle.Stop();
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.speed = attributes.maxSpeed;
     }
 
     // Update is called once per frame

@@ -28,6 +28,8 @@ public class NavMove : MonoBehaviour
         _maxSpeed = _attributes.maxSpeed;
         _rotationSpeed = _attributes.rotationSpeed;
         _agent = GetComponent<NavMeshAgent>();
+        _agent.speed = _attributes.maxSpeed;
+        _agent.acceleration = _attributes.acceleration;
     }
 
     // Update is called once per frame
@@ -42,8 +44,6 @@ public class NavMove : MonoBehaviour
         if (!_isDead && _moveGoal != null)
         {
             _agent.destination = _moveGoal.transform.position;
-            _agent.speed = _attributes.maxSpeed;
-            _agent.acceleration = _attributes.acceleration;
         }
         else
         {
