@@ -2579,7 +2579,7 @@ MonoBehaviour:
   HP_max: 400
   mana_max: 0
   attack_base: 60
-  ap_damage_base: 60
+  ap_damage_base: 100
   defense_base: 45
   maxSpeed: 5
   acceleration: 2

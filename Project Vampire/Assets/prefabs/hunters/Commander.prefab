@@ -349,8 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_max: 250
   mana_max: 0
-  attack_base: 80
-  ap_damage_base: 20
+  attack_base: 60
+  ap_damage_base: 40
   defense_base: 60
   maxSpeed: 4
   acceleration: 2
