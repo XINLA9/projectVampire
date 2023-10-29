@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 3734849366479255696}
   - component: {fileID: 7024110413105331617}
   m_Layer: 3
-  m_Name: TurtleShell
+  m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,16 +281,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 30
+  HP_max: 200
   mana_max: 0
-  attack_base: 3
-  ap_damage_base: 1
-  defense_base: 5
-  maxSpeed: 2
-  acceleration: 1
-  rotationSpeed: 0
+  attack_base: 30
+  ap_damage_base: 5
+  defense_base: 75
+  maxSpeed: 1
+  acceleration: 0.3
+  rotationSpeed: 120
   attack_interval: 0
-  attackRange: 1
+  attackRange: 6
   description: A spiked-shelled magical creature, one of the liches' mad experiments.
     Considered a failure and discarded by its creators, these beings have thrived
     in the Black Forest. They possess extremely high armor and numbers but are mediocre

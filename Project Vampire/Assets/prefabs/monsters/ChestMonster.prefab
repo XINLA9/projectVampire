@@ -206,15 +206,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 10
+  HP_max: 180
   mana_max: 0
-  attack_base: 1
-  ap_damage_base: 30
-  defense_base: 1000
-  maxSpeed: 2
-  acceleration: 8
+  attack_base: 50
+  ap_damage_base: 0
+  defense_base: 60
+  maxSpeed: 1.5
+  acceleration: 0.5
   rotationSpeed: 120
-  attack_interval: 2
+  attack_interval: 4
   attackRange: 0
   description: Magical creatures resembling treasure chests, another of the liches'
     experiments. Not all who visit the castle seek knowledge, and these creatures

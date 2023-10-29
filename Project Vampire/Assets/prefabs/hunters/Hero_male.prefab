@@ -2404,15 +2404,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 100
+  HP_max: 360
   mana_max: 0
-  attack_base: 3
-  ap_damage_base: 3
-  defense_base: 3
-  maxSpeed: 3
-  acceleration: 9
+  attack_base: 85
+  ap_damage_base: 23
+  defense_base: 50
+  maxSpeed: 4
+  acceleration: 2
   rotationSpeed: 10
-  attack_interval: 1
+  attack_interval: 1.6
   attackRange: 0
   description: A famed adventurer who is said to have stood against an entire army
     of orcs on his own, excelling in combating large numbers of basic units.

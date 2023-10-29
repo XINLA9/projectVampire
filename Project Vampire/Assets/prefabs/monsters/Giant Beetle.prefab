@@ -1645,15 +1645,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 100
+  HP_max: 250
   mana_max: 0
-  attack_base: 10
-  ap_damage_base: 10
-  defense_base: 5
-  maxSpeed: 5
-  acceleration: 1
-  rotationSpeed: 0
-  attack_interval: 2
+  attack_base: 50
+  ap_damage_base: 15
+  defense_base: 65
+  maxSpeed: 2.5
+  acceleration: 1.2
+  rotationSpeed: 120
+  attack_interval: 3
   attackRange: 0
   description: Giant beetles dwelling underground, with sharp horns and solid carapaces.
     They are the Beetle King's most trusted kin and warriors, their status in the

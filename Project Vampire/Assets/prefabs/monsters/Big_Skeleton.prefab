@@ -1131,15 +1131,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 3
+  HP_max: 100
   mana_max: 0
-  attack_base: 0
+  attack_base: 70
   ap_damage_base: 0
-  defense_base: 0
-  maxSpeed: 1
-  acceleration: 0
-  rotationSpeed: 270
-  attack_interval: 0
+  defense_base: 20
+  maxSpeed: 3
+  acceleration: 1.5
+  rotationSpeed: 120
+  attack_interval: 2
   attackRange: 3
   description: Skeleton warriors revived through necromancy, retaining all their
     combat prowess from life. They are good for offensive strategies but somewhat

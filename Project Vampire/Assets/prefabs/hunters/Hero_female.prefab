@@ -2576,15 +2576,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 100
+  HP_max: 400
   mana_max: 0
-  attack_base: 3
-  ap_damage_base: 3
-  defense_base: 3
-  maxSpeed: 3
-  acceleration: 9
-  rotationSpeed: 10
-  attack_interval: 1
+  attack_base: 60
+  ap_damage_base: 60
+  defense_base: 45
+  maxSpeed: 5
+  acceleration: 2
+  rotationSpeed: 120
+  attack_interval: 3
   attackRange: 0
   description: A renowned adventurer famed for slaying a dragon single-handedly,
     adept at combating large beasts.

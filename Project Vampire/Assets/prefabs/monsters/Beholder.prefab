@@ -157,15 +157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 25
+  HP_max: 100
   mana_max: 0
   attack_base: 0
-  ap_damage_base: 7
-  defense_base: 0
-  maxSpeed: 5
-  acceleration: 8
+  ap_damage_base: 60
+  defense_base: 10
+  maxSpeed: 3
+  acceleration: 1.5
   rotationSpeed: 120
-  attack_interval: 2
+  attack_interval: 1
   attackRange: 0
   description: Floating magical creatures with enormous eyes, one of the liches'
     experiments. Initially, liches just wanted more eyes to monitor intruders but

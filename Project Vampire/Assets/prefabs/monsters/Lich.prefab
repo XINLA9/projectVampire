@@ -475,15 +475,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 30
+  HP_max: 250
   mana_max: 60
   attack_base: 0
-  ap_damage_base: 0
-  defense_base: 0
-  maxSpeed: 15
-  acceleration: 0
-  rotationSpeed: 270
-  attack_interval: 0
+  ap_damage_base: 90
+  defense_base: 35
+  maxSpeed: 2.49
+  acceleration: 1
+  rotationSpeed: 120
+  attack_interval: 3
   attackRange: 0
   description: Many mages, thirsty for knowledge, brave the dangers of the Black
     Forest to visit the castle. Those who succeed return laden with the knowledge

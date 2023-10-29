@@ -1222,13 +1222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 50
+  HP_max: 500
   mana_max: 0
-  attack_base: 10
-  ap_damage_base: 10
-  defense_base: 2.26
-  force_base: 1
-  mass_base: 0
+  attack_base: 70
+  ap_damage_base: 50
+  defense_base: 80
+  maxSpeed: 4
+  acceleration: 2
+  rotationSpeed: 120
+  attack_interval: 3
+  attackRange: 0
   description: The original masters of the Black Forest, these powerful beings nearly
     destroyed the kingdom in the past. Now they regard the Earl as their new master
     and obey his orders to stay away from the human kingdom. They are powerful and
@@ -1239,13 +1242,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 0
-  force: 0
-  mass: 0
-  maxSpeed: 3
-  acceleration: 8
-  rotationSpeed: 120
-  attack_interval: 3
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!114 &8439075207578192998
