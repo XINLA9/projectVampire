@@ -9,7 +9,6 @@ public class SummonDead : MonoBehaviour
     public float summonCoolDown = 10.0f;
     public GameObject nearestDead;
     private bool summonReady = true;
-    public GameObject[] skeletonList;
     private Rigidbody enemyRb;
     private Attributes attributes;
     private ShootingBullet SB;

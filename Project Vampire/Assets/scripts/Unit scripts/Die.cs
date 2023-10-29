@@ -59,9 +59,6 @@ public class Die : MonoBehaviour
             uiElement.SetActive(false);
             int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");
             gameObject.layer = LayerIgnoreRaycast;
-            if (isSkeleton) {
-                StartCoroutine(DestorySkeleton());
-            }
         }
     }
 

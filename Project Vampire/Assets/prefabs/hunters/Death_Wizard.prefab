@@ -538,7 +538,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
   isPriest: 0
-  healingCircle: {fileID: 0}
+  isDeathWiz: 1
   healingCircle: {fileID: 0}
 --- !u!114 &5355828378403939567
 MonoBehaviour:
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac216c9322674449b5cba38cf4afa22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  summonRange: 5
+  summonRange: 15
   summonCoolDown: 15
   nearestDead: {fileID: 0}
   skeletonList: []
@@ -577,9 +577,11 @@ MonoBehaviour:
   attack_base: 3
   ap_damage_base: 0
   defense_base: 3
-  force_base: 0
-  mass_base: 0
-  unitsName: n
+  maxSpeed: 15
+  acceleration: 0
+  rotationSpeed: 270
+  attack_interval: 0
+  attackRange: 0
   description: d
   profolio: {fileID: 0}
   HP: 130
@@ -587,13 +589,6 @@ MonoBehaviour:
   attack: 0
   ap_damage: 0
   defense: 3
-  force: 0
-  mass: 0
-  maxSpeed: 15
-  acceleration: 0
-  rotationSpeed: 270
-  attack_interval: 0
-  attackRange: 0
   isDead: 0
   moveGoal: {fileID: 0}
 --- !u!54 &4157145518474195031
