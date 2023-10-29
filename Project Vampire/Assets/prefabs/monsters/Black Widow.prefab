@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce38332a13bb7b54c88f985d757fa8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_unit: {fileID: 4661876411490346980, guid: 9030cad437400b14aa48108c42787920, type: 3}
+  spawn_unit: {fileID: 4661876411490346980, guid: 27e860820f8f742679463daab371e6fe, type: 3}
   spawn_number: 1
   manaCost: 5
   spawnInterval: 5
@@ -1161,6 +1161,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 0}
+  isRangePower: 0
+  isRange: 0
+  isSkeleton: 0
 --- !u!1 &3431287187397060655
 GameObject:
   m_ObjectHideFlags: 0
