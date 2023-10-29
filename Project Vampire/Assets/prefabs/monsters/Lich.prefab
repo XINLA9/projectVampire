@@ -416,7 +416,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5180552009572623758}
   serializedVersion: 4
-  m_Mass: 50
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -455,7 +455,7 @@ MonoBehaviour:
   injuredAlly: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   shootCoolDown: 1
   distanceTol: 1
   attackCoolDown: 2
@@ -466,6 +466,7 @@ MonoBehaviour:
   isPriest: 0
   isDeathWiz: 0
   healingCircle: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4463091176235849784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +572,7 @@ MonoBehaviour:
   uiElement: {fileID: 0}
   isRangePower: 0
   isRange: 1
+  isSkeleton: 0
 --- !u!1 &5350031833080153327
 GameObject:
   m_ObjectHideFlags: 0
