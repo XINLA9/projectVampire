@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private GameObject BoundaryWarner;
 
     public Sprite[] allieProfolios_C1;//
+    public Sprite[] allieProfolios_C2;//
+    public Sprite[] allieProfolios_C3;//
 
     private Sprite[] activeAllieProfolios = {};
     private GameObject[] activeAlliePrefabs = {};//Allie units that been chosen in a game
@@ -127,11 +129,11 @@ public class GameManager : MonoBehaviour
                 break;
             case 1:
                 activeAlliePrefabs = alliePrefabs_C2;
-                activeAllieProfolios = allieProfolios_C1;
+                activeAllieProfolios = allieProfolios_C2;
                 break;            
             case 2:
                 activeAlliePrefabs = alliePrefabs_C3;
-                activeAllieProfolios = allieProfolios_C1;
+                activeAllieProfolios = allieProfolios_C3;
                 break;           
             default:
                 Debug.Log("Error in charactor choosing");

@@ -8,7 +8,6 @@ public class StartButton2 : MonoBehaviour
     //references for all buttons and texts
     public GameObject titleText;
     public GameObject startButton;
-    public GameObject powerupButton;
     public GameObject settingButton;
     public GameObject targetPanel;
 
@@ -28,7 +27,6 @@ public class StartButton2 : MonoBehaviour
         //hide the buttons
         titleText.SetActive(false);
         startButton.SetActive(false);
-        powerupButton.SetActive(false);
         settingButton.SetActive(false);
 
         //show the target panel
