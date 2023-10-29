@@ -1162,8 +1162,8 @@ MonoBehaviour:
   defense_base: 0
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: Devout and zealous clerics of the kingdom, they see the eradication
+    of undead as their sacred duty. They wield holy magic to heal their allies.
   profolio: {fileID: 0}
   HP: 45
   mana: 0

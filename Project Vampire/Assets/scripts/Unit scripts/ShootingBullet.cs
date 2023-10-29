@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ShootingBullet : MonoBehaviour
 {
     public GameObject bullet;
-    // Initiate the movement speed and attackRange
+    // Initiate the movement current_speed and attackRange
     public float attentionRange = 10.0f;
     public float attackRange = 10.0f;
     private Attributes attributes;

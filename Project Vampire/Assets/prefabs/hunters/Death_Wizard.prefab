@@ -537,6 +537,7 @@ MonoBehaviour:
   aggressive: 0
   isPriest: 0
   healingCircle: {fileID: 0}
+  healingCircle: {fileID: 0}
 --- !u!114 &5355828378403939567
 MonoBehaviour:
   m_ObjectHideFlags: 0

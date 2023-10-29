@@ -13,7 +13,6 @@ public class Attributes : MonoBehaviour
     public float defense_base;
     public float force_base;
     public float mass_base;
-    public string unitsName = "n";
     public string description = "d";
 
     public Sprite profolio;

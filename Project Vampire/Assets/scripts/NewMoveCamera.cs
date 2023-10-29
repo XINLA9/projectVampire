@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CameraFollowMouse : MonoBehaviour
 {
-    private float cameraSpeed = 20.0f; // Adjust the camera movement speed.
-    private float scrollSpeed = 40.0f; // Adjust the scroll speed.
+    private float cameraSpeed = 20.0f; // Adjust the camera movement current_speed.
+    private float scrollSpeed = 40.0f; // Adjust the scroll current_speed.
     private float maxX = 30.0f;
     private float maxZ = 25.0f;
     private float minY = 10.0f;
@@ -49,7 +49,7 @@ public class CameraFollowMouse : MonoBehaviour
         float scrollInput = Input.mouseScrollDelta.y;
         Vector3 scrollMovement = Vector3.forward * scrollInput * scrollSpeed * Time.deltaTime;
 
-        // Normalize the movement vector to maintain consistent speed.
+        // Normalize the movement vector to maintain consistent current_speed.
         if (movement != Vector3.zero)
         {
             movement.Normalize();

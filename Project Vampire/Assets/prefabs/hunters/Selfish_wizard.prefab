@@ -2585,6 +2585,7 @@ MonoBehaviour:
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
   injuredAlly: {fileID: 0}
+  injuredAlly: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
     m_Bits: 8
@@ -2592,9 +2593,12 @@ MonoBehaviour:
   distanceTol: 1
   attackCoolDown: 2
   healingRange: 15
+  healingRange: 15
   moveAway: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
+  isPriest: 0
+  healingCircle: {fileID: 0}
   isPriest: 0
   healingCircle: {fileID: 0}
 --- !u!54 &2600761200355170991
@@ -2643,8 +2647,8 @@ MonoBehaviour:
   defense_base: 3
   force_base: 0
   mass_base: 0
-  unitsName: n
-  description: d
+  description: Court magicians of the kingdom, skilled in the arcane arts and loyal
+    to the throne.
   profolio: {fileID: 0}
   HP: 25
   mana: 0
