@@ -661,10 +661,10 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 0
   isDeadWizard: 0
-  isMushroom: 0
+  isMushroom: 1
   isBeholder: 0
   isDragon: 0
-  speedUpCir: {fileID: 0}
+  speedUpCir: {fileID: 193649754868780285, guid: 0027055130be91740868bfedc0399fb8, type: 3}
   poisonCir: {fileID: 0}
   trappedCir: {fileID: 0}
 --- !u!114 &1924366064360511212
