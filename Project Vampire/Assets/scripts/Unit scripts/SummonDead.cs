@@ -9,6 +9,7 @@ public class SummonDead : MonoBehaviour
     public float summonCoolDown = 10.0f;
     public GameObject nearestDead;
     private bool summonReady = true;
+    public GameObject[] skeletonList;
     private Rigidbody enemyRb;
     private Attributes attributes;
     private ShootingBullet SB;
@@ -31,7 +32,6 @@ public class SummonDead : MonoBehaviour
         magicCircle.Stop();
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.speed = attributes.maxSpeed;
-        navAgent.stoppingDistance = summonRange;
     }
 
     // Update is called once per frame
@@ -91,16 +91,14 @@ public class SummonDead : MonoBehaviour
     }
 
     void MoveToNearestDead() {
-        if (!(nearestDead == null) && (SB.nearestEnemy == null) && !summonStart) {
+        bool canMove = (summonReady && !haveDead) || (!summonReady);
+        if (canMove && !(nearestDead == null) && (SB.nearestEnemy == null) && !summonStart) {
             wizardAnim.SetTrigger("haveDead");
             Vector3 moveDir = (nearestDead.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
-            if (Vector3.Distance(nearestDead.transform.position, transform.position) < summonRange) {
-                navAgent.destination = transform.position;
-            } else {
-                navAgent.destination = nearestDead.transform.position;
-            }
+            navAgent.destination = nearestDead.transform.position;
+            navAgent.stoppingDistance = summonRange;
         }
     }
 
@@ -115,10 +113,7 @@ public class SummonDead : MonoBehaviour
                     nearestDead = deads;
                 }
             }
-        } else {
-            nearestDead = null;
-            navAgent.destination = transform.position;
-        }
+        } 
         if (leastDistance < summonRange) {
             haveDead = true;
         }

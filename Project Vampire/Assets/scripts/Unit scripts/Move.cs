@@ -39,15 +39,21 @@ public class Move : MonoBehaviour
 
         if (!_isDead && _moveGoal != null)
         {
+            _agent.speed = _attributes.maxSpeed;
             _agent.destination = _moveGoal.transform.position;
         }
-        else if (!_isDead && _moveGoal == null)
+ 
+        if(_isDead)
         {
             _agent.speed = 0;
+            _rb.velocity = Vector3.zero;
         }
+
         if (_attributes.moveGoal == null)
         {
             _animator.SetBool("noEnemy", true);
+            _agent.speed = 0;
+            _rb.velocity = Vector3.zero;
         }
         else
         {

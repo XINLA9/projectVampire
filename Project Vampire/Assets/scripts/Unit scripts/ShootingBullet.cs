@@ -24,7 +24,6 @@ public class ShootingBullet : MonoBehaviour
     public Vector3 moveDir;
     public bool aggressive = false;
     public bool isPriest;
-    public bool isDeathWiz;
     private NavMeshAgent navAgent;
     private bool healReady = true;
     public GameObject healingCircle;
@@ -136,12 +135,8 @@ public class ShootingBullet : MonoBehaviour
         }
         if (targetEnemy != null) {
             shooterAnim.SetTrigger("Desire_enemy");
-            if (leastDistance < attackRange) {
-                navAgent.destination = transform.position;
-            } else {
-                navAgent.destination = targetEnemy.transform.position;
-                navAgent.stoppingDistance = attackRange;
-            }
+            navAgent.destination = targetEnemy.transform.position;
+            navAgent.stoppingDistance = attackRange;
             moveDir = (targetEnemy.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
@@ -165,13 +160,7 @@ public class ShootingBullet : MonoBehaviour
         } else {
             nearestEnemy = null;
             shooterAnim.ResetTrigger("Enemy_detected");
-            bool keepPriest = isPriest && (injuredAlly == null);
-            bool keepAggre = aggressive && (targetEnemy == null);
-            bool keepDeathWiz = isDeathWiz && (GetComponent<SummonDead>().nearestDead == null);
-            bool notPriNotAgg = !isPriest && (!aggressive) && (!isDeathWiz);
-            if (keepPriest || keepAggre || notPriNotAgg || keepDeathWiz) {
-                navAgent.destination = transform.position;
-            }
+            enemyRb.velocity = Vector3.zero;
         }
     }
 
