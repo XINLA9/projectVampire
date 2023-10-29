@@ -220,7 +220,7 @@ MonoBehaviour:
     experiments. Not all who visit the castle seek knowledge, and these creatures
     are the liches' gift to such crude individuals. They have high armor and attack
     but are slow.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: 722e1d99df43d42469401be5fd3c8bcb, type: 3}
   HP: 10
   mana: 0
   attack: 1

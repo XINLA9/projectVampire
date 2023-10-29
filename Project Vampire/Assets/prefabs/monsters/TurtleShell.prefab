@@ -295,7 +295,7 @@ MonoBehaviour:
     Considered a failure and discarded by its creators, these beings have thrived
     in the Black Forest. They possess extremely high armor and numbers but are mediocre
     in other aspects.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: c1955f97a351a4ce286c9e6099656c5a, type: 3}
   HP: 0
   mana: 0
   attack: 0

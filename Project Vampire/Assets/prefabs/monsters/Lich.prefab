@@ -489,7 +489,7 @@ MonoBehaviour:
     Forest to visit the castle. Those who succeed return laden with the knowledge
     they seek, while those who fail receive an even greater reward. Capable of using
     various spells in battle.
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: 1bf301c8bb62f4d9b96e210726f8d2ad, type: 3}
   HP: 10
   mana: 30
   attack: 0

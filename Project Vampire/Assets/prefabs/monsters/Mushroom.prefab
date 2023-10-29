@@ -638,7 +638,7 @@ MonoBehaviour:
   attack_interval: 1
   attackRange: 0
   description: d
-  profolio: {fileID: 0}
+  profolio: {fileID: 21300000, guid: 05716171cf39d4e9998a328a7a7d5f7b, type: 3}
   HP: 0
   mana: 0
   attack: 0

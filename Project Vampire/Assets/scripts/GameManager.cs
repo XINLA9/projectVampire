@@ -12,8 +12,8 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     public GameObject HowToPlayImage;// Instruction Image
-    public GameObject BlackWindownSideImage;
-    public GameObject OrkImage;
+
+    public GameObject unitInfoPanel;
     public GameObject ForestMap;//Map_1
     public GameObject GraveyYardMap;//Map_2
     public GameObject CastleMap;//Map_3
@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
             {
                 allieNo = i - 1;
                 playingInterfaces.setRed(i);
-                playingInterfaces.setAllyUnitInfoActive(i);
+            
             }
         }
         //Check if the wave ends and update the UI
@@ -285,8 +285,9 @@ public class GameManager : MonoBehaviour
 
             if(waveNum <= 4){
                 selectionPanel.SetActive(true);
-                BlackWindownSideImage.SetActive(false);
-                OrkImage.SetActive(false);
+                unitInfoPanel.SetActive(true);
+                unitInfoPanel.SetActive(false);
+          
             }
             else{
                 playingInterfaces.showWinScreen();
