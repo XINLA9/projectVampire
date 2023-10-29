@@ -78,9 +78,7 @@ public class AOE : MonoBehaviour
                     unitAB.HP += healRate * Time.deltaTime;
                 }
                 if (slow) {
-                    Debug.Log("I am here has " + unitNMA.speed);
                     unitNMA.speed = (1 - slowRate) * speedDictionary[unit.gameObject.name];
-                    Debug.Log("I am here with speed " + unitNMA.speed);
                 }
                 if (speedUp) {
                     unitNMA.speed = (1 + speedUpRate) * speedDictionary[unit.gameObject.name];
