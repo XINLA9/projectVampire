@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
     private int allieVar = 6;//The number of type for allie
     private int[] allieRemain = new int[6];//The number of remaining allies
     private int[][] allieMax = new int[3][]{
-        new int[] {6, 0, 0, 0, 1, 0},
+        new int[] {10, 0, 3, 0, 1, 0},
         new int[] {5, 0, 0, 2, 0, 0},
-        new int[] {3, 3, 0, 0, 0, 0}
+        new int[] {4, 4, 0, 0, 1, 1}
     };
     private int[] allieMaxNum = new int[6];//The number of allies at the beginning of the wave
     private int enemyRemain;//The number of remaining enemys
@@ -52,11 +52,13 @@ public class GameManager : MonoBehaviour
     public int waveNum = 0;//current wave number
     public int charactorType = -1;//Charactor chosen
     private int mapType = -1;//Map chosen
-    private GameObject BoundaryWarner;
+    private GameObject BoundaryWarner;//Boundary warn object
+    public GameObject MainCamera;//Camera
+    public AudioClip newMusic;
 
     //Boundarys for maps
     private float[] spawnRangeX = {12.0f, 24.0f, 20.0f};
-    private float[] spawnRangeZ = {6.0f, 8.0f, 10.0f};
+    private float[] spawnRangeZ = {6.0f, 8.0f, 5.0f};
     private float[] outerBoundaryX = {43.0f, 39.0f, 48.0f};
     private float[] outerBoundaryZ = {24.0f, 23.0f, 35.0f};
     private float[] innerBoundaryX = {37.0f, 31.0f, 22.0f};
@@ -72,10 +74,10 @@ public class GameManager : MonoBehaviour
         new int[] { 6, 6, 1, 1}
     };
     private int[][] enemyInGraveyWave = new int[5][]{
-        new int[] { 3, 0, 3, 0},
-        new int[] { 3, 0, 3, 3},
+        new int[] { 0, 2, 1, 0},
+        new int[] { 2, 3, 1, 0},
         new int[] { 3, 3, 3, 3},
-        new int[] { 6, 3, 3, 3},
+        new int[] { 3, 6, 3, 3},
         new int[] { 6, 6, 3, 3}
     };
     private int[][] enemyInCastleWave = new int[5][]{
@@ -147,6 +149,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Error in charactor choosing");
                 break;
         }
+        AudioListener audioListener = MainCamera.GetComponent<AudioListener>();
+        MainCamera.GetComponent<AudioSource>().Stop();
+        MainCamera.GetComponent<AudioSource>().clip = newMusic;
+        MainCamera.GetComponent<AudioSource>().Play();
         BoundaryWarner.SetActive(false);
         allieVar = activeAlliePrefabs.Length;
         enemyVar = activeEnemyPrefabs.Length;
@@ -164,7 +170,7 @@ public class GameManager : MonoBehaviour
         {
             if(isGameActive){
                 Vector3 clickPosition = ray.GetPoint(rayDistance);
-            mousePointer.transform.position = clickPosition;
+                mousePointer.transform.position = clickPosition;
             //If the position can be placed, show green, othervise show red
             if(IsInAllowedRange(clickPosition)){
                 cycleMaterial.color = Color.green;
@@ -172,6 +178,7 @@ public class GameManager : MonoBehaviour
             else{
                 cycleMaterial.color = Color.red;
             }
+            Debug.Log(EventSystem.current.IsPointerOverGameObject());
             //Spawn a allie unit
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
