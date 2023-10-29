@@ -291,8 +291,8 @@ MonoBehaviour:
   HP_max: 40
   mana_max: 0
   attack_base: 2
-  ap_damage_base: 3
-  defense_base: 0
+  ap_damage_base: 2
+  defense_base: 3
   force_base: 1
   mass_base: 1
   unitsName: n
@@ -305,8 +305,8 @@ MonoBehaviour:
   defense: 0
   force: 0
   mass: 0
-  maxSpeed: 0.6
-  acceleration: 8
+  maxSpeed: 2
+  acceleration: 1
   rotationSpeed: 120
   attack_interval: 2
   attackRange: 0
