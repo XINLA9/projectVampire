@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 30
+  HP_max: 130
   mana_max: 0
   attack_base: 3
   ap_damage_base: 0
@@ -582,7 +582,7 @@ MonoBehaviour:
   unitsName: n
   description: d
   profolio: {fileID: 0}
-  HP: 30
+  HP: 130
   mana: 0
   attack: 0
   ap_damage: 0

@@ -2639,7 +2639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 100
+  HP_max: 150
   mana_max: 0
   attack_base: 20
   ap_damage_base: 40
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   description: Court magicians of the kingdom, skilled in the arcane arts and loyal
     to the throne.
   profolio: {fileID: 0}
-  HP: 25
+  HP: 150
   mana: 0
   attack: 0
   ap_damage: 0

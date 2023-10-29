@@ -49,8 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   speed: 11
-  attack: 2
+  attack: 8
   force: 5
+  moveDir: {x: 0, y: 0, z: 0}
 --- !u!54 &5229383738803371819
 Rigidbody:
   m_ObjectHideFlags: 0
