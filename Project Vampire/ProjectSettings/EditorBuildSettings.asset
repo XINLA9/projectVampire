@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/PrototypeScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
+    path: Assets/Scenes/Forest.unity
+    guid: 164fc101ab8f1584d9f3f9772734e457
+  - enabled: 0
+    path: Assets/Scenes/Graveyard.unity
+    guid: 669716b1cdf60e943962eae184f2693e
+  - enabled: 0
+    path: Assets/Scenes/Castle.unity
+    guid: 0f30b31df1c21274da0aa193ec9e46e6
+  - enabled: 0
     path: Assets/Scenes/test.unity
     guid: ea4f8bc495f3192409d5a086bb04531a
   m_configObjects: {}
