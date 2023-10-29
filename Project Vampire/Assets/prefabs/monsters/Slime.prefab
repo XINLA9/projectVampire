@@ -152,15 +152,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 150
+  HP_max: 300
   mana_max: 0
-  attack_base: 2
+  attack_base: 100
   ap_damage_base: 10
-  defense_base: 3
+  defense_base: 80
   maxSpeed: 1
-  acceleration: 1
-  rotationSpeed: 0
-  attack_interval: 0
+  acceleration: 0.3
+  rotationSpeed: 120
+  attack_interval: 4
   attackRange: 0
   description: Contrary to popular belief, slimes are extremely powerful and dangerous
     creatures capable of crushing entire armies with their sheer size and strength.

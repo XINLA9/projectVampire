@@ -414,13 +414,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 100
+  HP_max: 600
   mana_max: 0
   attack_base: 5
-  ap_damage_base: 10
-  defense_base: 5
+  ap_damage_base: 100
+  defense_base: 150
   maxSpeed: 1
-  acceleration: 8
+  acceleration: 0.27
   rotationSpeed: 120
   attack_interval: 4
   attackRange: 0

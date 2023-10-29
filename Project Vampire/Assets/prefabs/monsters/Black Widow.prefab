@@ -979,15 +979,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 50
-  mana_max: 20
-  attack_base: 2
-  ap_damage_base: 2
-  defense_base: 2
-  maxSpeed: 1.3
-  acceleration: 8
+  HP_max: 350
+  mana_max: 40
+  attack_base: 50
+  ap_damage_base: 10
+  defense_base: 30
+  maxSpeed: 1.5
+  acceleration: 1
   rotationSpeed: 120
-  attack_interval: 2
+  attack_interval: 2.5
   attackRange: 0
   description: Giant female spiders that live underground. Unlike the largely subterranean
     giant beetles, black widows often surface to hunt food for their offspring. They

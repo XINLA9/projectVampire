@@ -2186,15 +2186,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1be6038540524140976f75ba0fa251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP_max: 50
+  HP_max: 220
   mana_max: 0
-  attack_base: 5
-  ap_damage_base: 2
-  defense_base: 1.5
-  maxSpeed: 3
-  acceleration: 8
+  attack_base: 75
+  ap_damage_base: 15
+  defense_base: 45
+  maxSpeed: 4.5
+  acceleration: 2
   rotationSpeed: 120
-  attack_interval: 0.5
+  attack_interval: 1.5
   attackRange: 0
   description: Noble canine paladins from foreign lands, though beastly in appearance,
     their swordsmanship rivals that of human knights.
