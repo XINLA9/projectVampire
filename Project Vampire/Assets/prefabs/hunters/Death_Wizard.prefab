@@ -505,10 +505,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3072609
+  m_Radius: 0.548744
   m_Height: 1.882848
   m_Direction: 1
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Center: {x: 0.000022292115, y: 0.98, z: -0.0077087875}
 --- !u!114 &538867511868257224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +675,7 @@ MonoBehaviour:
   uiElement: {fileID: 0}
   isRangePower: 1
   isRange: 0
+  isSkeleton: 0
 --- !u!1 &2222023715416765995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,7 +2832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377181292992421420, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3423388300971593625, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
       propertyPath: m_LocalPosition.x
