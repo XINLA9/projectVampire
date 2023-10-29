@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapBound: 60
   speed: 10
-  attack: 3
+  attack: 10
   force: 3
 --- !u!54 &6085518739272460480
 Rigidbody:

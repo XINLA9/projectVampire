@@ -42,8 +42,14 @@ public class Die : MonoBehaviour
                 SummonDead SD = GetComponent<SummonDead>();
                 SD.enabled = false;
             }
-            if (isBeholder || isSkeleton || isMushroom || isDragon) {
-                StartCoroutine(DestoryBody());
+            if (isBeholder) {
+                Instantiate(trappedCir, transform.position, trappedCir.transform.rotation);
+            }
+            if (isMushroom) {
+                Instantiate(speedUpCir, transform.position, speedUpCir.transform.rotation);
+            }
+            if (isDragon) {
+                Instantiate(poisonCir, transform.position, poisonCir.transform.rotation);
             }
             Collider BC = gameObject.GetComponent<Collider>();
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
@@ -59,21 +65,15 @@ public class Die : MonoBehaviour
             uiElement.SetActive(false);
             int LayerIgnoreRaycast = LayerMask.NameToLayer("Dead");
             gameObject.layer = LayerIgnoreRaycast;
+            if (isSkeleton) {
+                StartCoroutine(DestorySkeleton());
+            }
         }
     }
 
-    IEnumerator DestoryBody() {
+    IEnumerator DestorySkeleton() {
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
-        if (isBeholder) {
-            Instantiate(trappedCir, transform.position, trappedCir.transform.rotation);
-        }
-        if (isMushroom) {
-            Instantiate(speedUpCir, transform.position, speedUpCir.transform.rotation);
-        }
-        if (isDragon) {
-            Instantiate(poisonCir, transform.position, poisonCir.transform.rotation);
-        }
     }
     public void OnDeathAnimationEnd()
     {
