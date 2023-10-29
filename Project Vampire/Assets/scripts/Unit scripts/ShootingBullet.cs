@@ -6,23 +6,27 @@ using UnityEngine.AI;
 public class ShootingBullet : MonoBehaviour
 {
     public GameObject bullet;
-    // Initiate the movement speed and attackRange
+    // Initiate the movement current_speed and attackRange
     public float attentionRange = 10.0f;
     public float attackRange = 10.0f;
     private Attributes attributes;
     public GameObject nearestEnemy;
     public GameObject targetEnemy;
+    public GameObject injuredAlly;
     public LayerMask enemiesToShoot;
     public bool shootCoolDown = true;
     private Rigidbody enemyRb;
     private Animator shooterAnim; 
     public float distanceTol = 1.0f;
     public float attackCoolDown = 2.0f;
+    public float healingRange = 15.0f;
     public Vector3 moveAway;
     public Vector3 moveDir;
     public bool aggressive = false;
+    public bool isPriest;
     private NavMeshAgent navAgent;
-
+    private bool healReady = true;
+    public GameObject healingCircle;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,7 @@ public class ShootingBullet : MonoBehaviour
         shooterAnim = GetComponent<Animator>();
         attributes = GetComponent<Attributes>();
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.speed = attributes.maxSpeed;
     }
 
     // Update is called once per frame
@@ -38,6 +43,9 @@ public class ShootingBullet : MonoBehaviour
     {
         if (!attributes.isDead){
             if (!aggressive) {
+                if (isPriest) {
+                    ChaseNearestAlly();
+                }
                 FindNearestEnemy();
                 ShootNearestEnemy();
             } else {
@@ -48,6 +56,59 @@ public class ShootingBullet : MonoBehaviour
                 ShootNearestEnemy();
             }
         }
+    }
+    
+    private void ChaseNearestAlly() {
+        string targetTag = null;
+        if (gameObject.tag == "monster") {
+            targetTag = "monster";
+        } 
+        if (gameObject.tag == "hunter") {
+            targetTag = "hunter";
+        }
+        GameObject[] targetUnits = GameObject.FindGameObjectsWithTag(targetTag);
+        float leastDistance = Mathf.Infinity;
+        if (targetUnits.Length > 0) {
+            foreach (GameObject target in targetUnits) {
+                Attributes allyAttri = target.GetComponent<Attributes>();
+                bool injured = allyAttri.HP < allyAttri.HP_max && !allyAttri.isDead;
+                if (injured) {
+                    float distance = Vector3.Distance(gameObject.transform.position, target.transform.position);
+                    if (distance < leastDistance) {
+                        leastDistance = distance;
+                        injuredAlly = target;
+                    }
+                }
+            }
+        } else {
+            injuredAlly = null;
+            shooterAnim.ResetTrigger("Desire_enemy");
+        }
+        if (injuredAlly != null) {
+            shooterAnim.SetTrigger("Desire_enemy");
+            navAgent.destination = injuredAlly.transform.position;
+            navAgent.stoppingDistance = healingRange - 5;
+            moveDir = (injuredAlly.transform.position - transform.position).normalized;
+            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, attributes.rotationSpeed * Time.deltaTime);
+            if (leastDistance < healingRange && healReady) {
+                shooterAnim.SetTrigger("StartHeal");
+                navAgent.destination = transform.position;
+                StartCoroutine(ResetAnimator());
+                StartCoroutine(StartCD());
+            }
+        }
+    }
+
+    IEnumerator StartCD() {
+        healReady = false;
+        yield return new WaitForSeconds(10);
+        healReady = true;
+    }
+
+    IEnumerator ResetAnimator() {
+        yield return new WaitForSeconds(3);
+        shooterAnim.ResetTrigger("StartHeal");
     }
 
     private void ChaseNearestEnemy() {

@@ -33,7 +33,6 @@ public class SelfishWizardAttack : StateMachineBehaviour
        } else {
          ChaseArrow CA = newBullet.GetComponent<ChaseArrow>();
          CA.Target = SB.targetEnemy;
-         Debug.Log("Here is the name" + newBullet.name);
        }
        portal.SetActive(false);
     }

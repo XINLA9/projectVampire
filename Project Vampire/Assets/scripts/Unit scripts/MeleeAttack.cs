@@ -7,7 +7,7 @@ public class MeleeAttack : MonoBehaviour
 {
     private Attributes _attributes;
     private Animator _animator;
-    private float _force;
+
     private float _attack_interval;
     private bool _isDead = false;
     public AudioClip attackSound;
@@ -25,7 +25,6 @@ public class MeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _force = _attributes.force;
         _isDead = _attributes.isDead;
         _attack_interval = _attributes.attack_interval;
     }
@@ -69,14 +68,7 @@ public class MeleeAttack : MonoBehaviour
 
         Vector3 back = enemy.transform.forward;
         back.y = 0;
-        //back = back.normalized;
-
-        //float pushDuration = 0.5f; 
-        //float startTime = Time.time;
-        //while (Time.time - startTime < pushDuration)
-        //{
-        //    yield return null;
-        //}
+       
         yield return new WaitForSeconds(_attack_interval);
 
         _isAttacking = false;

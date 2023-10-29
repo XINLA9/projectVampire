@@ -11,9 +11,11 @@ public class Attributes : MonoBehaviour
     public float attack_base;
     public float ap_damage_base;
     public float defense_base;
-    public float force_base;
-    public float mass_base;
-    public string unitsName = "n";
+    public float maxSpeed;
+    public float acceleration;
+    public float rotationSpeed;
+    public float attack_interval;
+    public float attackRange;
     public string description = "d";
 
     public Sprite profolio;
@@ -24,15 +26,6 @@ public class Attributes : MonoBehaviour
     public float attack;
     public float ap_damage;
     public float defense;
-    public float force;
-    public float mass;
-
-    // Other Attributes
-    public float maxSpeed;
-    public float acceleration;
-    public float rotationSpeed;
-    public float attack_interval;
-    public float attackRange;
     public bool isDead;
     public GameObject moveGoal;
 
@@ -47,8 +40,6 @@ public class Attributes : MonoBehaviour
         attack = attack_base;
         ap_damage = ap_damage_base;
         defense = defense_base;
-        force = force_base;
-        mass = mass_base;
     }
 
     // Update is called once per frame

@@ -524,15 +524,20 @@ MonoBehaviour:
   attackRange: 10
   nearestEnemy: {fileID: 0}
   targetEnemy: {fileID: 0}
+  injuredAlly: {fileID: 0}
   enemiesToShoot:
     serializedVersion: 2
     m_Bits: 8
   shootCoolDown: 1
   distanceTol: 1
   attackCoolDown: 2
+  healingRange: 15
   moveAway: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
   aggressive: 0
+  isPriest: 0
+  healingCircle: {fileID: 0}
+  healingCircle: {fileID: 0}
 --- !u!114 &5355828378403939567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +557,7 @@ MonoBehaviour:
   deadUnits:
     serializedVersion: 2
     m_Bits: 64
-  skeleton_1: {fileID: 2378156475882777583, guid: 087e3404381b97b449d8bb0f74b5bf2b, type: 3}
+  skeleton_1: {fileID: 2378156475882777583, guid: 4f53dc3f3e1163a41985655d0e5b6f21, type: 3}
 --- !u!114 &8079064125381627516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,13 +572,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP_max: 30
   mana_max: 0
-  attack_base: 0
+  attack_base: 3
   ap_damage_base: 0
-  defense_base: 0
+  defense_base: 3
   force_base: 0
   mass_base: 0
   unitsName: n
   description: d
+  profolio: {fileID: 0}
   HP: 30
   mana: 0
   attack: 0
@@ -630,6 +636,12 @@ MonoBehaviour:
   isSkeleton: 0
   isWizard: 1
   isDeadWizard: 1
+  isMushroom: 0
+  isBeholder: 0
+  isDragon: 0
+  speedUpCir: {fileID: 0}
+  poisonCir: {fileID: 0}
+  trappedCir: {fileID: 0}
 --- !u!195 &2204406388279399419
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2808,7 +2820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377181292992421420, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3423388300971593625, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
       propertyPath: m_LocalPosition.x

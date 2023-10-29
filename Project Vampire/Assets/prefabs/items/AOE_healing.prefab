@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf89c9de366557479a8abb43da5103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 3
   heal: 1
   healRate: 5
   slow: 0
@@ -59,12 +59,11 @@ MonoBehaviour:
   speedUp: 0
   speedUpRate: 0
   trapped: 0
-  trappedSeconds: 0
   allUnits:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   colliders: []
-  existTime: 100
+  existTime: 3
 --- !u!1001 &1246566667025649033
 PrefabInstance:
   m_ObjectHideFlags: 0

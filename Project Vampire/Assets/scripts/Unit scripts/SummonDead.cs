@@ -31,6 +31,7 @@ public class SummonDead : MonoBehaviour
         magicCircle = transform.GetChild(4).gameObject.GetComponent<ParticleSystem>();
         magicCircle.Stop();
         navAgent = GetComponent<NavMeshAgent>();
+        navAgent.speed = attributes.maxSpeed;
     }
 
     // Update is called once per frame
@@ -58,7 +59,6 @@ public class SummonDead : MonoBehaviour
     IEnumerator convertDeadToSkeleton() {
         yield return new WaitForSeconds(2);
         Collider[] deads = Physics.OverlapSphere(transform.position, summonRange, deadUnits);
-        Debug.Log("Here is the number of deads" + deads.Length);
         foreach (Collider dead in deads) {
             Die dieState = dead.gameObject.GetComponent<Die>();
             if (!dieState.isSkeleton) {
