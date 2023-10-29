@@ -47,17 +47,17 @@ public class CharacterMapButton : MonoBehaviour
     public void OnMapClicked(int mapIndex){
         switch(mapIndex){
             case 0:
-            mapDescription.text = "Forest";
+            mapDescription.text = "Spanning nearly two-thirds of the kingdom's land, the vast Black Forest is home to a myriad of dangerous and terrifying creatures. From perilous black bears and mighty dragons to bizarre spiders, the forest is a haven for the fearsome. Yet, many choose to dwell on the edges of the Black Forest, for they believe that compared to the dragons, spiders, or the enigmatic Earl, the greedy king and his overbearing soldiers pose a much greater and merciless threat.";
             PlayerPrefs.SetInt("mapType", 0);
             break;
 
             case 1:
-            mapDescription.text = "Gravey Yard";
+            mapDescription.text = "Many liches prefer the solitude of graveyards, where they can conduct their research undisturbed by the pesky Church or nobility and have an unending supply of experimental materials at hand. For the Lich Sage, the graveyard situated on the border of the Black Forest and the kingdom represents such an ideal haven.";
             PlayerPrefs.SetInt("mapType", 1);
             break;
 
             case 2:
-            mapDescription.text = "Castle";
+            mapDescription.text = "It is said that deep within the Black Forest stood the kingdom's capital a millennium ago, until dragons descended, laying waste to everything and claiming the royal castle's ruins as their lair. Upon the Earl's arrival, he wielded his magic to reconstruct the castle. Now, the castle's scale and grandeur rival its former glory, undiminished by time.";
             PlayerPrefs.SetInt("mapType", 2);
             break;
         }

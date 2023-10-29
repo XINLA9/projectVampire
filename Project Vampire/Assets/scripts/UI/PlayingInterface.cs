@@ -12,10 +12,11 @@ public class PlayingInterfaces : MonoBehaviour
 {
     // attribute for UI 
     public Button restartButton;
-    public TextMeshProUGUI winText;
+    public GameObject winPage;
     public TextMeshProUGUI loseText;
     public GameObject gameScreen;
     public List<TextMeshProUGUI> allieText;
+    public List<TextMeshProUGUI> unitTextInfo;
     public List<GameObject> allieProfolio;
     private GameManager gameManager;
     
@@ -37,6 +38,13 @@ public class PlayingInterfaces : MonoBehaviour
 
         }
         allieText[7].text = "Enemy Remain: " + gameManager.getEnemyRemain().ToString();
+
+        unitTextInfo[0].text = gameManager.getAlliePrefebs()[gameManager.getAllieNo()].name;
+        unitTextInfo[1].text = "HP: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().HP_max.ToString();
+        unitTextInfo[2].text = "Attack: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().attack_base.ToString();
+        unitTextInfo[3].text = "Defense: " +gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().defense_base.ToString();
+        unitTextInfo[4].text = "Speed: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().maxSpeed.ToString();
+        unitTextInfo[5].text = "Description: " + gameManager.getAlliePrefebs()[gameManager.getAllieNo()].GetComponent<Attributes>().description.ToString();
     }
 
     public void showLoseScreen(){
@@ -46,9 +54,11 @@ public class PlayingInterfaces : MonoBehaviour
     }
 
     public void showWinScreen(){
-        restartButton.gameObject.SetActive(true);
+        //restartButton.gameObject.SetActive(true);
         gameScreen.SetActive(false);
-        winText.gameObject.SetActive(true);
+        winPage.SetActive(true);
+        //winText.gameObject.SetActive(true);
+
     }
 
     public void setRed(int i){

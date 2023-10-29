@@ -92,10 +92,16 @@
     <Compile Include="Assets\store_library\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\scripts\ChaseArrow.cs" />
     <Compile Include="Assets\store_library\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\store_library\Assasin\Common\Scripts\AimingController.cs" />
+    <Compile Include="Assets\scripts\UI\WinController.cs" />
+=======
+>>>>>>> a424ad9e36ceaf373124c784b1ca702c7a1a265f
     <Compile Include="Assets\scripts\Unit scripts\Old\HunterUnits.cs" />
     <Compile Include="Assets\scripts\Projectile.cs" />
     <Compile Include="Assets\scripts\Unit scripts\NavMove.cs" />
     <Compile Include="Assets\scripts\Animotor_Scripts\SelfishWizardAttack.cs" />
+    <Compile Include="Assets\scripts\UI\StoryController.cs" />
     <Compile Include="Assets\scripts\Animotor_Scripts\DeathWizardQuitSpell.cs" />
     <Compile Include="Assets\scripts\Unit scripts\spell and abilities\War_Stomp.cs" />
     <Compile Include="Assets\UnityAssets\DizzyMedia\_Utilities\Camera\ExtendedFlycam.cs" />

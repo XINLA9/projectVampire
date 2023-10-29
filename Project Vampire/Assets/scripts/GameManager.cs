@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public Sprite[] allieProfolios_C1;//
 
-
     private Sprite[] activeAllieProfolios = {};
     private GameObject[] activeAlliePrefabs = {};//Allie units that been chosen in a game
     private GameObject[] activeEnemyPrefabs = {};//Enemy units that been chosen in a map
@@ -345,5 +344,8 @@ public class GameManager : MonoBehaviour
     }
     public void setAllieNo(int number){
         this.allieNo = number;
+    }
+    public int getAllieNo(){
+        return allieNo;
     }
 }
